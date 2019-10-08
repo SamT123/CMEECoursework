@@ -1,25 +1,25 @@
 #1
 # Count how many lines are in each file
 # executes wc -l on all files in ../Data with extension .fasta
-find ../Data -type f -name *.fasta -exec wc -l {} \; 
+find ../Data/fasta -type f -name *.fasta -exec wc -l {} \; 
 
 #2
 # Print everything starting from the second line for the E. coli genome
 # prints from line 2 onwards
-tail +2 ../Data/E.coli.fasta 
+tail +2 ../Data/fasta/E.coli.fasta 
 
 #3
 # Count the sequence length of this genome
 # sequence (line 2 onwards) -> remove newline characters -> count characters
-tail +2 ../Data/E.coli.fasta | tr -d '\n' | wc -c #3
+tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | wc -c #3
 
 #4
 # Count the matches of a particular sequence, "ATGC" in the genome of E. coli
 # sequence (line 2 onwards) -> remove newline characters -> count characters -> grep specified sequence -> count lines
-tail +2 ../Data/E.coli.fasta | tr -d '\n' | grep -i -o 'ATGC' | wc -l #4
+tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o 'ATGC' | wc -l #4
 
 #5
 # Compute the AT/GC ratio
 # AT number & GC number calculation: sequence (line 2 onwards) -> remove newline characters -> count characters -> grep specified sequence -> count lines
 # produce decimal: echo AT number / GC number -> bc -l 
-echo $(tail +2 ../Data/E.coli.fasta | tr -d '\n' | grep -i -o '[A,T]' | wc -l) / $(tail +2 ../Data/E.coli.fasta | tr -d '\n' | grep -i -o '[G,C]' |  wc -l) | bc -l #5
+echo $(tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o '[A,T]' | wc -l) / $(tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o '[G,C]' |  wc -l) | bc -l #5

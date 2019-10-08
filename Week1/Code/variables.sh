@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Sam Turner sat19@ic.ac.uk
 # Script: variables.sh
-# Desc: show use of variables
+# Desc: demonstrate use of variables
 # Arguments: none
 # Date: Oct 2018
 

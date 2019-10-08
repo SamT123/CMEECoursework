@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Sam Turner sat19@ic.ac.uk
 # Script: MyExampleScript.sh
-# Desc: Show the use of variables
+# Desc: Demonstrate environment variables
 # Arguments: none
 # Date: Oct 2018
 
