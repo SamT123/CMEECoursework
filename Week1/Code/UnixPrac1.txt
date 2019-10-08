@@ -16,7 +16,7 @@ tail +2 ../Data/E.coli.fasta | tr -d '\n' | wc -c #3
 #4
 # Count the matches of a particular sequence, "ATGC" in the genome of E. coli
 # sequence (line 2 onwards) -> remove newline characters -> count characters -> grep specified sequence -> count lines
-tail +2 ../Data/E.coli.fasta | tr -d '\n' | grep -i -o 'ATCG' | wc -l #4
+tail +2 ../Data/E.coli.fasta | tr -d '\n' | grep -i -o 'ATGC' | wc -l #4
 
 #5
 # Compute the AT/GC ratio

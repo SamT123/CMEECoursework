@@ -4,8 +4,8 @@ pdflatex $1.tex
 bibtex $1
 pdflatex $1.tex
 pdflatex $1.tex
-open $1.pdf &
-mv $1.pdf $2$1.pdf
+open $1.pdf
+mv $1.pdf $2$1.pdf 
 
 
 
