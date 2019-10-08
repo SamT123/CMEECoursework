@@ -5,7 +5,7 @@ Coursework for CMEE week 1.
 	- Shell scripting
 	- LaTex
 	- Git
-##Contents
+## Contents
 ### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Code)
 	- UnixPrac1.txt
 	- boilerplate.sh
