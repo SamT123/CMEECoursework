@@ -21,7 +21,7 @@ f.close()
 # write a file containing only speices name and Body mass
 
 f = open('../Data/testcsv.csv','r')
-g = open('../Data/bodymass.csv', 'w')
+g = open('../Results/bodymass.csv', 'w')
 
 csvread = csv.reader(f)
 csvwrite = csv.writer(g)
