@@ -1,0 +1,11 @@
+Best score: 4 achieved 2 times.
+
+0
+...*--***--
+...ATCGATCG
+AAAAAAGATAAAA
+
+1
+...*--***--
+...ATCGATCG
+AAAAAAGATAAAA
