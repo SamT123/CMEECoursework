@@ -12,6 +12,6 @@ Sam Turner
 
 ## Prerequisites
 ### Python 3.x
-`pickle`
+`pickle`\t'stringdist'
  
 
