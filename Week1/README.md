@@ -9,8 +9,7 @@ Coursework for CMEE week 1.
 ### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Code)
 * UnixPrac1.txt
 * boilerplate.sh
-	`I am a boilerplate. I like to boil plates. Give me a plate.`
-
+	`I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
 * MyExampleScript.sh
 * CountLines.sh
 * tabtocsv.sh
