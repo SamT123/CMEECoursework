@@ -1,0 +1,568 @@
+Starting weekly assessment for Sam, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 2.38 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: Week1, Assessment, .vscode, Week2, .git
+
+Found the following files in parent directory: .gitignore, README.md, .DS_Store
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+**********************************************************************
+*.tmp
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# **2019-20 CMEE Coursework Repository**
+## Author
+Sam Turner
+## Contents
+### [Week 1](https://github.com/SamT123/CMEECoursework/tree/master/Week1)
+* UNIX
+* Shell scripting
+* LaTex
+
+### [Week 2](https://github.com/SamT123/CMEECoursework/tree/master/Week2)
+* Python
+
+## Prerequisites
+### Python 3.x
+`pickle`	`stringdist`
+ 
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 2 weekly directories: Week1, Week2
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: Code, Data, Sandbox, Results
+
+Found the following files: README.md, .DS_Store
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# Week 1
+Coursework for CMEE week 1.
+## Topics:
+*  UNIX
+* Shell scripting
+* LaTex
+* Git
+## Contents
+### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Code)
+* UnixPrac1.txt
+* boilerplate.sh
+	`I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
+* MyExampleScript.sh
+* CountLines.sh
+* tabtocsv.sh
+* variables.sh
+* ConcatenateTwoFiles.sh
+* csvtospace.sh
+* tiff2png.sh
+* CompileLaTeX.sh
+* FirstExample.tex
+* FirstBiblio.bib
+## [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Data)
+* GMARBLES.tif
+* Temperatures/
+	* csv files to convert to space delimited value files
+* fasta/
+	* fasta files for UnixPrac1.txt
+
+## [Results](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Results)
+**********************************************************************
+
+Found following files in results directory: .txt, .csv, README.md, GMARBLES.jpg...
+ideally, Results directory should be empty other than, perhaps, a readme. 
+
+Found 12 code files: ConcatenateTwoFiles.sh, CountLines.sh, variables.sh, CompileLaTeX.sh, tiff2png.sh, csvtospace.sh, FirstExample.tex, MyExampleScript.sh, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, boilerplate.sh
+
+Found the following extra files: input, FirstExample.pdf, directory, .DS_Store
+0.5 pt deducted per extra file
+
+Current Points = 98.0
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: ConcatenateTwoFiles.sh
+# Desc: Concatentate two files and save to specified path
+# Arguments: 1 -> input .txt file to be placed at top of output file
+             2 -> input .txt file to be places at bottom of output file
+             3 -> output file path (recommended ../Results/<filename>.txt
+# Date: Oct 2019
+
+cat $1 > $3
+cat $2 >> $3
+
+echo "Merged File is"
+cat $3
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+ConcatenateTwoFiles.sh: line 6: 2: command not found
+ConcatenateTwoFiles.sh: line 7: syntax error near unexpected token `('
+ConcatenateTwoFiles.sh: line 7: `             3 -> output file path (recommended ../Results/<filename>.txt'
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: CountLines.sh
+# Desc: count the number of lines in the file specified in the argument
+# Arguments: 1 -> text file
+# Date: Oct 2018
+
+NumLines=`wc -l < $1`
+echo "The file $1 has $NumLines lines"
+echo
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+The file  has  lines
+
+
+**********************************************************************
+
+Encountered error (or warning):
+CountLines.sh: line 8: $1: ambiguous redirect
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: variables.sh
+# Desc: demonstrate use of variables
+# Arguments: none
+# Date: Oct 2018
+
+MyVar='some string'
+echo 'the current value of the variable is' $MyVar
+echo 'Please enter a new string'
+
+read MyVar
+echo 'the current value of the variable is' $MyVar
+
+## Reading multiple values
+echo 'Enter 2 values separated by a space'
+read a b 
+echo 'you entered' $a 'and' $b '. Their sum is:'
+mysum=`expr $a + $b`
+echo $mysum
+**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+the current value of the variable is some string
+Please enter a new string
+the current value of the variable is
+Enter 2 values separated by a space
+you entered and . Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+expr: syntax error
+
+======================================================================
+Inspecting script file CompileLaTeX.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: CompileLaTeX.sh
+# Desc: Compiles a pdf from [name].tex and referenced .bib file, which must be in same directory.
+# [name].pdf is saved in specified directory, and opened
+# Arguments: 1 -> filename for .tex file without extension
+             2 -> directory to save to
+# Date: Oct 2019
+
+
+pdflatex $1.tex
+pdflatex $1.tex
+bibtex $1
+pdflatex $1.tex
+pdflatex $1.tex
+open $2$1.pdf
+mv $1.pdf $2$1.pdf 
+
+
+
+rm *~
+rm *.aux
+rm *.dvi
+rm *.log
+rm *.nav
+rm *.out
+rm *.snm
+rm *.toc
+rm *.bbl
+rm *.blg
+**********************************************************************
+
+Testing CompileLaTeX.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/usr/share/texlive/texmf-dist/tex/latex/tools/.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+File ignored)
+*
+! Emergency stop.
+<*> .tex
+        
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on .log.
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (pre
+**********************************************************************
+
+Encountered error (or warning):
+CompileLaTeX.sh: line 8: 2: command not found
+bibtex: Need exactly one file argument.
+Try `bibtex --help' for more information.
+Couldn't get a file descriptor referring to the console
+mv: cannot stat '.pdf': No such file or directory
+rm: cannot remove '*~': No such file or directory
+rm: cannot remove '*.aux': No such file or directory
+rm: cannot remove '*.dvi': No such file or directory
+rm: cannot remove '*.log': No such file or directory
+rm: cannot remove '*.nav': No such file or directory
+rm: cannot remove '*.out': No such file or directory
+rm: cannot remove '*.snm': No such file or directory
+rm: cannot remove '*.toc': No such file or directory
+rm: cannot remove '*.bbl': No such file or directory
+rm: cannot remove '*.blg': No such file or directory
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: tiff2png.sh
+# Desc: Convert all .tif files in ../Data/ to .png files, which are saved at ../Results/<input_name>.png
+# Arguments: none
+# Date: Oct 2019
+
+for f in ../Data/*.tif;
+    do
+        echo "Converting $f";
+        convert "$f" "../Results/$(basename "$f" .tif).jpg";
+    done
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Converting ../Data/GMARBLES.tif
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.05499s
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: csvtospace.sh
+# Desc: substitute commas in specified file with spaces, saved at ../Results/ <filename.csv>.txt
+# Arguments: 1-> comma delimited file
+# Date: Oct 2018
+
+echo "Creating a space delimited version of $1 ..."
+cat $1 | tr -s "," " " >> ../Results/$(basename $1).txt
+echo "Done!"
+exit
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Creating a space delimited version of  ...
+Done!
+
+**********************************************************************
+
+Encountered error (or warning):
+basename: missing operand
+Try 'basename --help' for more information.
+
+======================================================================
+Inspecting script file FirstExample.tex...
+
+File contents are:
+**********************************************************************
+\documentclass[12pt]{article}
+\title{A Simple Document}
+\author{Sam Turner}
+\date{}
+\begin{document}
+    \maketitle
+
+    \begin{abstract}
+        This paper must be cool!
+
+    \end{abstract}
+
+
+    \section{Introduction}
+        Blah Blah!
+
+    \section{Materials and Methods}
+    One of the most famous equation is:
+    \begin{equation}
+     E = mc^2
+    \end{equation}
+    This equation was first proposed by einstein in 1905
+    \cite{einstein1905does}.
+
+    \bibliographystyle{plain}
+    \bibliography{FirstBiblio}
+\end{document}
+**********************************************************************
+
+Testing FirstExample.tex...
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: MyExampleScript.sh
+# Desc: Demonstrate environment variables
+# Arguments: none
+# Date: Oct 2018
+
+msg1='Hello'
+msg2=$USER
+echo "$msg1 $msg2"
+echo "Hello $USER"
+echo
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00550s
+
+======================================================================
+Inspecting script file FirstBiblio.bib...
+
+File contents are:
+**********************************************************************
+@article{einstein1905does,
+  title={Does the inertia of a body depend upon its energy-content?},
+  author={Einstein, A.},
+  journal={Annalen der Physik},
+  volume={18},
+  pages={639--641},
+  year={1905}
+}
+
+**********************************************************************
+
+Testing FirstBiblio.bib...
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+**********************************************************************
+#1
+# Count how many lines are in each file
+# executes wc -l on all files in ../Data with extension .fasta
+find ../Data/fasta -type f -name *.fasta -exec wc -l {} \; 
+
+#2
+# Print everything starting from the second line for the E. coli genome
+# prints from line 2 onwards
+tail +2 ../Data/fasta/E.coli.fasta 
+
+#3
+# Count the sequence length of this genome
+# sequence (line 2 onwards) -> remove newline characters -> count characters
+tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | wc -c #3
+
+#4
+# Count the matches of a particular sequence, "ATGC" in the genome of E. coli
+# sequence (line 2 onwards) -> remove newline characters -> count characters -> grep specified sequence -> count lines
+tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o 'ATGC' | wc -l #4
+
+#5
+# Compute the AT/GC ratio
+# AT number & GC number calculation: sequence (line 2 onwards) -> remove newline characters -> count characters -> grep specified sequence -> count lines
+# produce decimal: echo AT number / GC number -> bc -l 
+echo $(tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o '[A,T]' | wc -l) / $(tail +2 ../Data/fasta/E.coli.fasta | tr -d '\n' | grep -i -o '[G,C]' |  wc -l) | bc -l #5**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: tabtocsv.sh
+# Description: substitute the tabs in the files with commas
+# Saves the output into a .csv file in ../Results/
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2019
+
+echo "Creating a comma delimited version of $1 ..."
+cat $1 | tr -s "\t" "," > ../Results/$(basename $1).csv
+echo "Done!"
+exit
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Creating a comma delimited version of  ...
+Done!
+
+**********************************************************************
+
+Encountered error (or warning):
+basename: missing operand
+Try 'basename --help' for more information.
+
+======================================================================
+Inspecting script file boilerplate.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Sam Turner sat19@ic.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boilerplate for shell scripts
+# Arguments: none
+# Date: Oct 2018
+
+echo -e '\nThis is a shell script! \n' 
+
+# exit
+**********************************************************************
+
+Testing boilerplate.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+This is a shell script! 
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00273s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 6 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 98.0
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
