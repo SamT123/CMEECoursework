@@ -1,9 +1,9 @@
 
 """
 Sequence aligner. Finds best sequence alignment(s) (without indels) between two sequences provided
-in ../Data/sequences
+in ../Data/sequences_better.csv
 
-Results are written to ../Results/best_align.csv.
+Results are written to ../Results/best_align_better.csv.
 """
 
 __appname__ = 'align_seqs_better.py'
@@ -17,6 +17,44 @@ import sys
 # A function that computes a score by returning the number of matches starting
 # from arbitrary startpoint (chosen by user)
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """
+    Calculate the alignment score for a pair of sequences and a startpoint for the shorter sequence.
+    
+    Parameters
+    ----------
+    s1 : str
+        the longer of the two sequences to align
+
+    s2 : str
+        the shorter of the two sequences to align
+
+    l1 : int
+        the length of the longer sequence
+
+    l2 : int
+        the length of the shorter sequence
+
+    startpoint : int
+        the position at which the shorter sequence should be placed
+        for this alignment calculation
+
+    Returns
+    -------
+    score : int
+        number of matching base positions for this alignment
+
+    matched : str
+        per base alignment
+
+
+
+    >>> calculate_score('ATCGATCG','TCGATCG',8,7,0)
+    0, '-------'
+
+    >>> calculate_score('ATCGTCG','TCGATCG',7,7,1)
+    3, '***---'
+    """
+
     matched = "" # to hold string displaying alignements
     score = 0
 
@@ -41,10 +79,11 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
 
 def main(argv):
+    """ Main entry point for program when called from terminal """
 
     # read sequences from ../Data/sequences.csv
 
-    f = open('../Data/sequences.csv','r')
+    f = open('../Data/sequences_better.csv','r')
 
     csvread = csv.reader(f)
     sequences = []
@@ -77,19 +116,20 @@ def main(argv):
 
     for i in range(l1):
         z,match = calculate_score(s1, s2, l1, l2, i)
+        if z == my_best_score:
+            my_best_align.append("." * i + s2)
+            my_best_match.append("." * i + match)
         if z > my_best_score:
             my_best_align = ["." * i + s2] # think about what this is doing!
             my_best_match = ["." * i + match]
             my_best_score = z
-        if z == my_best_score:
-            my_best_align.append("." * i + s2)
-            my_best_match.append("." * i + match)
+
 
     # write results to file
 
     g = open('../Results/best_align_better.txt', 'w')
 
-
+    # produce list of lines in the file
     lines = ["Best score: {} achieved {} times.".format(my_best_score,len(my_best_match))]
 
     for i in range(len(my_best_match)):

@@ -1,5 +1,3 @@
-
-
 """
 Program which determines whether a species falls within the oak genus, Quercus.
 """
@@ -10,11 +8,28 @@ __version__ = '0.0.1'
 __license__ = 'GNU public' 
 import csv
 import sys
-import stringdist
+# import stringdist
 
-#Define function
+# typo detection using stringdist algorithm commented out to remove dependency requirement
+
+print("*** INSTALL AND IMPORT stringdist FOR TYPO DETECTION ***\n\n")
+
+# Define function
 def is_an_oak(name):
-    """ Returns True if name is starts with 'quercus' 
+    """
+    Determine whether a speices is in the Genus 'Quercus'
+
+    Parameters
+    ----------
+    name : str
+        The speices name
+
+    Returns
+    -------
+    bool
+        Whether the speices is within the Quercus genus
+
+
     >>> is_an_oak('Fagus sylvatica')
     False
 
@@ -35,22 +50,31 @@ def is_an_oak(name):
 
     if name.split(' ')[0].lower() == 'quercus':
         return True
-    elif stringdist.rdlevenshtein(name.split(' ')[0].lower(), 'quercus') <= 2:
-        print('\n***THIS LOOKS LIKE A TYPO***\n')
-        return False
+
+    # determine whether genus name has a string distance <2 from quercus, which may indicate a typo
+    # elif stringdist.rdlevenshtein(name.split(' ')[0].lower(), 'quercus') <= 2:
+    #     print('\n***THIS LOOKS LIKE A TYPO***\n')
+    #     return False
+
     else:
         return False
 
 def main(argv):
+    """ Main entry point for program when called from terminal """
+
+    # open io files
     f = open('../Data/TestOaksData.csv','r')
     g = open('../Results/JustOaksData.csv','w')
     taxa = csv.reader(f)
     csvwrite = csv.writer(g)
+    # write header line to output file
     csvwrite.writerow(['Genus', 'species'])
     oaks = set()
+
+    # print result for each species in input file, and write each oak to output file
     for row in taxa:
         if row[0] != 'Genus':
-            print(row)
+            print(row[0] + ' ' + row[1])
             print ("The genus is: ") 
             print(row[0] + '\n')
             if is_an_oak(row[0]):

@@ -56,6 +56,7 @@ def find_all_primes(x=22):
 
 
 def main(argv):
+    """ main entry point of program when called from terminal"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))

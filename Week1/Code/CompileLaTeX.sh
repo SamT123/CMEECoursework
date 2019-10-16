@@ -5,7 +5,7 @@
 # Desc: Compiles a pdf from [name].tex and referenced .bib file, which must be in same directory.
 # [name].pdf is saved in specified directory, and opened
 # Arguments: 1 -> filename for .tex file without extension
-             2 -> directory to save to
+#            2 -> directory to save to
 # Date: Oct 2019
 
 

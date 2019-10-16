@@ -15,6 +15,13 @@ echo 'the current value of the variable is' $MyVar
 ## Reading multiple values
 echo 'Enter 2 values separated by a space'
 read a b 
-echo 'you entered' $a 'and' $b '. Their sum is:'
-mysum=`expr $a + $b`
-echo $mysum
+
+if [ -z "$b" ]
+then
+    echo 'you must enter 2 values'
+else
+    echo 'you entered' $a 'and' $b '. Their sum is:'
+
+    mysum=`expr $a + $b`
+    echo $mysum
+fi

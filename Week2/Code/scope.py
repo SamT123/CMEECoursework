@@ -6,6 +6,7 @@ if _a_global >= 5:
     _b_global = _a_global +5
 
 def a_function():
+    """a function demonstrating variable scope"""
     _a_global = 5
 
     if _a_global >= 5:
@@ -35,6 +36,7 @@ del(_b_global)
 _a_global = 10
 
 def a_function():
+    """a function demonstrating variable scope"""
     _a_local = 4
     print("Inside the function, the value of _a_local is ", _a_local)
     print("Inside the function, the value of _a_global is ", _a_global)

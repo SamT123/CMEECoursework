@@ -7,7 +7,7 @@ from the command line in the form:
 python3 align_seqs_fasta seq1.fasta seq2.fasta
 
 Alternatively, if no command line args are provided, default fasta sequences will be used.
-Results are written to ../Results/best_align.csv.
+Results are written to ../Results/best_align_fasta.csv.
 """
 
 __appname__ = 'align_seqs_fasta.py'
@@ -20,6 +20,45 @@ import sys
 # A function that computes a score by returning the number of matches starting
 # from arbitrary startpoint (chosen by user)
 def calculate_score(s1, s2, l1, l2, startpoint):
+
+    """
+    Calculate the alignment score for a pair of sequences and a startpoint for the shorter sequence.
+    
+    Parameters
+    ----------
+    s1 : str
+        the longer of the two sequences to align
+
+    s2 : str
+        the shorter of the two sequences to align
+
+    l1 : int
+        the length of the longer sequence
+
+    l2 : int
+        the length of the shorter sequence
+
+    startpoint : int
+        the position at which the shorter sequence should be placed
+        for this alignment calculation
+
+    Returns
+    -------
+    score : int
+        number of matching base positions for this alignment
+
+    matched : str
+        per base alignment
+
+
+
+    >>> calculate_score('ATCGATCG','TCGATCG',8,7,0)
+    0, '-------'
+
+    >>> calculate_score('ATCGTCG','TCGATCG',7,7,1)
+    3, '***---'
+    """
+
     matched = "" # to hold string displaying alignements
     score = 0
 
@@ -46,6 +85,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 # Two example sequences to match
 
 def main(argv):
+    """ Main entry point for program when called from terminal """
 
     # determine whether command line args are provided correctly.
     if len(argv) == 1:
@@ -112,7 +152,7 @@ def main(argv):
 
     # write results to file
 
-    g = open('../Results/best_align.txt', 'w')
+    g = open('../Results/best_align_fasta.txt', 'w')
     g.write("\n".join([my_best_match, my_best_align, s1,"Best score:\t" + str(my_best_score), "Lengths:\t" + str(l1), str(l2)]))
 
     # sequences too ong to meaningfully print to terminal

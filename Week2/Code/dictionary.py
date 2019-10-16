@@ -15,16 +15,6 @@ taxa = [
 # derived from  taxa so that it maps order names to sets of taxa. 
 # E.g. 'Chiroptera' : set(['Myotis lucifugus']) etc. 
 
-set( [ t[1] for t in taxa ] )
-
-
-list_of_orders = []
-for t in taxa:
-        print(t)
-        list_of_orders.append(t[1])
-        print(list_of_orders)
-        print('\n')
-
 
 # produce a dictionary {order1: set(), order2: set()... }
 print('finding orders...\n')

@@ -77,7 +77,10 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
 # Two example sequences to match
 
-def main(argv):
+def main(argv): 
+    """ Main entry point for program when called from terminal """
+
+
     f = open('../Data/sequences.csv','r')
 
     csvread = csv.reader(f)
