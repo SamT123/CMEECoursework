@@ -1,3 +1,5 @@
+# File input and writing in R
+
 MyData <- read.csv("../Data/trees.csv", header = TRUE) # import with headers
 
 write.csv(MyData, "../Results/MyData.csv") #write it out as a new file

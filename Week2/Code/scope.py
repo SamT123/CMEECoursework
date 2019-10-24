@@ -1,3 +1,5 @@
+""" script demostrating variable scope """
+
 ## Try this first
 
 _a_global = 10
@@ -56,6 +58,8 @@ _a_global = 10
 print("Outside the function, the value of _a_global is", _a_global)
 
 def a_function():
+    """a function demonstrating variable scope"""
+
     global _a_global
     _a_global = 5
     _a_local = 4
@@ -77,6 +81,8 @@ del(_a_global)
 # Nested functions and global keywords
 
 def a_function():
+    """a function demonstrating variable scope"""
+
     _a_global = 10
 
     def _a_function2():
@@ -105,8 +111,11 @@ del(_a_global)
 _a_global = 10
 
 def a_function():
+    """a function demonstrating variable scope"""
 
     def _a_function2():
+    """a function demonstrating variable scope"""
+    
         global _a_global
         _a_global = 20
     

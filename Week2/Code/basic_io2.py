@@ -1,3 +1,4 @@
+"""demonstrating file writing"""
 
 #############################
 # FILE OUTPUT

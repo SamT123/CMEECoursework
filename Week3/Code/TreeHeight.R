@@ -22,6 +22,6 @@ TreeHeight <- function(degrees, distance){
 
 MyData <- read.csv("../Data/trees.csv", header = TRUE)
 
-MyData$Tree.Height.m <- mapply(function (i,j) TreeHeight(i,j),MyData['Angle.degrees'], MyData['Distance.m'])
+MyData$Tree.Height.m <- mapply(function (i,j) TreeHeight(i,j), MyData['Angle.degrees'], MyData['Distance.m'])
 
-write.csv(MyData, "../results/TreeHts.csv")
+write.csv(MyData, "../Results/TreeHts.csv")

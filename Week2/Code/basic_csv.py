@@ -1,3 +1,5 @@
+"""demonstrate csv input and output"""
+
 ############
 # FILE INPUT
 ############

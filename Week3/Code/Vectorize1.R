@@ -1,3 +1,5 @@
+# Comparison of element-wise matrix sum to built in vectorized sum function
+
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){
@@ -11,8 +13,9 @@ SumAllElements <- function(M){
   return (Tot)
 }
  
-print("Using loops, the time taken is:")
-print(system.time(SumAllElements(M)))
 
-print("Using the in-built vectorized function, the time taken is:")
-print(system.time(sum(M)))
+cat(" R\n---\n")
+
+cat("Unvectorized:\t", system.time(SumAllElements(M))[[3]],"\n")
+
+cat("Vectorized:\t", system.time(sum(M))[[3]],"\n\n")

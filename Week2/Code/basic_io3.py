@@ -1,3 +1,5 @@
+"""demosntrating file input and handling"""
+
 #############################
 # STORING OBJECTS
 #############################

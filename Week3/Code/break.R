@@ -1,3 +1,5 @@
+# Breaking out of loops in R
+
 i <- 0 #Initialize i
     while(i < Inf) {
         if (i == 20) {

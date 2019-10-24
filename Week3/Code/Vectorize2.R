@@ -2,6 +2,9 @@
 
 rm(list=ls())
 
+
+# Samraat's original unvectorized function
+
 stochrick<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 {
   #initialize
@@ -19,24 +22,7 @@ stochrick<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 
 }
 
-
-# next_pop <- function(n,K,sigma,r){
-#   return(n*exp(r*(1-n/K)+rnorm(1,0,sigma)))
-# }
-
-
-# stochrickvect<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
-# {
-#   #initialize
-#   N<-matrix(NA,numyears,length(p0))
-#   N[1,]<-p0
-#   for (yr in 2:numyears) #for each pop, loop through the years
-#     {
-#       N[yr,] <- sapply(N[yr-1,],function(i,j,k,l) next_pop(i,K,sigma,r))    
-#     }
-#   return(N)
-#   }
-
+# My new vectorized function
 
 stochrickvect<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 {
@@ -55,9 +41,11 @@ stochrickvect<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 # to the extent possible, with improved performance: 
 
 
-print("Stochastic Ricker takes:")
-print(system.time(res2<-stochrick()))
+# Print results to terminal
+cat(" R\n---\n")
 
-print("Vectorized Stochastic Ricker takes:")
-print(system.time(res2<-stochrickvect()))
+cat("Unvectorized:\t", system.time(res2<-stochrick())[[3]],"\n")
+
+cat("Vectorized:\t", system.time(res2<-stochrickvect())[[3]],"\n\n")
+
 

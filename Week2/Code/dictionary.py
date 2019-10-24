@@ -1,3 +1,5 @@
+""" dictionary comprehension demonstration """
+
 taxa = [
          ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
