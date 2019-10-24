@@ -1,3 +1,5 @@
+# browse functionality demonstration
+
 Exponential <- function(N0 = 1, r = 1, generations = 10) {
     N <- rep(NA, generations)
     N[1] <- N0

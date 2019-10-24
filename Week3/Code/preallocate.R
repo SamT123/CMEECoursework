@@ -1,3 +1,5 @@
+#preallocation speed benefits
+
 reallocate <- function() {
     a <- NA
 

@@ -10,6 +10,11 @@ Sam Turner
 ### [Week 2](https://github.com/SamT123/CMEECoursework/tree/master/Week2)
 * Python
 
+### [Week 3](https://github.com/SamT123/CMEECoursework/tree/master/Week3)
+* R
+
+
+
 ## Prerequisites
 ### Python 3.x
 `pickle`	`stringdist`

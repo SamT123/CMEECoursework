@@ -1,3 +1,5 @@
+# regressions by interaction, lifestage and loaction
+
 require(ggplot2)
 require(dplyr)
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
