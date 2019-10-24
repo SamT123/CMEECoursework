@@ -1,4 +1,4 @@
-# Week 2
+# Week 3
 Coursework for CMEE week 3.
 ## Topics:
 * R
