@@ -10,7 +10,7 @@ Coursework for CMEE week 3.
 
 
 
-## [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week3/Data)
+### [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week3/Data)
 * Details to come...
 
-## [Results](https://github.com/SamT123/CMEECoursework/tree/master/Week3/Results)
+### [Results](https://github.com/SamT123/CMEECoursework/tree/master/Week3/Results)
