@@ -1,3 +1,4 @@
+require(ggplot2)
 
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse
   npoints = 250
@@ -39,3 +40,6 @@ p <- p + geom_polygon(data = ellDF, aes(x = Real, y = Imaginary, alpha = 1/20, f
 print(p)
 dev.off()
 
+if (file.exists("Rplots.pdf")){
+    file.remove("Rplots.pdf")
+}

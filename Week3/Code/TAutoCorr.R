@@ -98,6 +98,5 @@ r
 ggsave("../Results/TempTimeSeries.pdf", width = 10, height = 5)
 
 if (file.exists("Rplots.pdf")){
-    print("Removing...")
     file.remove("Rplots.pdf")
 }

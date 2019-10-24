@@ -28,31 +28,35 @@ def TreeHeight(degrees, distance):
     return height
 
 # get file name from command line arg
-fname = sys.argv[1]
 
-# read in tree distance and angle data
-f = open(fname)
-MyDataReader = csv.reader(f)
-temp = []
-for row in MyDataReader:
-    temp.append(row)
-f.close()
+if len(sys.argv) == 1:
+    print("Need input file")
+else:
+    fname = sys.argv[1]
 
-
-# calculate heights
-heights = ['no val' for i in range(len(temp))]
-temp[0].append("Tree.Height")
-for i in range(len(temp)-1):
-    temp[i+1].append(TreeHeight(temp[i+1][2],temp[i+1][1]))
+    # read in tree distance and angle data
+    f = open(fname)
+    MyDataReader = csv.reader(f)
+    temp = []
+    for row in MyDataReader:
+        temp.append(row)
+    f.close()
 
 
-basename = os.path.splitext(os.path.basename(fname))[0]
-writepath = "../Results/" + basename + "_treeheights.csv"
+    # calculate heights
+    heights = ['no val' for i in range(len(temp))]
+    temp[0].append("Tree.Height")
+    for i in range(len(temp)-1):
+        temp[i+1].append(TreeHeight(temp[i+1][2],temp[i+1][1]))
 
-# save dataset
-g = open(writepath, 'w')
-csvwrite = csv.writer(g)
-for row in temp:
-    csvwrite.writerow(row)
 
-g.close()
+    basename = os.path.splitext(os.path.basename(fname))[0]
+    writepath = "../Results/" + basename + "_treeheights.csv"
+
+    # save dataset
+    g = open(writepath, 'w')
+    csvwrite = csv.writer(g)
+    for row in temp:
+        csvwrite.writerow(row)
+
+    g.close()

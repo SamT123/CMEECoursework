@@ -11,3 +11,5 @@ cov(x,y)
 
 b1 <- cov(x,y) / var(x)
 b0 <- mean(y) - b1*mean(x)
+
+anova(model1)

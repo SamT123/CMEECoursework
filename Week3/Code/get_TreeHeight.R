@@ -20,17 +20,22 @@ TreeHeight <- function(degrees, distance){
 }
 
 # get file name from command line arg
-fname = commandArgs(trailing = T)
+if (length( commandArgs(trailing = T) ) == 0 ){
+  print("Need input file")
+} else {
+  fname = commandArgs(trailing = T)
 
-# read in tree distance and angle data
-MyData <- read.csv(file = fname, header = TRUE)
+  # read in tree distance and angle data
+  MyData <- read.csv(file = fname, header = TRUE)
 
-# calculate heights
-MyData$Tree.Height.m <- mapply(function (i,j) TreeHeight(i,j),MyData['Angle.degrees'], MyData['Distance.m'])
+  # calculate heights
+  MyData$Tree.Height.m <- mapply(function (i,j) TreeHeight(i,j),MyData['Angle.degrees'], MyData['Distance.m'])
 
-# get file basename
-fbase = tools::file_path_sans_ext(basename(fname))
-writepath = paste("../Results/", fbase, "_treeheights.csv", sep = "")
+  # get file basename
+  fbase = tools::file_path_sans_ext(basename(fname))
+  writepath = paste("../Results/", fbase, "_treeheights.csv", sep = "")
 
-# save dataset
-write.csv(MyData, writepath)
+  # save dataset
+  write.csv(MyData, writepath)
+
+}
