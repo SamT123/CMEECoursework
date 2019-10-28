@@ -2,7 +2,7 @@
 
 require(ggplot2)
 require(dplyr)
-MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
+MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
 
 p <- ggplot(MyDF, aes(log(Prey.mass),log(Predator.mass), colour = Predator.lifestage))
