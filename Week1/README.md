@@ -8,6 +8,7 @@ Coursework for CMEE week 1.
 ## Contents
 ### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Code)
 **UnixPrac1.txt**
+- text file containing solution to Unix scripting practical
 
 **boilerplate.sh**	
 - `I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`

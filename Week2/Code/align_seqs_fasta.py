@@ -1,5 +1,3 @@
-
-
 """
 Sequence aligner. Finds best sequence alignment (without indels) between two sequences provided
 from the command line in the form:
@@ -104,7 +102,7 @@ def main(argv):
         f1 = open('../Data/fasta/' + argv[1],'r')
         f2 = open('../Data/fasta/' + argv[2],'r')
 
-    # read sequences from fasta.
+    # read sequences from fasta files
 
     csvread1 = csv.reader(f1)
     seq1_list = []

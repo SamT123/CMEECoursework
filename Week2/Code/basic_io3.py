@@ -1,4 +1,4 @@
-"""demosntrating file input and handling"""
+"""script demosntrating file input and handling"""
 
 #############################
 # STORING OBJECTS

@@ -52,6 +52,7 @@ def is_an_oak(name):
         return True
 
     # determine whether genus name has a string distance <2 from quercus, which may indicate a typo
+    
     # elif stringdist.rdlevenshtein(name.split(' ')[0].lower(), 'quercus') <= 2:
     #     print('\n***THIS LOOKS LIKE A TYPO***\n')
     #     return False

@@ -1,21 +1,23 @@
-""" script demostrating variable scope """
-
+"""script demostrating variable scope"""
 ## Try this first
 
+# set global variable
 _a_global = 10
 
 if _a_global >= 5:
     _b_global = _a_global +5
 
+
+# 
 def a_function():
-    """a function demonstrating variable scope"""
+    """ a function demonstrating variable scope, setting local variables """
     _a_global = 5
 
     if _a_global >= 5:
         _b_global = _a_global +5
 
     _a_local = 4
-    
+
     print("Inside the function, the value of _a_global is ", _a_global)
     print("Inside the function, the value of _b_global is ", _b_global)
     print("Inside the function, the value of _a_local is ", _a_local)
@@ -114,7 +116,7 @@ def a_function():
     """a function demonstrating variable scope"""
 
     def _a_function2():
-    """a function demonstrating variable scope"""
+        """a function demonstrating variable scope"""
     
         global _a_global
         _a_global = 20

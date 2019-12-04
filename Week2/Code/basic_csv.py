@@ -1,4 +1,4 @@
-"""demonstrate csv input and output"""
+"""script to demonstrate csv input and output"""
 
 ############
 # FILE INPUT

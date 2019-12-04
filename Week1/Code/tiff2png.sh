@@ -5,8 +5,11 @@
 # Arguments: none
 # Date: Oct 2019
 
+
+# loop over all *.tif files in ../Data
 for f in ../Data/*.tif;
     do
+        # Do conversion and save as .jpg
         echo "Converting $f";
         convert "$f" "../Results/$(basename "$f" .tif).jpg";
     done

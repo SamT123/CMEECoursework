@@ -1,4 +1,4 @@
-"""demonstrate txt file input"""
+"""script demonstrate txt file input"""
 
 ###########################
 # FILE INPUT

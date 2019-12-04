@@ -1,4 +1,4 @@
-"""demonstrating file writing"""
+"""script demonstrating file writing"""
 
 #############################
 # FILE OUTPUT

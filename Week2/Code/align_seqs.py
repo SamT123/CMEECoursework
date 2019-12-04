@@ -74,18 +74,16 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     return score, matched
 
 
-
-# Two example sequences to match
-
 def main(argv): 
     """ Main entry point for program when called from terminal """
 
-
+    # open and read sequences file
     f = open('../Data/sequences.csv','r')
 
     csvread = csv.reader(f)
     sequences = []
 
+    # each sequence is on separate line, so sequence 1 is first item and sequence two is second item in list
     for row in csvread:
         sequences.append(row[0])
 

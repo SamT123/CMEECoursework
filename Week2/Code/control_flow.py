@@ -22,7 +22,7 @@ def even_or_odd(x=0):
     return '%d is Odd' %x
 
 def largest_divisor_five(x=10):
-    '''find which is the largest diviosr of x amongst 2,3,4,5.'''
+    """find which is the largest diviosr of x amongst 2,3,4,5."""
     largest = 0
     if x % 5 == 0:
         largest = 5
@@ -38,6 +38,7 @@ def largest_divisor_five(x=10):
 
 def is_prime(x=70):
     """Find whether an integer is prime."""
+    # loop over all values between 2 and x to check for divisors
     for i in range(2, x): #  "range" returns a sequence of integers
         if x % i == 0:
           print("%d is not a prime: %d is a divisor" % (x, i)) 
@@ -48,6 +49,7 @@ def is_prime(x=70):
 def find_all_primes(x=22):
     """Find all the primes up to x"""
     allprimes = []
+    # loop over all ints up to x to check if they are prime
     for i in range(2, x + 1):
       if is_prime(i):
         allprimes.append(i)
@@ -56,7 +58,7 @@ def find_all_primes(x=22):
 
 
 def main(argv):
-    """ main entry point of program when called from terminal"""
+    """main entry point of program when called from terminal"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))

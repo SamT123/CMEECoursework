@@ -1,4 +1,4 @@
-""" control flow demonstration """
+""" control flow demonstration."""
 
 for j in range(12):
     if j % 3 == 0:

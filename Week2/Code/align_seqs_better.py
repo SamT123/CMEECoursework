@@ -116,9 +116,11 @@ def main(argv):
 
     for i in range(l1):
         z,match = calculate_score(s1, s2, l1, l2, i)
+        # append alignment to list of best alignments if it is equally good
         if z == my_best_score:
             my_best_align.append("." * i + s2)
             my_best_match.append("." * i + match)
+        # make list with only this alignment if it is better than all previous alignments
         if z > my_best_score:
             my_best_align = ["." * i + s2] # think about what this is doing!
             my_best_match = ["." * i + match]
@@ -140,6 +142,8 @@ def main(argv):
         lines.append(s1)
     
     g.write("\n".join(lines))
+
+
 
     print("Best score: {} achieved {} times.".format(my_best_score,len(my_best_match)))
 
