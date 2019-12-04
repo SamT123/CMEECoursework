@@ -1,5 +1,6 @@
 #preallocation speed benefits
 
+# reallocation for large vector is slow
 reallocate <- function() {
     a <- NA
 
@@ -10,6 +11,7 @@ reallocate <- function() {
     }
 }
 
+# preallocation for large vector is faster
 preallocate <- function() {
     a <- rep(NA, 10000)
 
@@ -20,6 +22,7 @@ preallocate <- function() {
     }
 }
 
+# compare times
 print(system.time(reallocate()))
 print(system.time(preallocate()))
 

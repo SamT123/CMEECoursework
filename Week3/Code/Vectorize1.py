@@ -4,6 +4,7 @@
 import numpy as np
 import time
 
+# random 1000 * 1000 matrix
 M = np.random.random([1000,1000])
 
 def sum_all_elements(M):

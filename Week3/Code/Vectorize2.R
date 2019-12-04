@@ -37,12 +37,10 @@ stochrickvect<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
   }
 
 
-# Now write another function called stochrickvect that vectorizes the above 
-# to the extent possible, with improved performance: 
 
 
 # Print results to terminal
-cat(" R\n---\n")
+cat(" R \n---\n")
 
 cat("Unvectorized:\t", system.time(res2<-stochrick())[[3]],"\n")
 

@@ -1,7 +1,9 @@
 # Comparison of element-wise matrix sum to built in vectorized sum function
 
+# generate 1000 * 1000 matrix of random numbers
 M <- matrix(runif(1000000),1000,1000)
 
+# sum all elements of matrix by looping
 SumAllElements <- function(M){
   Dimensions <- dim(M)
   Tot <- 0
@@ -13,8 +15,8 @@ SumAllElements <- function(M){
   return (Tot)
 }
  
-
-cat(" R\n---\n")
+# Time built-in and loopy methods of matrix summing
+cat(" R \n---\n")
 
 cat("Unvectorized:\t", system.time(SumAllElements(M))[[3]],"\n")
 

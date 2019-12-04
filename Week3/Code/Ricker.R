@@ -1,3 +1,4 @@
+
 Ricker <- function(N0=1, r=1, K=10, generations=50)
 {
   # Runs a simulation of the Ricker model
@@ -13,7 +14,8 @@ Ricker <- function(N0=1, r=1, K=10, generations=50)
   return (N)
 }
 
-plot(Ricker(generations=10), type="l")
+#plot ricker population time series
+plot(Ricker(generations=10), type="l", xlab="Population size", ylab="Generation")
 
 if (file.exists("Rplots.pdf")){
     file.remove("Rplots.pdf")

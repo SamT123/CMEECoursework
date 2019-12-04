@@ -10,9 +10,9 @@
 
 
 pdflatex $1.tex
-open $2$1.pdf
-mv $1.pdf $2$1.pdf 
 
+mv $1.pdf $2$1.pdf 
+open $2$1.pdf
 
 
 rm *~

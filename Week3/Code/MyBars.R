@@ -2,6 +2,8 @@ require(ggplot2)
 a <- read.table("../Data/Results.txt", header = TRUE)
 a$ymin <- rep(0, dim(a)[1])
 p <- ggplot(a)
+
+# Plot first set of bars
 p <- p + geom_linerange(data = a, aes(
                           x = x,
                           ymin = ymin,
@@ -11,6 +13,7 @@ p <- p + geom_linerange(data = a, aes(
                         colour = "#E69F00",
                         alpha = 1/2, show.legend = FALSE)
 
+# Plot second set of bars
 p <- p + geom_linerange(data = a, aes(
                           x = x,
                           ymin = ymin,
@@ -20,6 +23,7 @@ p <- p + geom_linerange(data = a, aes(
                         colour = "#56B4E9",
                         alpha = 1/2, show.legend = FALSE)
 
+# Plot third set of bars
 p <- p + geom_linerange(data = a, aes(
                           x = x,
                           ymin = ymin,
@@ -29,6 +33,7 @@ p <- p + geom_linerange(data = a, aes(
                         colour = "#D55E00",
                         alpha = 1/2, show.legend = FALSE)
 
+# add annotation
 p <- p + geom_text(data = a, aes(x = x, y = -500, label = Label))
 
 # now set the axis labels, remove the legend, and prepare for bw printing
@@ -37,6 +42,8 @@ p <- p + scale_x_continuous("My x axis",
                             scale_y_continuous("My y axis") + 
                             theme_bw() + 
                             theme(legend.position = "none") 
+
+# save to pdf
 pdf("../Results/MyBars.pdf")
 print(p)
 dev.off()

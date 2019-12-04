@@ -20,8 +20,11 @@ TreeHeight <- function(degrees, distance){
   return (height)
 }
 
+# read in data
 MyData <- read.csv("../Data/trees.csv", header = TRUE)
 
+# add column containing tree heights calculated using mapply
 MyData$Tree.Height.m <- mapply(function (i,j) TreeHeight(i,j), MyData['Angle.degrees'], MyData['Distance.m'])
 
+# write output csv
 write.csv(MyData, "../Results/TreeHts.csv")

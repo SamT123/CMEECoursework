@@ -27,12 +27,19 @@ def TreeHeight(degrees, distance):
 
     return height
 
-# get file name from command line arg
 
-if len(sys.argv) == 1:
-    print("Need input file")
-else:
-    fname = sys.argv[1]
+def main(argv):
+    # get file name from command line arg
+    if len(argv) == 1 :
+        print("No input file specified: using default trees.csv")
+        fname = "../Data/trees.csv"
+    
+    elif len(argv) > 2:
+        print("please provide one input file")
+        return 1
+    
+    else:
+        fname = sys.argv[1]
 
     # read in tree distance and angle data
     f = open(fname)
@@ -54,9 +61,17 @@ else:
     writepath = "../Results/" + basename + "_treeheights.csv"
 
     # save dataset
+    print("Saving output csv to "+writepath+"...")
     g = open(writepath, 'w')
     csvwrite = csv.writer(g)
     for row in temp:
         csvwrite.writerow(row)
 
     g.close()
+
+    return 0
+
+
+if __name__ == '__main__':
+    status = main(sys.argv)
+    sys.exit(status)
