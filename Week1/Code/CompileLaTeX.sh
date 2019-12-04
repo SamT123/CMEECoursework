@@ -8,17 +8,22 @@
 #            2 -> directory to save to
 # Date: Oct 2019
 
-
+# Compile LaTeX document
 pdflatex $1.tex
 pdflatex $1.tex
 bibtex $1
 pdflatex $1.tex
 pdflatex $1.tex
-open $2$1.pdf
+
+
+
+# Move document to specified location
 mv $1.pdf $2$1.pdf 
 
+# Open document
+open $2$1.pdf
 
-
+# Remove extra files created by pdflatex
 rm *~
 rm *.aux
 rm *.dvi

@@ -1,4 +1,4 @@
-''' Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration '''
+""" Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration """
 
 import scipy.integrate as integrate
 import scipy as sc

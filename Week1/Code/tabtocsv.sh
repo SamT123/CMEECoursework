@@ -7,6 +7,8 @@
 # Date: Oct 2019
 
 echo "Creating a comma delimited version of $1 ..."
+
+# cat reads file -> tr replaces '\t' with ',' -> basename used to generate new file name
 cat $1 | tr -s "\t" "," > ../Results/$(basename $1).csv
 echo "Done!"
 exit

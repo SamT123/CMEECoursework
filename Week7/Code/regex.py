@@ -56,7 +56,7 @@ re.search(r'\s+[A-Z]\w+\s*\w+', "The bird-shit frog's name is Theloderma asper."
 
 re.search(r'[\w\s]+', "Sam Tu?rner").group()
 
-re.search(r'^abc[ab]+\s\t\d', "abcabacbcaba \t2").group()
+#re.search(r'^abc[ab]+\s\t\d', "abcabacbcaba \t2").group()
 
 re.search(r'\s*[a-zA-Z,\s]+\s*', '     gxzDFS,, ghd ,h GIKL       ').group()
 

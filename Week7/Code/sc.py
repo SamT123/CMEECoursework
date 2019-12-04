@@ -100,6 +100,8 @@ import scipy.integrate as integrate
 
 def dCR_dt(pops, t=0):
 
+    "generate lotka volterra derivatives"
+
     R = pops[0]
     C = pops[1]
     dRdt = r * R - a * R * C 

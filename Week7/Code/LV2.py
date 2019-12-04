@@ -1,4 +1,4 @@
-''' Program to solve Lotka-Volterra model with paramterter values passed from command line, by numerical integration '''
+""" Program to solve Lotka-Volterra model with paramterter values passed from command line, by numerical integration """
 
 
 import scipy as sc

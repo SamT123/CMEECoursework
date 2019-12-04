@@ -1,4 +1,4 @@
-''' Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line '''
+""" Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line """
 
 
 import sys

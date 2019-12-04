@@ -1,3 +1,6 @@
+""" Script containing functions to demonstrate code profiling and optimisation - functions constructed using numpy array operations """
+
+
 import numpy as np
 
 def my_squares(iters):
