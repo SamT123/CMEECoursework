@@ -37,11 +37,12 @@ colnames(TempData) <- MyData[1,] # assign column names from original data
 
 MyWrangledData <- tidyr::gather(TempData, key = Species, value = Count, -Cultivation,-Block,-Plot,-Quadrat)
 
-MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
-MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
-MyWrangledData[, "Plot"] <- as.factor(MyWrangledData[, "Plot"])
-MyWrangledData[, "Quadrat"] <- as.factor(MyWrangledData[, "Quadrat"])
-MyWrangledData[, "Count"] <- as.integer(MyWrangledData[, "Count"])
+MyWrangledData <- MyWrangledData %>%
+  mutate(Cultivation = factor(Cultivation),
+         Block = factor(Block),
+         Plot = factor(Plot),
+         Quadrat = factor(Quadrat),
+         Count = as.integer(Count))
 
 dplyr::glimpse(MyWrangledData)
 dim(MyWrangledData)

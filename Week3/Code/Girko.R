@@ -1,3 +1,6 @@
+# Demonstrates Girko's Circular Law, by plotting eigenvalues of real valued N x N matrix,
+# which fall in a circle of radius √N
+
 require(ggplot2)
 
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse

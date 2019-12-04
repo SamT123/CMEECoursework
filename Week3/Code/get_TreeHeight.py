@@ -1,4 +1,6 @@
-""" This function calculates heights of trees given distance of each tree from its base and angle to its top, using  the trigonometric formula: height = distance * tan(radians)
+"""
+This function calculates heights of trees given distance of each tree from its base and angle
+to its top, using  the trigonometric formula: height = distance * tan(radians)
 """
 
 import csv
@@ -58,7 +60,7 @@ def main(argv):
 
 
     basename = os.path.splitext(os.path.basename(fname))[0]
-    writepath = "../Results/" + basename + "_treeheights.csv"
+    writepath = "../Results/" + basename + "_treeheights_python.csv"
 
     # save dataset
     print("Saving output csv to "+writepath+"...")

@@ -1,1 +1,1 @@
-# Repo for script outputs
+# Directory to be populated by script outputs

@@ -1,4 +1,4 @@
-# Calculate approximate p value for autocorrelation in Key West temperature data
+# Calculate approximate p value for autocorrelation in Key West temperature data and produce figures for write-up
 
 library(ggplot2)
 
