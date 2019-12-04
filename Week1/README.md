@@ -10,7 +10,7 @@ Coursework for CMEE week 1.
 **UnixPrac1.txt**
 
 **boilerplate.sh**
-	`I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
+	* `I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
 	* Boilerplate script demonstrating essential features of a shell script
 
 **tabtocsv.sh**
