@@ -1,4 +1,4 @@
-setwd("../")
+
 
 tarsus <- read.table("tarsus.csv", sep = ',', header = T)
 

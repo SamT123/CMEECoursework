@@ -34,42 +34,30 @@ def GenRdmAdjList(N = 2, C = 0.5):
 MaxN = 30
 C = 0.75
 
-# tup of tups adjacency list
-
+# array of lists adjacency list
 AdjL = sc.array(GenRdmAdjList(MaxN, C))
-AdjL
 
 # species IDs
-
 Sps = sc.unique(AdjL) # get species ids
 
 # array of sizes
-
 SizRan = ([-10,10]) #use log10 scale
 Sizs = sc.random.uniform(SizRan[0],SizRan[1],MaxN)
-Sizs
-
-
-
 p.hist(Sizs) #log10 scale
 p.hist(10 ** Sizs) #raw scale
-
+NodSizs= 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs))
 p.close('all') # close all open plot objects
-
 f1 = p.figure()
 
-# coords automatically
-
+# automatically generate coords
 pos = nx.circular_layout(Sps)
 
+# draw graph
 G = nx.Graph()
-
 G.add_nodes_from(Sps)
 G.add_edges_from(tuple(AdjL))
-
-NodSizs= 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs)) 
-
-
 nx.draw_networkx(G, pos, node_size = NodSizs)
 
+
+# save graph
 p.savefig("../Results/FoodWeb.pdf")

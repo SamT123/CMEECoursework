@@ -1,4 +1,6 @@
-""" Program to solve Lotka-Volterra model with paramterter values passed from command line, by numerical integration """
+""" Program to solve Lotka-Volterra model by numerical integration. Parameter valeus for r,a,z,e are passed from command line, with K = 20, R0 = 10, C0 = 5 set. If no arguments are passed from command line, default values which give stable population sizes
+are used. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size
+graphs to pdf. """
 
 
 import scipy as sc
@@ -140,7 +142,7 @@ def main(args):
     PARAMATERS
     ----------
     args : list
-        list of parameters passed from command line, containing LV parameter values.
+        list of parameters passed from command line, containing r, a, z, e LV parameter values.
         
     RETURNS
     -------

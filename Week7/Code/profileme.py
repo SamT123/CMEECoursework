@@ -1,4 +1,4 @@
-""" Script containing functions to demonstrate code profiling and optimisation """
+""" Script containing functions to demonstrate code profiling and optimisation. """
 
 def my_squares(iters):
     """

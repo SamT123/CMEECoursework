@@ -18,7 +18,7 @@ prof.enable()
 LV1.main()
 prof.disable()
 
-print("LV1 profile - top 20 by tottime:")
+print("\nLV1 profile - top 20 by tottime:\n--------------------------------")
 ps = pstats.Stats(prof)
 ps.sort_stats("tottime").print_stats(20)
 
@@ -30,7 +30,7 @@ prof.enable()
 LV2.main([])
 prof.disable()
 
-print("LV2 profile - top 20 by tottime:")
+print("\nLV2 profile - top 20 by tottime:\n--------------------------------")
 ps = pstats.Stats(prof)
 ps.sort_stats("tottime").print_stats(20)
 
@@ -42,7 +42,7 @@ prof.enable()
 LV3.main([])
 prof.disable()
 
-print("LV3 profile - top 20 by tottime:")
+print("\nLV3 profile - top 20 by tottime:\n--------------------------------")
 ps = pstats.Stats(prof)
 ps.sort_stats("tottime").print_stats(20)
 
@@ -54,7 +54,7 @@ prof.enable()
 LV4.main([])
 prof.disable()
 
-print("LV4 profile - top 20 by tottime:")
+print("\nLV4 profile - top 20 by tottime:\n--------------------------------")
 ps = pstats.Stats(prof)
 ps.sort_stats("tottime").print_stats(20)
 

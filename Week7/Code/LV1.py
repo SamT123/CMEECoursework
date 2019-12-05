@@ -1,4 +1,5 @@
-""" Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration """
+""" Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration. Outputs final population
+sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size' graphs to pdf. """
 
 import scipy.integrate as integrate
 import scipy as sc
