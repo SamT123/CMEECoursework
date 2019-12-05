@@ -31,16 +31,14 @@ Coursework for CMEE week 7.
 `python3 LV2.py 1.0 0.1 0.70 0.75`
 
 **LV3.py**
-* Solves discrete time Lotka Volterra model with parameters R0, C0, K, r, a, z, e passed from command line. If absent, default
-parameter values are used. Outputs final population sizes and graphs of:
+* Solves discrete time Lotka Volterra model with parameters R0, C0, K, r, a, z, e passed from command line. If absent, default parameter values are used. Outputs final population sizes and graphs of:
     * Consumer vs Producer population sizes
     * Consumer and Producer population size vs time
 * Example usage:
 `python3 LV3.py 5 10 20 1.0 0.1 0.70 0.75 100`
 
 **LV4.py**
-* Solves discrete time Lotka Volterra model with random Gaussian fluctuation with parameters R0, C0, K, r, a, z, e passed from
-command line. If absent, default parameter values are used. Outputs final population sizes and graphs of:
+* Solves discrete time Lotka Volterra model with random Gaussian fluctuation with parameters R0, C0, K, r, a, z, e passed from command line. If absent, default parameter values are used. Outputs final population sizes and graphs of:
     * Consumer vs Producer population sizes
     * Consumer and Producer population size vs time
 * Example usage:
@@ -92,16 +90,16 @@ edge width representing number of collaborations between institutions.
 
 ### [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week7/Data)
 **blackbirds.txt**
-    * Text file with phylogeny data for balckbird species.
+* Text file with phylogeny data for balckbird species.
 
 **NagyEtAl1999**
-    * Field metabolic rate and body size data from Nagy et al. 1999.
+* Field metabolic rate and body size data from Nagy et al. 1999.
 
 **QMEE_Net_Mat_edges.csv**
-    * Pairwise number of collaborations data for QMEE institutions.
+* Pairwise number of collaborations data for QMEE institutions.
 
 **QMEE_Net_Mat_nodes.csv**
-    * Number of members data for QMEE institutions.
+* Number of members data for QMEE institutions.
 
 
 ### [Results](https://github.com/SamT123/CMEECoursework/tree/master/Week7/Results)
