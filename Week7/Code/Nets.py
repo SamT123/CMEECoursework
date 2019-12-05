@@ -61,4 +61,4 @@ print(ws)
 nx.draw_networkx(G, pos, width=ws,node_size= NodSizs,edge_color='grey', arrows = True, node_color=collist)
 p.legend(handles=[red_patch,green_patch,blue_patch], loc = [0,0.7])
 
-p.savefig("../results/QMEE.svg", format = "svg")
+p.savefig("../results/QMEENet_python.svg", format = "svg")
