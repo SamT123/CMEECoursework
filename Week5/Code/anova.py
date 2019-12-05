@@ -1,9 +1,12 @@
+"""playing around with anova"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 import random
 
 def make_data(means):
+    """ make data set"""
     d = []
     for mean in means:
         d.append(list(np.random.randn(100)+mean))
@@ -15,6 +18,7 @@ def make_data(means):
 
 
 def random_anova(dset):
+    """shuffle and perform anova"""
     dflat = [j for i in dset for j in i]
 
     random.shuffle(dflat)

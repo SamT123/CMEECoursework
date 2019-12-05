@@ -26,11 +26,10 @@ t.test5 <- t.test(d$Wing~d$Sex, na.rm = T)
 
 t.test6 <- t.test(d$Tarsus~d$Sex, na.rm = T)
 
-install.packages("pwr")
+#install.packages("pwr")
 
 require("pwr")
 
-?pwr
 
 
 myd <- 5 / sqrt(var(d$Wing, na.rm = T))

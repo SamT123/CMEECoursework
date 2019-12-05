@@ -25,7 +25,7 @@ seT01 <- sqrt(var( d01$Tarsus, na.rm = T) / sum(!is.na(d01$Tarsus)))
 CIseT01 <- c(mean(d01$Tarsus, na.rm = T) - seT01, mean(d01$Tarsus, na.rm = T) + seT01)
 
 seW01 <- sqrt(var( d01$Wing, na.rm = T) / sum(!is.na(d01$Wing)))
-CIseW01 <- c(mean(d01$Wing, na.rm = T) - seB01, mean(d01$Wing, na.rm = T) + seW01)
+CIseW01 <- c(mean(d01$Wing, na.rm = T) - seW01, mean(d01$Wing, na.rm = T) + seW01)
 
 seB01 <- sqrt(var( d01$Bill, na.rm = T) / sum(!is.na(d01$Bill)))
 CIseB01 <- c(mean(d01$Bill, na.rm = T) - seB01, mean(d01$Bill, na.rm = T) + seB01)

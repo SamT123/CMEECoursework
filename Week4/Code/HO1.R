@@ -1,5 +1,5 @@
 getwd()
-setwd("Week4/Code")
+#setwd("Week4/Code")
 myNumericVector <- c(1.3,2.5,1.9,3.4,5.6,1.4,3.1,2.9)
 myCharacterVector <- c("low","low","low","low","high","high","high","high")
 myLogicalVector <- c(TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE)
@@ -10,7 +10,6 @@ str(myCharacterVector)
 myMixedVector <-c(1, TRUE, FALSE, 3, "help", 1.2, TRUE, "notwhatIplanned")
 str(myMixedVector)
 
-install.packages("lme4")
 library(lme4)
 require(lme4)
 
@@ -21,8 +20,8 @@ ls(envir = .GlobalEnv)
 d <- read.table("../Data/SparrowSize.txt", header = T)
 str(d)
 
-require("somebullshit")
-library("somebullshit")
+#require("somebullshit")
+#library("somebullshit")
 
 head(d)
 
@@ -32,7 +31,7 @@ hist(d$Tarsus, breaks = 100, col="grey")
 
 require(ggplot2)
 require(gridExtra)
-install.packages('gridExtra')
+#install.packages('gridExtra')
 
 
 p1 <- qplot(Bill, data = d, geom =  "histogram")
@@ -43,7 +42,7 @@ p4 <- qplot(Tarsus, data = d, geom =  "histogram")
 
 grid.arrange(p1, p2, p3, p4, nrow = 2)
 
-p5
+
 
 mean(d$Bill, na.rm = T)
 var(d$Bill, na.rm = T)

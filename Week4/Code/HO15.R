@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("Desktop/CMEECoursework/Week4/Code/")
+#setwd("Desktop/CMEECoursework/Week4/Code/")
 daphnia <- read.delim("../Data/daphnia.txt")
 summary(daphnia)
 
@@ -54,8 +54,3 @@ summary(daphniaANOVAMod)
 daphniaModHSD <- TukeyHSD(daphniaANOVAMod)
 daphniaModHSD
 
-
-Spa 1998
-Brazil 2008
-Suzuka 2005
-Mark Webber Silverstone 2010 press conference
