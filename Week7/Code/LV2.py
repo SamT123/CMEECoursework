@@ -1,6 +1,11 @@
-""" Program to solve Lotka-Volterra model by numerical integration. Parameter valeus for r,a,z,e are passed from command line, with K = 20, R0 = 10, C0 = 5 set. If no arguments are passed from command line, default values which give stable population sizes
+""" Program to solve Lotka-Volterra model with prey density dependence by numerical integration. Parameter valeus for r,a,z,e are passed from command line, with K = 20, R0 = 10, C0 = 5 set. If no arguments are passed from command line, default values which give stable population sizes
 are used. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size
 graphs to pdf. """
+
+__appname__ = 'LV2.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 # imports
 
@@ -17,7 +22,8 @@ import matplotlib.pylab as p
 
 def dCR_dt(pops, t=0):
     """
-    Calculate dR/dT and dC/dT ( = change in resource and consmer population sizes) given current popuation sizes.
+    Calculate dR/dT and dC/dT ( = change in resource and consmer population sizes) given current popuation sizes
+    for Lotka- Volterra model with prey density dependent growth.
 
     PARAMETERS
     ----------
@@ -83,7 +89,7 @@ def make_plots(pops):
 
     p.xlabel('Time')
     p.ylabel('Population density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('C-R population dynamics - LV with prey density dependence')
     f1.savefig('../Results/LV2_model_vs_t.pdf') #Save figure 
 
 
@@ -94,7 +100,7 @@ def make_plots(pops):
 
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('C-R population dynamics - LV with prey density dependence')
     f2.savefig('../Results/LV2_model_C_vs_R.pdf') #Save figure 
 
 
@@ -118,7 +124,7 @@ def check_args(args):
         list of float parameter values if no error occurred; otherwise 1
     """
     if len(args) == 0:
-        print("Using default, stable parameter values: r = 1.0, a = 0.1, z = 0.70, e = 0.75 ")
+        print("Using default parameter values giving stable population sizes: r = 1.0, a = 0.1, z = 0.70, e = 0.75 ")
         return [1.0, 0.1, 0.70, 0.75]
 
 

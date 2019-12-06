@@ -1,4 +1,9 @@
-""" Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line, with random Gaussian fluctuation in population sizes"""
+""" Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line, with random Gaussian fluctuation in both population size each generation"""
+
+__appname__ = 'LV4.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 # imports
 import sys
@@ -28,7 +33,6 @@ def main(args):
 
     global R0, C0, K, r, a, z, e,  gens
     R0, C0, K, r, a, z, e,  gens = numeric_args
-    print(R0, C0, K, r, a, z, e,  gens)
     gens = int(gens)
     densities = np.zeros([gens,2])
     densities[0] =  np.array([R0,C0])
@@ -87,7 +91,7 @@ def make_plots(pops):
 
     p.xlabel('Time')
     p.ylabel('Population density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('C-R population dynamics - discrete time LV with popn. fluctuation')
     f1.savefig('../Results/LV4_model_vs_t.pdf') #Save figure 
 
 
@@ -98,7 +102,7 @@ def make_plots(pops):
 
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('C-R population dynamics - discrete time LV with popn. fluctuation')
     f2.savefig('../Results/LV4_model_C_vs_R.pdf') #Save figure 
 
 
@@ -122,7 +126,7 @@ def check_args(args):
         list of float parameter values if no error occurred; otherwise 1
     """
     if len(args) == 0:
-        print("Using default paramter values.")
+        print("Using default parameter values: R0 = 5, C0 = 10, K = 20, r = 1, a = 0.1, z = 0.70, e = 0.75, gens = 100")
         return [5, 10, 20, 1.0, 0.1, 0.70, 0.75,100]
 
     if len(args) != 8:

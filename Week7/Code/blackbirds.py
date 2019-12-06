@@ -1,5 +1,10 @@
 """ Script to extract Kingdom, Phylum, Species for blackbirds from blackbirds.txt file """
 
+__appname__ = 'blackbirds.py'
+__author__  = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
 # imports
 import re
 

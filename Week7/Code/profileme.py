@@ -1,4 +1,13 @@
-""" Script containing functions to demonstrate code profiling and optimisation. """
+"""
+Script containing functions producing square numbers and concatenated strings to demonstrate code profiling and optimisation.
+They are implemented with a for loop and the .join() string method respectively.
+
+"""
+
+__appname__ = 'profileme.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 def my_squares(iters):
     """
@@ -53,7 +62,7 @@ def run_my_funcs(x,y):
     -------
     0
     """
-    print(x,y)
+    print("iters: " + str(x) + ", str: " + str(y))
     my_squares(x)
     my_join(x,y)
     return 0

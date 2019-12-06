@@ -1,6 +1,10 @@
 """ Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration. Outputs final population
 sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size' graphs to pdf. """
 
+__appname__ = 'LV1.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 # imports
 import scipy.integrate as integrate
@@ -12,7 +16,8 @@ import matplotlib.pylab as p
 
 def dCR_dt(pops, t=0):
     """
-    Calculate dR/dT and dC/dT ( = change in resource and consmer population sizes) given current popuation sizes.
+    Calculate dR/dT and dC/dT ( = change in resource and consmer population sizes) given current popuation sizes
+    for Lotka- Volterra model.
 
     PARAMETERS
     ----------
@@ -75,7 +80,7 @@ def make_plots(pops):
     p.legend(loc='best')
     p.xlabel('Time')
     p.ylabel('Population density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('Consumer-Resource population dynamics - Basic Lotka Volterra Model')
 
     f1.savefig('../Results/LV1_time.pdf') #Save figure 
 
@@ -86,7 +91,7 @@ def make_plots(pops):
     p.grid()
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
-    p.title('Consumer-Resource population dynamics')
+    p.title('Consumer-Resource population dynamics - Basic Lotka Volterra Model')
 
     f2.savefig('../Results/LV1_C_vs_R.pdf') #Save figure 
 

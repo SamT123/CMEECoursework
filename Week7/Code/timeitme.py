@@ -1,4 +1,10 @@
-""" Script timing unoptimised and optimised versions of profileme.py """
+"""Script timing functions for producing squares and concatenated strings, to demonstrate code optimization"""
+
+
+__appname__ = 'profileme_np.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 ##############################################################################
 # loops vs. list comprehensions vs numpy: which is faster?

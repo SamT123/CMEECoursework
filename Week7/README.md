@@ -57,7 +57,7 @@ Coursework for CMEE week 7.
 * Example usage:
 `python3 LV4.py 5 10 20 1.0 0.1 0.70 0.75 100`
 
-**LV_run.py**
+**run_Lv.py**
 * Runs and profiles all of LV1.py, LV2.py, LV3.py, LV4.py. Shows profile of top 20 calls by tottime.
 
 **Nets.py**
@@ -89,9 +89,6 @@ edge width representing number of collaborations between institutions.
 
 **regex.py**
 * Script from regex lectures
-
-**sc.py**
-* Script from scipy lectures
 
 **TestR.R**
 * Test script to demonstrate subprocess

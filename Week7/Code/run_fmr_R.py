@@ -1,5 +1,10 @@
 """ Script calling fmr.R to produce plot """
 
+__appname__ = 'run_fmr.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
 # imports
 
 import subprocess

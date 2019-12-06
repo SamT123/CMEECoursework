@@ -13,6 +13,7 @@ __author__ = 'Sam Turner (sat19@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = 'GNU public' 
 
+# imports
 import csv
 import sys
 # A function that computes a score by returning the number of matches starting

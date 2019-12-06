@@ -1,5 +1,10 @@
 """scipy notes from lectures"""
 
+__appname__ = 'sc.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
 # imports
 import scipy as sc
 a = sc.array(range(5)) # a one-dimensional array

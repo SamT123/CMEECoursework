@@ -1,5 +1,10 @@
-""" Run and profile 4 Lotka Volterra programs. """
+""" Run and profile 4 Lotka Volterra programs. Prints the top 20 calls by tottime to terminal"""
 
+
+__appname__ = 'LV_run.py'
+__author__  = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 # imports
 import LV1
@@ -8,8 +13,6 @@ import LV3
 import LV4
 import cProfile
 import pstats
-
-
 
 
 # LV1 : Simple LV

@@ -1,5 +1,10 @@
 """regex notes from lectures"""
 
+__appname__ = 'regex.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
 # imports
 
 import re
@@ -10,7 +15,7 @@ my_string = "a given string"
 
 match = re.search(r'\s', my_string)
 print(match)
-match.group()
+#match.group()
 
 match = re.search(r'\d', my_string)
 print(match)
@@ -72,7 +77,7 @@ emails = re.findall(r'[\w\.-]+@[\w\.-]+', MyStr)
 for email in emails:
     print(email)
 
-f = open('../data/TestOaksData.csv', 'r')
+f = open('../../Week2/Data/TestOaksData.csv', 'r')
 found_oaks = re.findall(r"Q[\w\s].*\s", f.read())
 
 found_oaks
@@ -93,7 +98,7 @@ r = conn.request('GET', 'https://www.imperial.ac.uk/silwood-park/academic-staff/
 webpage_html = r.data #read in the webpage's contents
 
 My_Data  = webpage_html.decode()
-print(My_Data)
+#print(My_Data)
 
 pattern = r"(Dr|Prof)\s+([\w']+)\s+([\w']+)"
 regex = re.compile(pattern) # example use of re.compile(); you can also ignore case  with re.IGNORECASE
@@ -101,7 +106,7 @@ matches = re.findall(pattern,My_Data)
 matches_unique = {' '.join(n) for n in matches}
 for match in regex.finditer(My_Data): # example use of re.finditer()
     print(match.group())
-
+    
 
 
 

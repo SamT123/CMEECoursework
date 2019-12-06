@@ -1,5 +1,12 @@
 """ Script drawing randomly generated food web. Node size represents body size, edge represents feeding interaction. """
 
+__appname__ = 'DrawFW.py'
+__author__  = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+# imports
+
 import networkx as nx
 import scipy as sc
 import matplotlib.pyplot as p
@@ -60,4 +67,5 @@ nx.draw_networkx(G, pos, node_size = NodSizs)
 
 
 # save graph
+print("Saving food web to ../Results/FoodWeb.pdf")
 p.savefig("../Results/FoodWeb.pdf")

@@ -1,4 +1,12 @@
-""" Script containing functions to demonstrate code profiling and optimisation - functions constructed using numpy array operations """
+"""
+Script containing functions producing square numbers and concatenated strings to demonstrate code profiling and optimisation.
+The squares function is implemented using numpy array operations, which are faster than list comprehensions of a for loop.
+"""
+
+__appname__ = 'profileme_np.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 # imports
 
