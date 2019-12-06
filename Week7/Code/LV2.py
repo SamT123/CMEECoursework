@@ -99,6 +99,7 @@ def make_plots(pops):
     p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
     p.grid()
     p.legend(loc='best')
+    # vairable position required for text:
     p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = 12.5, y = max(pops.ravel())*0.85,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
 
     p.xlabel('Time')
