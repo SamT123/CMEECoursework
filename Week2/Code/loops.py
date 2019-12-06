@@ -1,3 +1,6 @@
+
+#!/usr/bin/env python3
+
 """ for  and while loop demonstration """
 
 __appname__ = 'loops.py'

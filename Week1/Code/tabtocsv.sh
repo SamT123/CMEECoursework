@@ -8,7 +8,7 @@
 
 if [ -z "$1" ]
 then
-    echo "Error. Path to file required."
+    echo "Error. Path to tab separated file required."
     exit
 fi
 

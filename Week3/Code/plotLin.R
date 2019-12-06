@@ -43,6 +43,6 @@ p <- p + geom_text(aes(x = 60, y = 0,
                        colour = "blue")
 
 
-pdf("../results/MyLinReg.pdf")
+pdf("../Results/MyLinReg.pdf")
 print(p)
 dev.off()

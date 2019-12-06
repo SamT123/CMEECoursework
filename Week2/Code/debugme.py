@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Script with divide-by-zero error to demonstraste python debugging"""
 
 __appname__ = 'debugme.py'

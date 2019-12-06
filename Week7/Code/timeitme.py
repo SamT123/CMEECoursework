@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Script timing functions for producing squares and concatenated strings, to demonstrate code optimization"""
 
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Script containing functions producing square numbers and concatenated strings to demonstrate code profiling and optimisation.
 They are implemented with a for loop and the .join() string method respectively.

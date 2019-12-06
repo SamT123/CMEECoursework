@@ -1,4 +1,16 @@
-""" Script drawing randomly generated food web. Node size represents body size, edge represents feeding interaction. """
+#!/usr/bin/env python3
+
+"""
+Script drawing randomly generated food web. Node size represents body size, edge represents feeding interaction.
+
+
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Results/FoodWeb.pdf   =   Random food web network
+
+"""
 
 __appname__ = 'DrawFW.py'
 __author__  = 'Sam Turner (sat19@ic.ac.uk)'

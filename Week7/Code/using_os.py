@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ OS walk exercises. Produces lists of files and directories in home directory up to specified recursion depth (default 1)"""
 
 __appname__ = 'profileme_np.py'

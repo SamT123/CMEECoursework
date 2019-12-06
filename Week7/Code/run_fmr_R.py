@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Script calling fmr.R to produce plot """
 
 __appname__ = 'run_fmr.py'
@@ -19,6 +21,8 @@ if stderr != b'':
     # print error message to console if not empty
     print("error message produced:")
     print(stderr.decode())
+else:
+    print("\nRun successful!\n\nR output:\n---------")
 
 # print stdout to console
 print(stdout.decode())

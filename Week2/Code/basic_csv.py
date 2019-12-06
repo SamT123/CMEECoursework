@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Script to demonstrate csv input and output"""
 
 __appname__ = 'basic_csv.py'

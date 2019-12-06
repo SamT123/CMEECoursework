@@ -3,6 +3,13 @@ Calculates heights of trees of trees given in input file (or default file if inp
 given distance of each tree from its base and angle to its top, using  the trigonometric formula:
 height = distance * tan(radians)
 Saves tree heights as column in ../Results/<input_name_tree_heights>_python.csv
+
+INPUTS:
+    arg1 : str  =   file path to .csv file containing tree distances and angles of elevation
+
+OUTPUTS:
+    ../Results/<input_name_tree_heights>_python.csv   =   .csv with tree heights added as column
+
 """
 
 __appname__ = 'get_TreeHeight.py'

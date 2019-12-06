@@ -1,5 +1,13 @@
+#!/usr/bin/env python3
+
 """
 Program which determines whether a species falls within the oak genus, Quercus.
+
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Data/JustOaksData.csv    =   .csv containing only oaks
 """
 
 __appname__ = 'oaks_debugme.py'

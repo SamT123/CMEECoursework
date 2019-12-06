@@ -1,6 +1,20 @@
-""" Program to solve Lotka-Volterra model with prey density dependence by numerical integration. Parameter valeus for r,a,z,e are passed from command line, with K = 20, R0 = 10, C0 = 5 set. If no arguments are passed from command line, default values which give stable population sizes
-are used. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size
-graphs to pdf. """
+#!/usr/bin/env python3
+
+"""
+Program to solve Lotka-Volterra model with prey density dependence by numerical integration. Parameter valeus for r,a,z,e are passed from command line, with K = 20, R0 = 10, C0 = 5 set. If no arguments are passed from command line, default values which give stable population sizes
+are used. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size graphs to pdf.
+
+INPUTS:
+    r   =   intrinsic growth rate
+    a   =   per capita search rate * attack success probability
+    z   =   mortality rate
+    e   =   consumer effciency
+
+OUTPUTS:
+    ../Results/LV2_C_vs_R.pdf   =   Counsumer and Resource popn sizes vs time
+    ../Results/LV2_time.pdf     =   Consumer vs Resource population size plot
+
+"""
 
 __appname__ = 'LV2.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'

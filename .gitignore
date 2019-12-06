@@ -6,3 +6,5 @@ __pycache__
 .idea
 .vscode
 Rplots.pdf
+.log
+*.log

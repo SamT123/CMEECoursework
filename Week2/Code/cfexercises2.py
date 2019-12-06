@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ control flow demonstration."""
 
 __appname__ = 'cfexercises2.py'

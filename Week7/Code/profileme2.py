@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Script containing functions producing square numbers and concatenated strings to demonstrate code profiling and optimisation.
 They are implemented with list comprehension and direct str + str concatention respectively, which is faster than the 

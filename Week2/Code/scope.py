@@ -1,5 +1,5 @@
-"""script demostrating variable scope"""
-## Try this first
+#!/usr/bin/env python3
+"""Script demostrating variable scope"""
 
 # set global variable
 _a_global = 10

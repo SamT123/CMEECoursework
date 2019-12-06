@@ -1,9 +1,15 @@
-"""script demosntrating file input and handling"""
+#!/usr/bin/env python3
+
+
+"""Script demosntrating file input and handling of arbitrary data types using pickle"""
 
 __appname__ = 'basic_io3.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = 'GNU public' 
+
+# imports
+import pickle
 
 #############################
 # STORING OBJECTS
@@ -11,7 +17,7 @@ __license__ = 'GNU public'
 # To save an object (even complex) for later use
 my_dictionary = {"a key": 10, "another key": 11}
 
-import pickle
+
 
 print("\nSaving dictionary as pickle at ../Sandbox/testp.p")
 f = open('../Sandbox/testp.p','wb') ## note the b: accept binary files

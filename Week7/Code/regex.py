@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """regex notes from lectures"""
 
 __appname__ = 'regex.py'

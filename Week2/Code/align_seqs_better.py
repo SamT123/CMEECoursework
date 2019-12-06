@@ -1,9 +1,13 @@
-
+#!/usr/bin/env python3
 """
 Sequence aligner. Finds best sequence alignment(s) (without indels) between two sequences provided
 in ../Data/sequences_better.csv
 
-Results are written to ../Results/best_align_better.csv.
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Results/best_align_better.csv
 """
 
 __appname__ = 'align_seqs_better.py'
@@ -147,7 +151,7 @@ def main(argv):
 
 
 
-    print("Best score: {} achieved {} times.".format(my_best_score,len(my_best_match)))
+    print("\nBest score: {} achieved {} times.\n-------------------------------".format(my_best_score,len(my_best_match)))
 
     for i in range(len(my_best_match)):
         print(my_best_match[i])

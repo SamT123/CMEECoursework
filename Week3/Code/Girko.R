@@ -41,7 +41,7 @@ ellDF <- build_ellipse(my_radius, my_radius) # Dataframe to plot the ellipse
 names(ellDF) <- c("Real", "Imaginary") # rename the columns
 
 # plot the eigenvalues
-pdf("../results/Girko.pdf")
+pdf("../Results/Girko.pdf")
 
 p <- ggplot(eigDF, aes(x = Real, y = Imaginary))
 p <- p +

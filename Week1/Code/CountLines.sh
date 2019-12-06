@@ -7,7 +7,7 @@
 
 if [ -z "$1" ]
 then
-    echo "Error. Path to file required."
+    echo "Error. Require path to file for line counting."
     exit
 fi
 

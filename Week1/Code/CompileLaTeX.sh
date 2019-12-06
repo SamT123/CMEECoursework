@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Author: Sam Turner sat19@ic.ac.uk
-# Script: CompileLaTeX.sh
-# Desc: Compiles a pdf from [name].tex and referenced .bib file, which must be in same directory.
-# [name].pdf is saved in specified directory, and opened
-# Arguments: 1 -> filename for .tex file without extension
+# Author:  Sam Turner sat19@ic.ac.uk
+# Script:  CompileLaTeX.sh
+# Desc:    Compiles a pdf from [name].tex and referenced .bib file, which must
+#          be in same directory. [name].pdf is saved in specified directory, and opened
+# Arguments: 1 -> filename for .tex file without extension eg. FirstExample
 #            2 -> directory to save to
 # Date: Oct 2019
 

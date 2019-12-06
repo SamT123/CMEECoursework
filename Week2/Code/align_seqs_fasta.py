@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Sequence aligner. Finds best sequence alignment (without indels) between two sequences provided
 from the command line in the form:
@@ -6,6 +8,14 @@ python3 align_seqs_fasta seq1.fasta seq2.fasta
 
 Alternatively, if no command line args are provided, default fasta sequences will be used.
 Results are written to ../Results/best_align_fasta.csv.
+
+INPUTS:
+    arg1 : .fasta file
+    arg2 : .fasta file
+
+OUTPUTS:
+    ../Results/best_align_fasta.csv.
+
 """
 
 __appname__ = 'align_seqs_fasta.py'
@@ -157,7 +167,7 @@ def main(argv):
 
 
     print("\nBest score: " + str(my_best_score)) 
-    print("Best alignment saved to ../best_align_fasta.csv")
+    print("Best alignment saved to ../Results/best_align_fasta.csv")
 
     # sequences too ong to meaningfully print to terminal
     # print(my_best_align)

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Script to extract Kingdom, Phylum, Species for blackbirds from blackbirds.txt file """
 
 __appname__ = 'blackbirds.py'

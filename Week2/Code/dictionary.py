@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Creates dictionary of Order - Taxon relationships, and prints these relationships """
 
 __appname__ = 'dictionary.py'

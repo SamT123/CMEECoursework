@@ -1,4 +1,22 @@
-""" Program to simulate discrete time Lotka-Volterra model with parameter values passed from command line """
+#!/usr/bin/env python3
+
+"""
+Program to simulate discrete time Lotka-Volterra model with parameter values passed from command line.
+
+INPUTS:
+    R0  =   initial resource population size
+    C0  =   initial consumer population size
+    K   =   resource carrying capacity
+    r   =   intrinsic growth rate
+    a   =   per capita search rate * attack success probability
+    z   =   mortality rate
+    e   =   consumer effciency
+    gens=   number of generations to run model for
+
+OUTPUTS:
+    ../Results/LV3_C_vs_R.pdf   =   Counsumer and Resource popn sizes vs time
+    ../Results/LV3_time.pdf     =   Consumer vs Resource population size plot
+"""
 
 __appname__ = 'LV3.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'

@@ -1,4 +1,6 @@
-"""script demonstrating file writing"""
+#!/usr/bin/env python3
+
+"""Script demonstrating .txt file reading and writing"""
 
 __appname__ = 'basic_io2.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'

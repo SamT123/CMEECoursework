@@ -1,13 +1,13 @@
 #!/bin/bash
 # Author: Sam Turner sat19@ic.ac.uk
 # Script: csvtospace.sh
-# Desc: substitute commas in specified file with spaces, saved at ../Results/ <filename>.txt
+# Desc: substitute commas in specified file with spaces, saved at ../Results <filename>.txt
 # Arguments: 1-> comma delimited file
 # Date: Oct 2018
 
 if [ -z "$1" ]
 then
-    echo "Error. Path to file required."
+    echo "Error. Path to .csv file required."
     exit
 fi
 

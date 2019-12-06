@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Script demonstrate txt file input, accessing lines (for priniting) with for loop."""
 
 __appname__ = 'basic_io1.py'

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ List comprehensions and for loops for oak tree identification """
 
 __appname__ = 'oaks.py'

@@ -1,5 +1,16 @@
-""" Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration. Outputs final population
-sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size' graphs to pdf. """
+#!/usr/bin/env python3
+
+"""
+Program to solve Lotka-Volterra model with hard-coded paramterter values, by numerical integration. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs
+resource popn size' graphs to pdf.
+
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Results/LV1_C_vs_R.pdf   =   Counsumer and Resource popn sizes vs time
+    ../Results/LV1_time.pdf     =   Consumer vs Resource population size plot
+"""
 
 __appname__ = 'LV1.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'

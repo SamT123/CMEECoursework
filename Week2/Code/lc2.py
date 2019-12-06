@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Extracting information from tuple of tuples using for loops and list comprehensions """
 
 __appname__ = 'lc2.py'

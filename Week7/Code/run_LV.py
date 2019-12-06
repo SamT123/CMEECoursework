@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Run and profile 4 Lotka Volterra programs. Prints the top 20 calls by tottime to terminal"""
 
 

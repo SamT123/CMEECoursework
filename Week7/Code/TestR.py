@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+""" Runs the TestR.R script as a subprocess """
+
+
+__appname__ = 'TestR.py'
+__author__  = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+# imports
+
+import subprocess
+
+subprocess.Popen("Rscript --verbose TestR.R > ../Results/TestR.Rout 2> ../Results/TestR_errFile.Rout", shell=True).wait()

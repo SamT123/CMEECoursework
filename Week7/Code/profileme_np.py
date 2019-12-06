@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Script containing functions producing square numbers and concatenated strings to demonstrate code profiling and optimisation.
 The squares function is implemented using numpy array operations, which are faster than list comprehensions of a for loop.

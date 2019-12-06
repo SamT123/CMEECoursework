@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
 
 """
 Sequence aligner. Finds best sequence alignment (without indels) between two sequences in ../Data/sequences.csv,
 writing results to ../Results/best_align.csv and printing to terminal
+
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Results/best_align.csv.
 """
 
 __appname__ = 'align_seqs.py'

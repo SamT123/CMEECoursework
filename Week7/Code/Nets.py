@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
+
 """
 Script to make graph for QMEE collaboration network. Edge width represents number of collaborations, node colour represents
 institution type.
+
+INPUTS:
+    None
+
+OUTPUTS:
+    ../Results/QMEENet_python.svg.pdf   =   network representing QMEE collaboration network
+    
 """
 
 __appname__ = 'Nets.py'
@@ -71,4 +80,5 @@ p.legend(handles=[red_patch,green_patch,blue_patch], loc = [0,0.7])
 
 
 #save network
-p.savefig("../results/QMEENet_python.svg", format = "svg")
+print("Saving network to ../Results/QMEENet_python.svg")
+p.savefig("../Results/QMEENet_python.svg", format = "svg")
