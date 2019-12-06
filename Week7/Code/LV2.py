@@ -110,7 +110,7 @@ def make_plots(pops):
     f2 = p.figure()
     p.plot(pops[:,0], pops[:,1]  , 'r-')
     p.grid()
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = 9.83, y = 5.4,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = 9.83, y = 5.4,  bbox=dict(facecolor='white', edgecolor='black'))
 
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
