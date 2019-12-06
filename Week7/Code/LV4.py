@@ -118,7 +118,7 @@ def make_plots(pops):
     p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
     p.grid()
     p.legend(loc='upper right')
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = 40, y = max(pops.ravel())-2.2,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = 83, y = max(pops.ravel())-5,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
 
     p.xlabel('Time')
     p.ylabel('Population density')
