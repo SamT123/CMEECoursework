@@ -1,8 +1,11 @@
 ## Script: PP_regress.R
 ## Author: Sam Turner sat19@ic.ac.uk
-## About: Predator mass and prey mass linear regressions, faceted by feeding
-#         interaction type, location, and predator life stage. Summary statistics for the regressions
-#         are saved to csv.
+## About: Predator mass and prey mass linear regression summary statistics, faceted by feeding
+#         interaction type, location, and predator life stage.
+
+# OUTPUTS :     ../Results/PP_regress_results_loc.csv   =   linear regression summary statistics
+
+
 
 # clear environment
 rm(list=ls())

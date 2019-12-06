@@ -8,6 +8,11 @@
 # Also saves to csv the mean and medians of predator size, prey size, and mass ratio for each 
 # feeding interaction type, both logged and non-logged. 
 
+# OUTPUTS :     ../Results/Pred_Lattice.pdf         =   density plot of predator size, faceted by feeding interation type
+#               ../Results/Prey_Lattice.pdf         =   density plot of prey size, faceted by feeding interation type
+#               ../Results/SizeRatio_Lattice.pdf    =   density plot of size ratio, faceted by feeding interation type
+#               ../Results/PP_results_non_log.pdf   =   non-logged means and medians
+#               ../Results/PP_results_non_log.pdf   =   logged means and medians
 
 # clear environment
 rm(list=ls())

@@ -2,10 +2,10 @@
 ## Script:  TAutoCorr.R
 ## Author:  Sam Turner sat19@ic.ac.uk
 ## About:   Calculate approximate p value for autocorrelation in Key West
-#           temperature data. Also produces 3 figures for write-up:
-#               1. histogram of scrambled data correlation coefficients
-#               2. temperature time series
-#               3. scatter of temperature at year x vs temperature at year x+1
+#           temperature data. Also produces 3 figures for write-up:             
+#               1. histogram of scrambled data correlation coefficients         :   ../Results/AutoC.pdf
+#               2. temperature time series                                      :   ../Results/TempTimeSeries.pdf
+#               3. scatter of temperature at year x vs temperature at year x+1  :   ../Results/AutoCscatter.pdf
 
 # clear environment
 rm(list=ls())

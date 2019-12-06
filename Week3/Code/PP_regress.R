@@ -5,6 +5,10 @@
 #           interaction type and predator life stage. Summary statistics for the regressions
 #           are saved to csv.
 
+
+# OUTPUTS :     ../Results/PP_regress_results.csv   =   linear regression summary statistics
+#               ../Results/CopyFigure.pdf           =   linear regression figure for predator vs prey mass
+
 # clear environment
 rm(list=ls())
 graphics.off()
