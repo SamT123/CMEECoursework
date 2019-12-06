@@ -73,12 +73,25 @@ def simulate(densities):
     array
         2D array of resource and consumer densities at each timestep
     """
+    zero_pop = False
     fluctuations = np.random.randn(gens-1,2)/10
     for gen in range(1,gens):
         R = densities[gen-1][0]
         C = densities[gen-1][1]
         densities[gen][0] = R * (1 + (r + fluctuations[gen-1,0]) * (1 - R / K) - a * C)
         densities[gen][1] = C * (1 - z + e * a * R + fluctuations[gen-1,1])
+
+        if densities[gen][0] < 0.:
+            densities[gen][0] = 0.
+            zero_pop = True
+
+        if densities[gen][1] < 0.:
+            densities[gen][1] = 0.
+            zero_pop = True
+
+        if zero_pop:
+            print("A population reached zero density")
+            break
 
 
     return densities
