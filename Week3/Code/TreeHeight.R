@@ -1,3 +1,6 @@
+## Script:  TreeHeight.R
+## Author:  Sam Turner sat19@ic.ac.uk
+
 # This function calculates heights of trees given distance of each tree 
 # from its base and angle to its top, using  the trigonometric formula 
 #

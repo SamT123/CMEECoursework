@@ -1,3 +1,12 @@
+
+## Script: apply1.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrating apply() function on random matrix
+
+
+# clear environment
+rm(list=ls())
+
 ## Build a random matrix
 M <- matrix(rnorm(100), 10, 10)
 

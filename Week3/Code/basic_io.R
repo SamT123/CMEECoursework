@@ -1,4 +1,10 @@
-# File input and writing in R
+## File input and output in R.
+
+## Script: basic_io.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: file input and output
+
+rm(list=ls())
 
 MyData <- read.csv("../Data/trees.csv", header = TRUE) # import with headers
 

@@ -11,8 +11,6 @@ __license__ = 'GNU public'
 
 import sys
 
-## constants
-
 ## functions
 
 def main(argv):
@@ -20,8 +18,9 @@ def main(argv):
     print('This is a boilerplate')
     return 0
 
+# ensures the main funtion is called when program is run from command line
 if __name__ == '__main__':
-    """ensures the main funtion is called when program is run from command line"""
+    
     status = main(sys.argv)
     sys.exit(status)
     

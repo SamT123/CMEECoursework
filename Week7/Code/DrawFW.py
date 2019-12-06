@@ -1,4 +1,4 @@
-""" Script drawing randomly generated food web """
+""" Script drawing randomly generated food web. Node size represents body size, edge represents feeding interaction. """
 
 import networkx as nx
 import scipy as sc

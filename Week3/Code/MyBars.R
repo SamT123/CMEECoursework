@@ -1,5 +1,17 @@
+## Script: MyBars.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrate building up a bar plot with ggplot2.
+
+# clear environment
+rm(list=ls())
+
+
+# load dependencies
 require(ggplot2)
+
+# load data
 a <- read.table("../Data/Results.txt", header = TRUE)
+
 a$ymin <- rep(0, dim(a)[1])
 p <- ggplot(a)
 

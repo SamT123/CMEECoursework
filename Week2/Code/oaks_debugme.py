@@ -5,7 +5,10 @@ Program which determines whether a species falls within the oak genus, Quercus.
 __appname__ = 'oaks_debugme.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'
 __version__ = '0.0.1'
-__license__ = 'GNU public' 
+__license__ = 'GNU public'
+
+# imports
+ 
 import csv
 import sys
 # import stringdist
@@ -61,7 +64,8 @@ def is_an_oak(name):
         return False
 
 def main(argv):
-    """ Main entry point for program when called from terminal """
+    """ Main entry point for program. Opens input TestOaksData.csv, then checks each entry for membership of 
+    Quercus genus. Prints oaks to console and saves oaks in JustOaksData.csv, """
 
     # open io files
     f = open('../Data/TestOaksData.csv','r')
@@ -73,6 +77,7 @@ def main(argv):
     oaks = set()
 
     # print result for each species in input file, and write each oak to output file
+    
     for row in taxa:
         if row[0] != 'Genus':
             print(row[0] + ' ' + row[1])
@@ -81,6 +86,7 @@ def main(argv):
             if is_an_oak(row[0]):
                 print('FOUND AN OAK!\n')
                 csvwrite.writerow([row[0], row[1]])    
+    print("\nOaks saved to ../Data/JustOaksData.csv")
 
     return 0
     

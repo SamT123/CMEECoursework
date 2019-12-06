@@ -54,13 +54,12 @@ def even_or_odd(x=0):
 
 
 def main(argv):
-    """main entry point for program when called from command line"""
+    """main entry point for program when called from command line. runs even_or_odd function"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     return 0
 
 
 if __name__ == '__main__':
-    """ensures the main funtion is called from command line"""
     status = main(sys.argv)
     sys.exit(status)

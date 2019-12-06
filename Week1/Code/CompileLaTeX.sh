@@ -8,6 +8,12 @@
 #            2 -> directory to save to
 # Date: Oct 2019
 
+if [ -z "$1" ] | [ -z "$2" ]
+then
+    echo "Error: require path to .tex file."
+    exit
+fi
+
 # Compile LaTeX document
 pdflatex $1.tex
 pdflatex $1.tex

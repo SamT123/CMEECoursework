@@ -1,5 +1,6 @@
 """ Script containing functions to demonstrate code profiling and optimisation - functions constructed using numpy array operations """
 
+# imports
 
 import numpy as np
 
@@ -56,7 +57,7 @@ def run_my_funcs(x,y):
     -------
     0
     """
-    print(x,y)
+    print("iters: " + str(x) + ", str: " + str(y))
     my_squares(x)
     my_join(x,y)
     return 0

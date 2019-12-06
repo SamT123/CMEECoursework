@@ -1,4 +1,9 @@
-# Runs the stochastic (with gaussian fluctuations) Ricker Eqn .
+
+
+## Script:  Vectorize1.R
+## Author:  Sam Turner sat19@ic.ac.uk
+## About:   Runs vectorized and unvectorized stochastic
+#           (with gaussian fluctuations) Ricker Eqn. 
 
 rm(list=ls())
 
@@ -22,7 +27,7 @@ stochrick<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 
 }
 
-# My new vectorized function
+# My new vectorized function, using vector arithmatic
 
 stochrickvect<-function(p0=runif(1000,0.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 {

@@ -1,4 +1,6 @@
-#preallocation speed benefits
+## Script: preallocate.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrate speed benefits of vector preallocation
 
 # reallocation for large vector is slow
 reallocate <- function() {

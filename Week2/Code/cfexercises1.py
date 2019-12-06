@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
-"""A collection of trivial mathematical operations in unhelpfully named functions"""
+"""A collection of trivial mathematical operations in unhelpfully named functions to demonstrate how to
+organise a python program"""
 
-__appname__ = 'cfexercises1_program.py'
+__appname__ = 'cfexercises1.py'
 __author__ = 'Sam Turner (sat19@ic.ac.uk)'
 __version__ = '0.0.1'
 __license__ = 'GNU public' 
 
+# imports
 import sys
 
 # What does each of foo_x do? 
@@ -137,7 +139,7 @@ def foo_6(x=5): # Calculate the factorial of x in a different way
 
 
 def main(argv):
-    """main entry point for program"""
+    """main entry point for program. Runs mathematical functions."""
     print(foo_1(10))
     print(foo_2())
     print(foo_3())
@@ -148,7 +150,6 @@ def main(argv):
     return 0
 
 if __name__ == '__main__':
-    """makes sure the main funtion is called from command line"""
     status = main(sys.argv)
     sys.exit(status)
 

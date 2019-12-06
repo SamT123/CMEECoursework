@@ -1,17 +1,26 @@
-"""script to demonstrate csv input and output"""
+"""Script to demonstrate csv input and output"""
+
+__appname__ = 'basic_csv.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+# imports
+import csv
+
 
 ############
 # FILE INPUT
 ############
 # Open a  file for reading
-
-import csv
-
 f = open('../Data/testcsv.csv','r')
 
+
+# Read file containing species, phylogeny, distribution and body mass data
 csvread = csv.reader(f)
 temp = []
 
+# print only species name
 for row in csvread:
     temp.append(tuple(row))
     print(row)

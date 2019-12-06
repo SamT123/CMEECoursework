@@ -1,8 +1,16 @@
 """
-This function calculates heights of trees given distance of each tree from its base and angle
-to its top, using  the trigonometric formula: height = distance * tan(radians)
+Calculates heights of trees of trees given in input file (or default file if input file absent)
+given distance of each tree from its base and angle to its top, using  the trigonometric formula:
+height = distance * tan(radians)
+Saves tree heights as column in ../Results/<input_name_tree_heights>_python.csv
 """
 
+__appname__ = 'get_TreeHeight.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+# imports
 import csv
 import math
 import sys
@@ -31,6 +39,10 @@ def TreeHeight(degrees, distance):
 
 
 def main(argv):
+    """
+    Main entry point for program. Opens passed tree data file, or uses default. Saves output file
+    with tree heights to Data directorty.
+    """
     # get file name from command line arg
     if len(argv) == 1 :
         print("No input file specified: using default trees.csv")

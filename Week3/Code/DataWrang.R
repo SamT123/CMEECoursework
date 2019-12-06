@@ -1,6 +1,13 @@
+## Script: DataWrang.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Data wrangling using base R
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
+
+# clear environment
+rm(list=ls())
 
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
@@ -13,8 +20,7 @@ MyMetaData <- read.csv("../Data/PoundHillMetaData.csv",header = T, sep=";", stri
 head(MyData)
 dim(MyData)
 str(MyData)
-fix(MyData) #you can also do this
-fix(MyMetaData)
+
 
 ############# Transpose ###############
 # To get those species into columns and treatments into rows 

@@ -1,9 +1,8 @@
 
 # Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
 # 1999 dataset to a file fmr.pdf.
-
+rm(list=ls())
 cat("Reading CSV\n")
-
 nagy <- read.csv('../Data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
 
 cat("Creating graph\n")

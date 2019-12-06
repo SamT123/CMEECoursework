@@ -1,4 +1,8 @@
-# Comparison of element-wise matrix sum to built in vectorized sum function
+
+
+## Script:  Vectorize1.R
+## Author:  Sam Turner sat19@ic.ac.uk
+## About:   Comparison of element-wise matrix sum to built in vectorized sum function
 
 # generate 1000 * 1000 matrix of random numbers
 M <- matrix(runif(1000000),1000,1000)

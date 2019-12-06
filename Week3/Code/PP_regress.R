@@ -1,4 +1,13 @@
-# Calculate and plot linear regressions of Prey mass vs Predator mass, faceted by feedig interaction type and predator life stage
+
+## Script:  PP_regress.R
+## Author:  Sam Turner sat19@ic.ac.uk
+## About:   Plots of predator mass and prey mass linear regressions, faceted by feeding
+#           interaction type and predator life stage. Summary statistics for the regressions
+#           are saved to csv.
+
+# clear environment
+rm(list=ls())
+graphics.off()
 
 # load dependencies
 require(ggplot2)
@@ -10,6 +19,7 @@ MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 MyDF[MyDF$Prey.mass.unit == "mg",]$Prey.mass = MyDF[MyDF$Prey.mass.unit == "mg",]$Prey.mass / 1000
 MyDF$Prey.mass.unit = "g"
 
+print("Making plots...")
 
 # make plot with colour representing lifestage
 p <- ggplot(MyDF, aes(log(Prey.mass),log(Predator.mass), colour = Predator.lifestage))
@@ -42,8 +52,7 @@ print(p)
 graphics.off();
 
 
-
-
+print("Calculating regression statistics...")
 # get vectors of unique lifestages, interactions
 lifestages <- as.vector(unique(MyDF$Predator.lifestage))
 interactions <- as.vector(unique(MyDF$Type.of.feeding.interaction))

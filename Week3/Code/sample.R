@@ -1,3 +1,10 @@
+## Script: PP_regress.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrate speed benefit of preallocation and vectorization
+
+# clear environment
+rm(list=ls())
+
 ######### Functions ##########
 
 ## A function to take a sample of size n from a population "popn" and return its mean

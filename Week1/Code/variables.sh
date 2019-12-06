@@ -21,7 +21,7 @@ read a b
 # check if two values were entered - echo error message if not.
 if [ -z "$b" ]
 then
-    echo 'Error: you must enter 2 values'
+    echo 'Error: you must enter 2 integer values'
 else
     echo 'you entered' $a 'and' $b '. Their sum is:'
 

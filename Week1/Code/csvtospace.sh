@@ -5,6 +5,12 @@
 # Arguments: 1-> comma delimited file
 # Date: Oct 2018
 
+if [ -z "$1" ]
+then
+    echo "Error. Path to file required."
+    exit
+fi
+
 echo "Creating a space delimited version of $1 ..."
 
 # cat reads file -> tr replaces ',' with ' ' -> basename and cut used to generate new file name

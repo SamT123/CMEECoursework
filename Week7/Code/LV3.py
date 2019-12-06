@@ -1,6 +1,6 @@
 """ Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line """
 
-
+# imports
 import sys
 import numpy as np
 import matplotlib.pylab as p

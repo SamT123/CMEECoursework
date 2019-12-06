@@ -1,5 +1,10 @@
-# boilerplate demonstrating R functions
 
+## Script: boilerplate.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: demonstration of R functions
+
+# clear environment
+rm(list=ls())
 
 MyFunction <- function(Arg1, Arg2){
 

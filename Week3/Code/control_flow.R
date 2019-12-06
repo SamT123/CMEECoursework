@@ -1,4 +1,11 @@
-## Some code exemplifying control flow constructs in R 
+
+## Script: control_flow.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Some code exemplifying control flow constructs in R 
+
+
+# clear environment
+rm(list=ls())
 
 ## If statement
 a <- TRUE

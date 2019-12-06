@@ -1,5 +1,11 @@
 """ control flow demonstration."""
 
+__appname__ = 'cfexercises2.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+
 for j in range(12):
     if j % 3 == 0:
         print('hello')

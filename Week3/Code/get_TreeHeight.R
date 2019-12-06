@@ -10,7 +10,7 @@
 # OUTPUT
 # The heights of the tree, same units as "distance"
 
-
+rm(list=ls())
 
 TreeHeight <- function(degrees, distance){
   radians <- degrees * pi / 180
@@ -24,7 +24,7 @@ if (length( commandArgs(trailing = T) ) == 0 ){
   print("No input file specified: using default trees.csv")
   fname = "../Data/trees.csv"
 } else {
-  fname = commandArgs(trailing = T)[0]
+  fname = commandArgs(trailing = T)[1]
 }
 
 # read in tree distance and angle data
@@ -38,4 +38,5 @@ fbase = tools::file_path_sans_ext(basename(fname))
 writepath = paste("../Results/", fbase, "_treeheights.csv", sep = "")
 
 # save dataset
+print("Saving output csv to ../Results/trees_treeheights.csv...")
 write.csv(MyData, writepath)

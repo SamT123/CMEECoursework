@@ -83,11 +83,12 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 # Two example sequences to match
 
 def main(argv):
-    """ Main entry point for program when called from terminal """
+    """ Main entry point for program when called from terminal. Opens passed fasta files, or defaults.
+    Finds one best alignment (discarding others of equal score), saving to csv and printing to console """
 
     # determine whether command line args are provided correctly.
     if len(argv) == 1:
-        print('Using default .fasta files: 407228326.fasta, 407228412.fasta')
+        print('\nNo file path arguments provided: using default .fasta files: 407228326.fasta, 407228412.fasta\n')
         f1 = open('../Data/fasta/407228326.fasta','r')
         f2 = open('../Data/fasta/407228412.fasta','r')
     
@@ -98,9 +99,9 @@ def main(argv):
 
 
     elif len(argv) == 3:
-        print('Using provided fatsa files: ', argv[1], argv[2] )
-        f1 = open('../Data/fasta/' + argv[1],'r')
-        f2 = open('../Data/fasta/' + argv[2],'r')
+        print('\nUsing provided fatsa files: ', argv[1], argv[2] )
+        f1 = open(argv[1],'r')
+        f2 = open(argv[2],'r')
 
     # read sequences from fasta files
 
@@ -152,6 +153,10 @@ def main(argv):
 
     g = open('../Results/best_align_fasta.txt', 'w')
     g.write("\n".join([my_best_match, my_best_align, s1,"Best score:\t" + str(my_best_score), "Lengths:\t" + str(l1), str(l2)]))
+
+
+    print("\nBest score: " + str(my_best_score)) 
+    print("Best alignment saved to ../best_align_fasta.csv")
 
     # sequences too ong to meaningfully print to terminal
     # print(my_best_align)

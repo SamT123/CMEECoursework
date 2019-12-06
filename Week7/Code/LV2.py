@@ -2,6 +2,7 @@
 are used. Outputs final population sizes and saves 'population size vs time' and 'consumer popn size vs resource popn size
 graphs to pdf. """
 
+# imports
 
 import scipy as sc
 import scipy.integrate as integrate

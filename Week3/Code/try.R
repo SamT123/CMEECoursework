@@ -1,4 +1,6 @@
-# illustrate try function
+## Script:  try.R
+## Author:  Sam Turner sat19@ic.ac.uk
+## About:   demonstrate the try function
 
 doit <- function(popn){
 	x <- sample(popn, replace = TRUE)

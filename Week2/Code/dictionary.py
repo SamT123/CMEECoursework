@@ -1,4 +1,9 @@
-""" dictionary comprehension demonstration """
+""" Creates dictionary of Order - Taxon relationships, and prints these relationships """
+
+__appname__ = 'dictionary.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 taxa = [
          ('Myotis lucifugus','Chiroptera'),

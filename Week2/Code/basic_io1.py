@@ -1,4 +1,9 @@
-"""script demonstrate txt file input"""
+"""Script demonstrate txt file input, accessing lines (for priniting) with for loop."""
+
+__appname__ = 'basic_io1.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
 ###########################
 # FILE INPUT

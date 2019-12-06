@@ -1,4 +1,9 @@
-""" list comprehension demosntration """
+""" Using list comprehension to print tuple of tuples data. """
+
+__appname__ = 'tuple.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public'
 
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),

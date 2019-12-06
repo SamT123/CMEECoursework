@@ -1,4 +1,7 @@
 """ OS walk exercises"""
+
+# imports
+
 import os
 from os.path import expanduser
 import subprocess

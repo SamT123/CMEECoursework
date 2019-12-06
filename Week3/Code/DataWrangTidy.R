@@ -1,3 +1,8 @@
+## Script: DataWrang.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Data wrangling using tidyR
+
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
@@ -5,6 +10,8 @@
 require(dplyr)
 require(tidyr)
 require(reshape2)
+
+rm(list=ls())
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
 MyData <- as.matrix(read.csv("../data/PoundHillData.csv",header = F)) 

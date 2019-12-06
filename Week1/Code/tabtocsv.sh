@@ -6,6 +6,12 @@
 # Arguments: 1 -> tab delimited file
 # Date: Oct 2019
 
+if [ -z "$1" ]
+then
+    echo "Error. Path to file required."
+    exit
+fi
+
 echo "Creating a comma delimited version of $1 ..."
 
 # cat reads file -> tr replaces '\t' with ',' -> basename used to generate new file name

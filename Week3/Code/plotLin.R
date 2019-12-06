@@ -1,5 +1,16 @@
+
+## Script: plotLin.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrate building up a plot with ggplot, on random data
+
+# clear environment
+rm(list=ls())
+
+# load dependencies
 require(ggplot2)
 
+
+# generate random data
 x <- seq(0, 100, by = 0.1)
 y <- -4. + 0.25 * x +
   rnorm(length(x), mean = 0., sd = 2.5)

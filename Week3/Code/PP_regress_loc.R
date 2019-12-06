@@ -1,5 +1,13 @@
-# Calculate linear regressions of Prey mass vs Predator mass, faceted by feedig interaction type, location and predator life stage
+## Script: PP_regress.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Predator mass and prey mass linear regressions, faceted by feeding
+#         interaction type, location, and predator life stage. Summary statistics for the regressions
+#         are saved to csv.
 
+# clear environment
+rm(list=ls())
+
+# load dependencies
 require(ggplot2)
 require(dplyr)
 

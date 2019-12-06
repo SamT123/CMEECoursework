@@ -1,6 +1,11 @@
-"""Comparison of element-wise matrix sum to built in vectorized sum function"""
+"""Comparison of element-wise matrix sum to built-in vectorized sum function"""
 
+__appname__ = 'Vectorize1.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
 
+# imports
 import numpy as np
 import time
 

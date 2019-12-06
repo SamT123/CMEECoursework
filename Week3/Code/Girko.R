@@ -1,9 +1,23 @@
-# Demonstrates Girko's Circular Law, by plotting eigenvalues of real valued N x N matrix,
-# which fall in a circle of radius √N
 
+## Script: break.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Demonstrate Girko's Circular law
+
+
+# Girko's Circular Law: The eigenvalues of a real valued N * N matrix fall
+#                       in a circle of radius √N. the distribution of these values
+#                       is uniform over the unit disc in the limit of N
+#
+# We can illustrate this by plotting eigenvalues of real valued N x N matrix,
+
+
+# clear environment
+rm(list=ls())
+
+# load dependencies
 require(ggplot2)
 
-build_ellipse <- function(hradius, vradius){ # function that returns an ellipse
+build_ellipse <- function(hradius, vradius){ # function that returns the points on an ellipse
   npoints = 250
   a <- seq(0, 2 * pi, length = npoints + 1)
   x <- hradius * cos(a)

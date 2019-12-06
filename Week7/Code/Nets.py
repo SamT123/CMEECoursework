@@ -1,5 +1,7 @@
 """ Script to make graph for QMEE collaboration network """
 
+# imports
+
 import numpy as np
 import pandas as pd
 import itertools

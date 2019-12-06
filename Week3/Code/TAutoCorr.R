@@ -1,5 +1,16 @@
-# Calculate approximate p value for autocorrelation in Key West temperature data and produce figures for write-up
+# 
+## Script:  TAutoCorr.R
+## Author:  Sam Turner sat19@ic.ac.uk
+## About:   Calculate approximate p value for autocorrelation in Key West
+#           temperature data. Also produces 3 figures for write-up:
+#               1. histogram of scrambled data correlation coefficients
+#               2. temperature time series
+#               3. scatter of temperature at year x vs temperature at year x+1
 
+# clear environment
+rm(list=ls())
+
+# load dependencies
 library(ggplot2)
 
 # load data
@@ -32,6 +43,8 @@ plot.new()
 plot(tempdata[-1],tempdata[-length(tempdata)])
 
 
+print("Calculating approximate p value...")
+
 # preallocate for scrambled correlation coefficeints
 scrambled_autos <- rep(NA, 100000)
 
@@ -56,7 +69,7 @@ options(scipen=999)
 print(sprintf('Approx. p value = %s',count/100000))
 
 
-
+print("Making plots...")
 
 # histogram of scrambled data correlation coefficients
 df_scram <- data.frame(scrambled_autos)
@@ -97,6 +110,8 @@ r
 
 ggsave("../Results/TempTimeSeries.pdf", width = 10, height = 5)
 
+
+# clean up
 if (file.exists("Rplots.pdf")){
     file.remove("Rplots.pdf")
 }

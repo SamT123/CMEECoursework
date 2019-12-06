@@ -1,4 +1,8 @@
 
+## Script: Ricker.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: plot Ricker model time series
+
 Ricker <- function(N0=1, r=1, K=10, generations=50)
 {
   # Runs a simulation of the Ricker model

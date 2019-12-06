@@ -1,0 +1,4 @@
+...*--***--
+...ATCGATCG
+AAAAAAGATAAAA
+Best score: 4

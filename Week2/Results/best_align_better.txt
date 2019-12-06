@@ -1,0 +1,16 @@
+Best score: 7 achieved 3 times.
+
+0
+*******
+ATATATA
+ATATATATATA
+
+1
+..*******
+..ATATATA
+ATATATATATA
+
+2
+....*******
+....ATATATA
+ATATATATATA

@@ -5,6 +5,12 @@
 # Arguments: 1 -> text file
 # Date: Oct 2018
 
+if [ -z "$1" ]
+then
+    echo "Error. Path to file required."
+    exit
+fi
+
 NumLines=`wc -l < $1`
 echo "The file $1 has $NumLines lines"
 echo

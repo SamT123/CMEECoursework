@@ -75,7 +75,8 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
 
 def main(argv): 
-    """ Main entry point for program when called from terminal """
+    """ Main entry point for program when called from terminal. Opens sequences in sequences.csv, finds best alignment
+    (discarding others of same score). Saves best alignment to csv and prints to console. """
 
     # open and read sequences file
     f = open('../Data/sequences.csv','r')
@@ -122,11 +123,13 @@ def main(argv):
     g.write("\n".join([my_best_match, my_best_align, s1, "Best score: " + str(my_best_score)]))
 
     # print the best alignment to terminal
-    print('\nBEST MATCH:\n')
+    #print('\nBEST MATCH:\n')
+    print("----------------")
+    print("BEST SCORE:", my_best_score,'\n')
     print(my_best_match)
     print(my_best_align)
     print(s1)
-    print("Best score:", my_best_score,'\n')
+    print("----------------\n")
 
     return 0
 

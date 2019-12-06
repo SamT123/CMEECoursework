@@ -1,4 +1,9 @@
-"""Runs the stochastic (with gaussian fluctuations) Ricker Equation. Compares speed of vectorised and non-vectorised methods."""
+"""
+Runs the stochastic (with gaussian fluctuations) Ricker Equation. 
+Compares speed of vectorised and non-vectorised methods.
+"""
+
+# imports
 import numpy as np
 import time
 import math

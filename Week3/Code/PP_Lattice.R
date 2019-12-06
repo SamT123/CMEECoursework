@@ -1,4 +1,13 @@
-# Density plots and averages of prey size, predator size, and size ratio:; faceted by feeding interaction type
+
+## Script: PP_Lattice.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Feeding interaction and body size plots.
+
+# This script produces density plots and averages of prey size, predator size, and size ratio.
+# Plots are faceted by feeding interaction type.
+# Also saves to csv the mean and medians of predator size, prey size, and mass ratio for each 
+# feeding interaction type, both logged and non-logged. 
+
 
 # clear environment
 rm(list=ls())
@@ -14,14 +23,18 @@ MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 MyDF[MyDF$Prey.mass.unit == "mg",]$Prey.mass = MyDF[MyDF$Prey.mass.unit == "mg",]$Prey.mass / 1000
 MyDF$Prey.mass.unit = "g"
 
+print("Making plots...")
+# PREDATOR MASS #
 
 # make density plot of predator mass faceted by Type.of.feeding.interaction
 pdf("../Results/Pred_Lattice.pdf", # Open blank pdf page using a relative path
     11.7, 8.3)
 
 densityplot(~log(Predator.mass) | Type.of.feeding.interaction, data=MyDF)
-
 dev.off();
+
+
+# PREY MASS #
 
 # make density plot of prey mass faceted by Type.of.feeding.interaction
 pdf("../Results/Prey_Lattice.pdf", # Open blank pdf page using a relative path
@@ -29,12 +42,18 @@ pdf("../Results/Prey_Lattice.pdf", # Open blank pdf page using a relative path
 densityplot(~log(Prey.mass) | Type.of.feeding.interaction, data=MyDF)
 dev.off();
 
+
+# MASS RATIO #
+
 # make density plot of mass ratio faceted by Type.of.feeding.interaction
 pdf("../Results/SizeRatio_Lattice.pdf", # Open blank pdf page using a relative path
     11.7, 8.3)
 densityplot(~log(Prey.mass/Predator.mass) | Type.of.feeding.interaction, data=MyDF)
 dev.off();
 
+print("Finding means...")
+
+# AVERAGES #
 
 # find mean and median predator mass, prey mass, and size ratio
 meanPred = mean(MyDF$Predator.mass)
@@ -51,10 +70,9 @@ d = data.frame(row.names = c('predator', 'prey', 'ratio'),'mean.g'=c(meanPred,me
 write.csv(d, '../Results/PP_Results_non_log.csv')
 
 
-#ddply(MyDF,~,summarise,mean=mean(age),sd=sd(age))
+# LOG AVERAGES #
 
-
-# find means and medians, faceted by interaction type
+# find means and medians of log mass, faceted by interaction type
 outmat <- MyDF %>%
   group_by(Type.of.feeding.interaction) %>%
   summarize(mean_Pred = mean(log(Predator.mass), na.rm = TRUE),

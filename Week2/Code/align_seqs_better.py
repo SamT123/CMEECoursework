@@ -79,7 +79,8 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
 
 def main(argv):
-    """ Main entry point for program when called from terminal """
+    """ Main entry point for program when called from terminal. Opens and 
+    aligns two sequences, saving best matches to csv and printing to console """
 
     # read sequences from ../Data/sequences.csv
 

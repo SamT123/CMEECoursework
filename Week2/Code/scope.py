@@ -40,7 +40,7 @@ del(_b_global)
 _a_global = 10
 
 def a_function():
-    """a function demonstrating variable scope"""
+    """a function demonstrating variable scope, setting a local variable"""
     _a_local = 4
     print("Inside the function, the value of _a_local is ", _a_local)
     print("Inside the function, the value of _a_global is ", _a_global)
@@ -60,7 +60,7 @@ _a_global = 10
 print("Outside the function, the value of _a_global is", _a_global)
 
 def a_function():
-    """a function demonstrating variable scope"""
+    """a function demonstrating variable scope by declaring a local and a global variable"""
 
     global _a_global
     _a_global = 5
@@ -83,7 +83,7 @@ del(_a_global)
 # Nested functions and global keywords
 
 def a_function():
-    """a function demonstrating variable scope"""
+    """a function demonstrating variable scope by setting a local variable and defining a nested function"""
 
     _a_global = 10
 
@@ -113,10 +113,10 @@ del(_a_global)
 _a_global = 10
 
 def a_function():
-    """a function demonstrating variable scope"""
+    """a function demonstrating variable scope by declaring a nested function"""
 
     def _a_function2():
-        """a function demonstrating variable scope"""
+        """a function demonstrating variable scope by setting a global variable"""
     
         global _a_global
         _a_global = 20

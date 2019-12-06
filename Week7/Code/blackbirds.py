@@ -1,5 +1,6 @@
 """ Script to extract Kingdom, Phylum, Species for blackbirds from blackbirds.txt file """
 
+# imports
 import re
 
 # Read the file (using a different, more python 3 way, just for fun!)
@@ -19,11 +20,11 @@ text = text.decode('ascii', 'ignore') # Now decode back to string
 
 # Now extend this script so that it captures the Kingdom, Phylum and Species
 # name for each species and prints it out to screen neatly.
-pattern = r'Kingdom\s(\w+)\s.*?Phylum\s(\w+)\s.*?Species\s(.*?\))'
+pattern = r'Kingdom\s(\w+)\s.*?Phylum\s(\w+)\s.*?Species\s(\w+\s\w+)'
 individuals = re.findall(pattern, text)
-individuals
 
-print("KINGDOM\t\tPHYLUM\t\tSPECIES\n")
+
+print("\nKINGDOM\t\tPHYLUM\t\tSPECIES\n")
 
 for ind in individuals:
     print('\t'.join(ind) )

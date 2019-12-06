@@ -11,7 +11,6 @@ __license__ = 'GNU public'
 
 import sys
 
-## constants
 
 ## functions
 
@@ -58,7 +57,7 @@ def find_all_primes(x=22):
 
 
 def main(argv):
-    """main entry point of program when called from terminal"""
+    """main entry point of program. Runs mathematical functions."""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))
@@ -71,7 +70,7 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    '''ensures the main funtion is called from command line'''
+    """ensures the main funtion is called from command line"""
     status = main(sys.argv)
     sys.exit(status)
     

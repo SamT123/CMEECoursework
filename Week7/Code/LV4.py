@@ -1,6 +1,6 @@
 """ Program to simulate discrete time Lotka-Volterra model with paramterter values passed from command line, with random Gaussian fluctuation in population sizes"""
 
-
+# imports
 import sys
 import numpy as np
 import matplotlib.pylab as p

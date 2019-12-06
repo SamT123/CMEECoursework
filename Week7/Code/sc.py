@@ -1,5 +1,6 @@
 """scipy notes from lectures"""
 
+# imports
 import scipy as sc
 a = sc.array(range(5)) # a one-dimensional array
 a

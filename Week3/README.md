@@ -107,7 +107,10 @@ Coursework for CMEE week 3.
 
 **TAutoCorr.R**
 * Calculate p value for autocorrelation in Key West Temperature data.
-* Plots figures for inclusion in autocorrelation.pdf write-up.
+* Plots 3 figures for inclusion in autocorrelation.pdf write-up:
+    1. histogram of scrambled data correlation coefficients
+    2. temperature time series
+    3. scatter of temperature at year x vs temperature at year x+1
 
 **try.R**
 * Demonstrate try function.
