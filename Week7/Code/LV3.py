@@ -117,7 +117,8 @@ def make_plots(pops):
     p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
     p.grid()
     p.legend(loc='best')
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = 83, y = max(pops.ravel())-5,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
+    # vairable position required for text:
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = gens*0.83, y = max(pops.ravel())*0.7,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
     p.xlabel('Time')
     p.ylabel('Population density')
     p.title('C-R population dynamics - discrete time LV Model')
@@ -127,7 +128,7 @@ def make_plots(pops):
     f2 = p.figure()
     p.plot(pops[:,0], pops[:,1]  , 'r-')
     p.grid()
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = 13, y = 8,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = max(pops[:,0])*0.8, y = max(pops[:,1])*0.8,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
     p.title('C-R population dynamics - discrete time Lotka Volterra Model')
