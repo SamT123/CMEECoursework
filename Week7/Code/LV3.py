@@ -91,7 +91,7 @@ def simulate(densities):
 
         if zero_pop:
             print("A population reached zero density")
-            break
+            return densities
 
     return densities
 
