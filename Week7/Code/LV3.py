@@ -128,7 +128,7 @@ def make_plots(pops):
     f2 = p.figure()
     p.plot(pops[:,0], pops[:,1]  , 'r-')
     p.grid()
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = max(pops[:,0])*0.8, y = max(pops[:,1])*0.8,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = max(pops[:,0])-(max(pops[:,0])-min(pops[:,0]))*0.2, y = max(pops[:,1])-(max(pops[:,1])-min(pops[:,1]))*0.2,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
     p.title('C-R population dynamics - discrete time Lotka Volterra Model')
