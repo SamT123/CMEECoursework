@@ -118,7 +118,7 @@ def make_plots(pops):
     p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
     p.grid()
     p.legend(loc='best')
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = -0.5, y = 35,  bbox=dict(facecolor='white', edgecolor='black'))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e),  x = 40, y = 12.2,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
 
     p.xlabel('Time')
     p.ylabel('Population density')
@@ -129,7 +129,7 @@ def make_plots(pops):
     f2 = p.figure()
     p.plot(pops[:,0], pops[:,1]  , 'r-')
     p.grid()
-    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = 35, y = 20,  bbox=dict(facecolor='white', edgecolor='black'))
+    p.text(s = "r = {}\na = {}\nz = {}\ne = {}".format(r,a,z,e), x = 13, y = 8,  bbox=dict(facecolor='white', edgecolor='black',alpha=0.5))
 
     p.xlabel('Resource density')
     p.ylabel('Consumer density')
