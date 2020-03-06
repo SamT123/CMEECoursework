@@ -6,6 +6,7 @@ This directory contains all of the code for the miniproject.
 
 **data_preparation.R**
 * Wrangles dataset, including some filtering, and performs some data transformations.
+
 **demo_plots.R**
 * Produces illustrative plots for the report that do not depend on the dataset.
 
