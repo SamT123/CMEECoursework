@@ -6,7 +6,7 @@ Author: Sam Turner
 This directory contains the code and data required to compile my miniproject. To perform the analysis and compile the write up, call **run_MiniProject.sh** from within the **code** directory. Please allow up to **10 minutes** for the report to compile, as the model fitting take about this long. 
 
 ## Requirements
-[![Generic badge](https://img.shields.io/badge/<Python 3.7.1>-<>-<COLOR>.svg)](https://shields.io/)
+
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 The directory for each Week contains four subdirectories: **code**, **data**, **results** (empty, populated when scripts from code are run), and **sandbox** (code and data used in development).
