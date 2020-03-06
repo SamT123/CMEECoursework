@@ -1,3 +1,5 @@
+# Model specifications
+
 # to fit in log space
 Quadratic <- function(t, a, b,c){
   return(c*t**2 + b*t + a)
