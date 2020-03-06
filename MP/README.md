@@ -44,18 +44,26 @@ The directory contains 4 subdirectories:
 
 ## Contents
 ### [Code](https://github.com/SamT123/CMEECoursework/tree/master/MP/code)
-**CompileLaTeX.sh**
-**data_preparation.R**
-**demo_plots.R**
-**fitting_and_analysis.R**
-**model_functions.R**
-**initial_vals.py**
-**write_up.bib**
-**write_up.tex**
-**run_MiniProject.sh**
+'CompileLaTeX.sh'
+
+'data_preparation.R'
+
+'demo_plots.R'
+
+'fitting_and_analysis.R'
+
+'model_functions.R'
+
+'initial_vals.py'
+
+'write_up.bib'
+
+'write_up.tex'
+
+'run_MiniProject.sh'
 
 ### [Data](https://github.com/SamT123/CMEECoursework/tree/master/MP/data)
-**LogisticGrowthData.csv**
+'LogisticGrowthData.csv'
 
 ### [Results](https://github.com/SamT123/CMEECoursework/tree/master/MP/data)
 
