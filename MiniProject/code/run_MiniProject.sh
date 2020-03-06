@@ -1,5 +1,5 @@
 
-printf "Install R packages if required."
+printf "Install R packages if required.\n"
 Rscript "install_packages.R"
 
 printf "Preparing data.\n"
@@ -19,7 +19,7 @@ printf "Performing analysis.\n"
 Rscript "analysis.R"
 
 printf "Compiling report.\n"
-bash "CompileLaTeX.sh"
+bash "CompileLaTeX.sh" > junk.txt
 
 mv write_up.pdf ../report/write_up.pdf
 
@@ -27,3 +27,4 @@ rm Rplots.pdf
 rm *.sum
 rm .write_up.pdf
 rm .Rhistory
+rm junk.txt
