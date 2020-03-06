@@ -65,7 +65,8 @@ cat("Finding bent-toe / western divergence","\n")
 div_ben_west  <- get_div(bent, western, bent_fixed, western_fixed)
 
 
-# rate in MY / site
+# rate in MY / site !!! in div / MY = rate along a single lineage
+
 rate <- div_leo_ben[3] / (30*2)
 
 div_time_leo_ben <-  div_leo_ben[3] / (2*rate)

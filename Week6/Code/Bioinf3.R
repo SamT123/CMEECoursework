@@ -160,7 +160,7 @@ calc_SFS <- function(genomes){
   # for each frequency in the range of possible frequencies (0 = all ancestral, n = all derived)
   for (f in 0:n){
     # make the f +1 'th position in sfs equal to the number of occurances of that frequency
-    sfs[f+1] <- sum(tbl[names(tbl)==f])
+    sfs[f+1] <- sum(tbl[names(tbl)==f]) / n
     
   }
   # return the SFS excluding the count for sites where all alleles are ancestral (the first entry)

@@ -12,7 +12,7 @@ for (i in 1:10000) {
 }
 freq <-c()
 for (SNP in SNPs){
-  ref <- bears[SNP][1,]
+  ref <- bears[1,SNP]
   l <- bears[SNP]
   f<-length(l[l==ref])
 
@@ -36,14 +36,12 @@ cnt = 0
 
 for (SNP in SNPs){
   cnt<-cnt+1
-  ref <- bears[SNP][1,]
+  ref <- bears[1,SNP]
   
-  for (i in 1:20){
-    i<-2*i-1
-    j=i+1
-    pair = (bears[i:j, SNP] == ref)
-    
-
+  for (a in 1:20){
+    i<-2*a-1
+    j<-2*a
+    pair = (bears[i:j,SNP ] == ref)
     if (sum(pair) == 2){
       homref[cnt] <- homref[cnt]+1
     }
@@ -73,7 +71,33 @@ g$chi <- rowSums(( (g[1:3] - g[5:7]*20)^2) /(g[5:7]*20))
 g$sig <- (g$chi>3.84)  
 
 
-g$inb <- (2 * g$ref * (1-g$ref) - g$het/20) / 2*g$het/20
+g$inb <- (2 * g$ref * (1-g$ref) - g$het/20) / (2*g$ref * (1-g$ref))
 
 
 barplot(g$inb)
+
+SNP = 30
+cnt<-cnt+1
+ref <- bears[1,SNP]
+
+for (i in 1:20){
+  i<-2*i-1
+  j<-2*i
+  pair = (bears[i:j,SNP ] == ref)
+  print(pair)
+  print("\n")
+  if (sum(pair) == 2){
+    homref[cnt] <- homref[cnt]+1
+  }
+  
+  
+  if (sum(pair) == 1){
+    het[cnt] <- het[cnt]+1
+  }
+  
+  
+  if (sum(pair) == 0){
+    homnon[cnt] <- homnon[cnt]+1
+  }
+}
+  
