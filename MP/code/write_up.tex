@@ -227,7 +227,7 @@ I ran a mixed effects model of $\mu{max}$ against temperature, and of $t_{lag}$ 
 I ran a paired t-test between the each pair of the four-parameter models to check for systematic differences in their parameter estimates. I check for normality of differences by plotting histograms of these differences.  
 
 \subsection{Computing Tools}
-\subsubsection{R 3.6.1 \cite{R}} Used for initial data preparation script, for model fitting, for analysis, and for figure preparation. I chose R for these tasks because the native datastructures are natural tools for handling this type of data. The native support of vectorised operations also makes the code cleaner than it would be in Python. I chose to write my multi-start method to fit models over a range of initial parameter values in R because of the robustness and efficiency of non-linear least squares model fitting in the minpack.lm package.
+\subsubsection{R 3.6.1 \cite{R}} Used for initial data preparation script, for model fitting, for analysis, and for figure preparation. I chose R for these tasks because the native data structures are natural tools for handling this type of data. The native support of vectorised operations also makes the code cleaner than it would be in Python. I chose to write my multi-start method to fit models over a range of initial parameter values in R because of the robustness and efficiency of non-linear least squares model fitting in the minpack.lm package.
 \begin{itemize}
 \item \textbf{minpack.lm \cite{minpack}:} Non-linear least squares model fitting using the more robust Levenberg-Marquardt algorithm.
 \item \textbf{ggplot2 \cite{gg}:} To more easily create high quality graphics.
