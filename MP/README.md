@@ -3,7 +3,7 @@
 ## About
 Author: Sam Turner
 
-This directory contains the code and data required to compile my miniproject. To perform the analysis and compile the write up, call **run_MiniProject.sh** from within the **code** directory. Please allow up to **10 minutes** for the report to compile, as the model fitting take about this long. Once the report has compiled, it will be placed as the only item in the **report** directory.
+This directory contains the code and data required to compile my miniproject. To perform the analysis and compile the write up, call **run_MiniProject.sh** from within the **code** directory. Please allow up to **10 minutes** for the report to compile, as the model fitting takes about this long. Once the report has compiled, it will be placed as the only item in the **report** directory.
 
 The directory contains 4 subdirectories:
 **code** contains the required scripts
