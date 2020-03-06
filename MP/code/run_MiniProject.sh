@@ -15,6 +15,8 @@ Rscript "fitting_and_analysis.R"
 printf "Compiling report...\n"
 bash "CompileLaTeX.sh"
 
+mv write_up.pdf ../report/write_up.pdf
+
 rm "Rplots.pdf"
 rm "*.sum"
 rm ".write_up.pdf"
