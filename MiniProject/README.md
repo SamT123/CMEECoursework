@@ -1,4 +1,4 @@
-# **Comparison of Methodologies to Fit Microbial Population Growth Models**
+# **Recommendations for Fittinf Microbial Growth Models**
 
 ## About
 Author: Sam Turner
