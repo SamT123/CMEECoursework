@@ -34,6 +34,7 @@ options(warn=-1);
 
 # Load data
 data <- read.table("../data/LogisticGrowthDataLogClean.csv", sep = "\t", header = T)
+
 # set temperature as factor
 data$Temp <- as.factor(data$Temp)
 
@@ -41,7 +42,7 @@ data$Temp <- as.factor(data$Temp)
 IDs = unique(data$ID)
 
 
-# get all unique combinatins of factors (species, temp, medium)
+# get all unique combinations of factors (species, temp, medium)
 combos <- unique(cbind(as.vector(data$Species), as.vector(data$Temp),as.vector(data$Medium),as.vector(data$Rep)))
 for (i in 1:dim(combos)[1]){
   species <- combos[i,1]
@@ -56,88 +57,13 @@ for (id in IDs){
   removed_times[id,] <- c(id, min(data[data$ID == id,]$Time))
 }
 
-# load initial value df
-inits <- read.csv("../data/inits.csv")[,-1]
-###################################
-# demonstrations of model fitting #
-###################################
-
-
-# linear vs log residuals
-g <- plot_fit_multi.compare(186, c("Logistic", "Gompertz"))
-ggsave("../results/compare_log_lin_fit.pdf", plot = g, width = 10, height = 5)
-
-
-# initial values
-pdf("../results/initial_vals_check.pdf")
-check_inits(182, non_linear_models)
-graphics.off()
-
-
-
-# Model fits in log space
-g1 <- plot_fit_multi(140, all_models)  + theme(legend.direction = "horizontal", legend.position = "bottom", legend.box = "horizontal")
-g2 <- plot_fit_multi(60, all_models)
-g3 <- plot_fit_multi(132, all_models)
-g4 <- plot_fit_multi(1, all_models)
-
-mylegend <- make.legend(g1) 
-total_plot <- grid.arrange(arrangeGrob(g1 + theme(legend.position="none"),
-                                       g2 + theme(legend.position="none"),
-                                       g3 + theme(legend.position="none"),
-                                       g4 + theme(legend.position="none"),
-                                       nrow=2),
-                           mylegend, nrow=2,heights=c(10,1))
-
-ggsave("../results/model_fits.pdf", device = "pdf",plot = total_plot, width =10, height = 9)
-
-
-# Model fits in linear space
-g1.lin <- plot_fit_multi(140, all_models.linear, T)  + theme(legend.direction = "horizontal", legend.position = "bottom",legend.box = "horizontal")
-g2.lin <- plot_fit_multi(60, all_models, T)
-g3.lin <- plot_fit_multi(132, all_models, T)
-g4.lin <- plot_fit_multi(1, all_models, T)
-
-mylegend <- make.legend(g1) 
-total_plot <- grid.arrange(arrangeGrob(g1 + theme(legend.position="none"),
-                                       g2 + theme(legend.position="none"),
-                                       g3 + theme(legend.position="none"),
-                                       g4 + theme(legend.position="none"),
-                                       nrow=2),
-                           mylegend, nrow=2,heights=c(10,1))
-
-ggsave("../results/model_fits_linear.pdf", device = "pdf",plot = total_plot, width =10, height = 9)
-
 
 ###################
-## MODEL FITTING ##
+# LOAD MODEL FITS #
 ###################
 
-# fit models, and store model fit objects in list
-
-fit_models <- function(IDs, models){
-  fit_list <- list()
-  for (id in IDs){
-    print(id)
-    fit_list[[id]] <- list()
-    fits <- fit_models_multi(id, models)
-    for (model in models){
-      if (is.list(fits[[model]])){
-        fit_list[[id]][[model]] <- fits[[model]]
-      }
-      else{
-        fit_list[[id]][[model]] <- 0
-      }
-    }
-  }
-  return(fit_list)
-}
-
-print("FITTING MODELS IN LOG SPACE...")
-fit_list <- fit_models(IDs, all_models)
-
-print("FITTING MODELS IN LINEAR SPACE...")
-fit_list.linear <- fit_models(IDs, all_models.linear)
+fit_list <- readRDS("../data/fit_list.rds")
+fit_list.linear <- readRDS("../data/fit_list_linear.rds")
 
 print("ANALYSING RESULTS...")
 # visualise model fit success
@@ -328,28 +254,51 @@ get_deltas <- function(AICs){
   return(deltas_df)
 }
 
+get_deltas.full <- function(AICs){
+  
+  deltas_df <- array(NA, dim = c(length(IDs), 6 ) )
+  deltas_df <- data.frame(deltas_df)
+  colnames(deltas_df) <-  colnames(AICs)
+  
+  for (model in colnames(deltas_df)){
+    for (id in IDs){
+      if (is.na(AICs[id,model])){deltas_df[[id,model]] <- NA}
+      else{
+        deltas_df[id,model] <- AICs[id,model] - min(AICs[id,])
+      }
+    }
+  }
+  return(deltas_df)
+}
+
+deltas.full <- get_deltas.full(AIC_df)
+deltas.linear.full <- get_deltas.full(AIC_df.linear)
+
 deltas <- get_deltas(AIC_df)
 deltas.linear <- get_deltas(AIC_df.linear)
 
 # calculate Akaike weights for each ID
+
 get_weights <- function(deltas){
-  weights_df <- array(NA, dim = c(length(IDs), 3 ) )
+  weights_df <- array(NA, dim = c(length(IDs), dim(deltas)[2] ) )
   weights_df <- data.frame(weights_df)
   colnames(weights_df) <-  colnames(deltas)
   
   for (id in IDs){
-    total <- sum(exp(deltas[id,] / 2), na.rm = T)
+    total <- sum(exp(-deltas[id,] / 2), na.rm = T)
     for (model in colnames(deltas)){
       if (is.null(deltas[id,model])){weights_df[[id,model]] <- 0}
       else{
-        weights_df[id,model] <- exp(deltas[id,model] / 2) / total
+        weights_df[id,model] <- exp(-deltas[id,model] / 2) / total
       }
-        weights_df[id,model] <- exp(deltas[id,model] / 2) / total
     }
   }
   return(weights_df)
   
 }
+
+weights.full <- get_weights(deltas.full)
+weights.linear.full <- get_weights(deltas.linear.full)
 
 weights <- get_weights(deltas)
 weights.linear <- get_weights(deltas.linear)
@@ -492,66 +441,46 @@ growth.phase.size.frequencies <- table(growth_phase_N)
 IDs.filtered.growth <- intersect(IDs.filtered, (1:287)[growth_phase_N > 1 ])
 AIC.filtered.growth <- AIC_df[IDs.filtered.growth,]
 
-##############################
-# AIC and BIC distributuions #
-##############################
+################################
+# Akaike weight distributuions #
+################################
+
+weights.full$IDs <- 1:287
+weights.full.filtered <- weights.full[IDs.filtered,]
+
+weights.linear.full$IDs <- 1:287
+weights.linear.full.filtered <- weights.linear.full[IDs.filtered,]
 
 # LOG SPACE FITS:
 
 # AIC distributions and means plot.
-AIC_long <- cbind(AIC.filtered[,-1], IDs.filtered)
-AIC_long <- melt(AIC_long, na.rm = T, id.var = "IDs.filtered")
-AIC.means <- AIC_long %>%
+weights_long <- melt(weights.full.filtered, na.rm = T, id.var = "IDs")
+weights.means <- weights_long %>%
   group_by(variable) %>%
   summarize(z = mean(value))
-g1 <- ggplot(AIC_long, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.) + labs(x= "AIC value", y= "Frequency density", title = "A") +  geom_vline(aes(xintercept = z), AIC.means, colour = "red", linetype = 2)
-
-
-
-# BIC distributions and means plot.
-BIC_long <- cbind(BIC.filtered[,-1], IDs.filtered)
-BIC_long <- melt(BIC_long, na.rm = T, id.var = "IDs.filtered")
-BIC.means <- BIC_long %>%
-  group_by(variable) %>%
-  summarize(z = mean(value))
-g2 <- ggplot(BIC_long, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.)  + labs(x= "BIC value", y= "Frequency density", title = "B") +  geom_vline(aes(xintercept = z), BIC.means, colour = "red", linetype = 2)
-
-g.total <- grid.arrange(g1,g2,nrow = 1)
-ggsave("../results/AIC_BIC_distributions.pdf", plot=g.total, width = 8, height = 5)
-
-
-# removed for project compilation
-
-# print(AIC.means)
-# print(BIC.means)
+g1 <- ggplot(weights_long, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.) + labs(x= "Akaike weight value", y= "Frequency density", title = "A") + ylim(0,5) +  geom_vline(aes(xintercept = z), weights.means, colour = "red", linetype = 2)
 
 
 # LINEAR SPACE FITS:
-# AIC distributions and means plot.
-
-AIC_long.linear <- cbind(AIC.filtered.linear, IDs.filtered)
-AIC_long.linear <- melt(AIC_long.linear, na.rm = T, id.var = "IDs.filtered")
-AIC.means.linear <- AIC_long.linear %>%
+colnames(weights.linear.full.filtered) <- colnames(weights.full.filtered)
+weights_long.linear <- melt(weights.linear.full.filtered, na.rm = T, id.var = "IDs")
+weights.means.linear <- weights_long.linear %>%
   group_by(variable) %>%
   summarize(z = mean(value))
-g1 <- ggplot(AIC_long.linear, aes(x=value)) + geom_density() + theme_bw() + facet_grid(variable ~.)  + labs(x= "AIC value", y= "Frequency density", title = "A") +  geom_vline(aes(xintercept = z), AIC.means.linear, colour = "red", linetype = 2)
+g2 <- ggplot(weights_long.linear, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.) + labs(x= "Akaike weight value", y= "Frequency density", title = "B") + ylim(0,5) +  geom_vline(aes(xintercept = z), weights.means.linear, colour = "red", linetype = 2)
 
-# BIC distributions and means plot.
-BIC_long.linear <- cbind(BIC.filtered.linear, IDs.filtered)
-BIC_long.linear <- melt(BIC_long.linear, na.rm = T, id.var = "IDs.filtered")
-BIC.means.linear <- BIC_long.linear %>%
-  group_by(variable) %>%
-  summarize(z = mean(value))
-g2 <- ggplot(BIC_long.linear, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.)  + labs(x= "BIC value", y= "Frequency density", title = "B") +  geom_vline(aes(xintercept = z), BIC.means.linear, colour = "red", linetype = 2)
 
-g.total <- grid.arrange(g1,g2,nrow = 1) 
-ggsave("../results/AIC_BIC_distributions_linear.pdf", plot=g.total, width = 8, height = 5)
+
+g.total <- grid.arrange(g1,g2,nrow = 1)
+ggsave("../results/Aw_distributions.pdf", plot=g.total, width = 8, height = 5)
 
 
 # removed for project compilation
 
-#AIC.means.linear
-#BIC.means.linear
+# print(weights.means)
+# print(weights.means.linear)
+
+
 
 ######################
 # Best fitting model #
@@ -620,6 +549,9 @@ g2 <- ggplot(data = AICdif.tlag, aes(x=tlag, y = dif)) + geom_point(size = .5) +
 g.total <- grid.arrange(g1,g2,nrow=1)
 ggsave("../results/tlag_vs_logistic.pdf", plot=g.total, width = 8, height = 4)
 
+
+#
+#
 # check if there is significant relationship
 M.delta_AIC.tlag <- lm ( (AIC.analysis[,1]-AIC.analysis[,2])~ tlag_ratios.filtered)
 
@@ -701,7 +633,7 @@ ggsave("../results/tlag_vs_logistic_linear.pdf", plot=g.total, width = 8, height
 
 M.delta_AIC.tlag.linear <- lm ( (AIC.analysis.linear[,1]-AIC.analysis.linear[,2])~ tlag_ratios.filtered)
 # removed for project compilation
-#summary(M.delta_AIC.tlag.linear)
+summary(M.delta_AIC.tlag.linear)
 
 # delta_AIC_logistic_vs_Gompertz against temperature
 AICdif <- data.frame(dif = AIC.analysis.linear[,1]-AIC.analysis.linear[,2], temp = temp.vec)
@@ -894,9 +826,9 @@ Ba.vs.Bu.r <-t.test(rmax_df[IDs.use,2], rmax_df[IDs.use,3], paired = T)
 
 # not printed for project compilation
 
-# G.vs.Ba.t$estimate 
-# G.vs.Bu.t$estimate 
-# Ba.vs.Bu.t$estimate 
+# G.vs.Ba.t$estimate
+# G.vs.Bu.t$estimate
+# Ba.vs.Bu.t$estimate
 # t.mean <- mean(unlist(weighted_tlag), na.rm = T)
 # G.vs.Ba.t$estimate / t.mean
 # G.vs.Bu.t$estimate / t.mean
@@ -904,9 +836,9 @@ Ba.vs.Bu.r <-t.test(rmax_df[IDs.use,2], rmax_df[IDs.use,3], paired = T)
 # 
 # 
 # 
-# G.vs.Ba.r$estimate 
-# G.vs.Bu.r$estimate 
-# Ba.vs.Bu.r$estimate 
+# G.vs.Ba.r$estimate
+# G.vs.Bu.r$estimate
+# Ba.vs.Bu.r$estimate
 # r.mean <- mean(unlist(weighted_rmax), na.rm = T)
 # G.vs.Ba.r$estimate / r.mean
 # G.vs.Bu.r$estimate / r.mean

@@ -50,7 +50,9 @@ The directory contains 4 subdirectories:
 
 `demo_plots.R`
 
-`fitting_and_analysis.R`
+`analysis.R`
+
+`fitting.R`
 
 `model_functions.R`
 
@@ -61,6 +63,8 @@ The directory contains 4 subdirectories:
 `write_up.tex`
 
 `run_MiniProject.sh`
+
+`clean_up.sh`
 
 ### [Data](https://github.com/SamT123/CMEECoursework/tree/master/MP/data)
 `LogisticGrowthData.csv`

@@ -10,8 +10,11 @@ This directory contains all of the code for the miniproject.
 **demo_plots.R**
 * Produces illustrative plots for the report that do not depend on the dataset.
 
-**fitting_and_analysis.R**
-* Fits models, and performs analyses on model fits.
+**fitting.R**
+* Performs model fitting and produces demonstration plots of model fits.
+
+**analysis.R**
+* Performs analyses on model fits, and produces figures for report.
 
 **model_functions.R**
 * Model specifications.
@@ -27,3 +30,6 @@ This directory contains all of the code for the miniproject.
 
 **run_MiniProject.sh**
 * Runs all scripts in order, producing the complete write up in the ../report/ directory.
+
+**clean_up.sh**
+* Restores directory to state before run_MiniProject.sh call
