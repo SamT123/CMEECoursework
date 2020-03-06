@@ -6,8 +6,6 @@ rm(list=ls())
 # PACKAGES #
 ############
 
-
-
 required_packages <- c("matrixStats",
                        "dplyr",
                        "minpack.lm",
@@ -349,8 +347,6 @@ for (id in IDs){
   }
 }
 
-
-
 # tlag df #
 
 tlag_df = data.frame("Gompertz"=rep(NA,length(IDs)),"Baranyi"=rep(NA,length(IDs)),"Buchanan"=rep(NA,length(IDs)))  
@@ -372,7 +368,6 @@ for (id in IDs){
     }
   }
 }
-
 
 
 # rmax df #
@@ -420,9 +415,6 @@ weighted_tlag.linear <- weighted_param_est(tlag_df.linear, weights.linear)
 
 # Number of points in growth phase
 growth_phase_N <- c()
-
-
-
 
 for (id in IDs.filtered){
   # time point early enough
@@ -843,3 +835,7 @@ Ba.vs.Bu.r <-t.test(rmax_df[IDs.use,2], rmax_df[IDs.use,3], paired = T)
 # G.vs.Ba.r$estimate / r.mean
 # G.vs.Bu.r$estimate / r.mean
 # Ba.vs.Bu.r$estimate / r.mean
+
+# fit in linear space vs logistic space
+
+Mod <- t.test(unlist(weighted_tlag),unlist(weighted_tlag.linear), paired=T)

@@ -161,24 +161,30 @@ fit_models_multi <- function(id, models){
 }
 
 
-
+# fit formula using nlsLM across a grid-search of specified parameter ranges, with optional bounds.
+# Return NULL if no models fit
 nls_multistart <- function(fmla, d, init.lowers, init.uppers,repeats, lowers=NULL, uppers=NULL){
-  n_param <- length(init.lowers)
-  param_ranges <- list()
   
+  # get number of parameters in model
+  n_param <- length(init.lowers)
+  
+  # list of parameter samples
+  param_ranges <- list()
   for (i in 1:n_param){
     param_ranges[[i]] <- seq(init.lowers[i], init.uppers[i], length.out = repeats[i])
   }
-  
+  # array of all possible parameter combinations
   param_combinations <- expand.grid(param_ranges)
   colnames(param_combinations) <- paste0("x", 1:n_param)
   best_M <- NULL
   best_RSS <- Inf
+  # attempt to fit with each parameter combination
   for (i in 1:dim(param_combinations)[1]){
     M <- NULL
     try(M <- nlsLM(fmla, data = d, start = param_combinations[i,],lower=lowers, upper=uppers ,  control = list(maxiter = 500)), silent = T)
     if (!is.null(M)){
       RSS <- mean(resid(M)^2)
+      # update best model if best RSS is beaten
       if (RSS < best_RSS){
         best_RSS <- RSS
         best_M <- M
@@ -374,7 +380,7 @@ plot_fit_multi.compare <- function(id, models) {
   return(total_plot)
 }
 
-
+# make legend for grid.arrange plots
 make.legend<-function(my_plot){
   tmp <- ggplot_gtable(ggplot_build(my_plot))
   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
@@ -388,12 +394,12 @@ make.legend<-function(my_plot){
 # function to produce weighted parameter estimates from akaike weight df and parameter estimate df.
 weighted_param_est <- function(params, A_weights){
   weighted_params <- list()
-  
   for (id in rownames(params)){
+    # count number of models to be averaged
     permitted <- "&"(!is.na(unlist(params[id,])), is.finite(unlist(params[id,])))
     params_id <- unlist(params[id,])[permitted]
     ws <- unlist(A_weights[id,])[permitted]
-    
+    # weighted model average
     weighted_params[[id]] <- sum(params_id * ws) / sum(ws)
   }
   return(weighted_params)

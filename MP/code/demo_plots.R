@@ -38,14 +38,12 @@ set.seed(1)
 time_range <- seq(0,30,len=20)
 pop <- Gompertz(time_range, 1, 20,5,10) + rnorm(20,0,0.5)
 
-
 g <- ggplot(data = data.frame(Time = time_range, Pop = pop), aes(x = Time, y = Pop)) + geom_point(pch = 20, cex = 2) + labs(x = "Time", y = expression(log[10]~(N)))
 maxM <- NA
 maxR <- 0
 for (i in 1:15){
   M <- lm(pop[i:(i+5)] ~ time_range[i:(i+5)])
   g <-  g + geom_segment(aes(x = x0, y = y0, xend = x1, yend = y1), data = data.frame(x0= time_range[i], y0 = summary(M)$coef[1,1] + summary(M)$coef[2,1]*time_range[i], x1=time_range[i+5], y1 = summary(M)$coef[1,1] + summary(M)$coef[2,1]*time_range[i+5]), lty = 2, color = "grey")
-    #segments(x0 = time_range[i], y0 = summary(M)$coef[1,1] + summary(M)$coef[2,1]*time_range[i]  , x1 = time_range[i+5], y1 = summary(M)$coef[1,1] + summary(M)$coef[2,1]*time_range[i+5], lw =.5, lty = 2)
   if (summary(M)$coef[2,1] > maxR){
     maxM <- M
     maxR <- summary(M)$coef[2,1]
@@ -55,7 +53,9 @@ g <-  g + geom_segment(aes(x = x0, y = y0, xend = x1, yend = y1), data = data.fr
 g <- g + geom_hline(yintercept =min(pop), size = .3) + theme_bw()                    
 ggsave("../results/rolling_reg.pdf",plot = g, width = 5, height = 5)
 
-# demosntrate parameter bias
+
+
+# demonstrate parameter bias
 time_range <- seq(0,30,len=200)
 pop <- Gompertz(time_range, 1, 20,5,10) + rnorm(200,0,0.5)
 fitdata <- data.frame(Time = time_range, PopBio = pop)
@@ -77,7 +77,6 @@ ggsave("../results/fit_difference.pdf", plot = g, width = 5, height  = 5)
 # demonstrate poorly constrained parameters
 Time <- c(1,2,4,10,17, 19, 21, 23)
 pops <- c(1,1,1,6,11,11,11,11) + rnorm(8,0,.1)
-
 
 g <- ggplot(data = data.frame(Time = Time, Pops = pops), aes(x= Time, y = Pops)) + geom_point() + labs(y=expression(log[10]~(N)))
 g <- g + geom_line(data = data.frame(Time = seq(0,23,0.1), Pops = Baranyi(seq(0,23,0.1), 1,11,1*log(10),5) ),aes(x= Time, y = Pops) )
@@ -110,7 +109,7 @@ test_plot.fours <- function(fun,Time,...){
   print(p)
 }
 
-# plot a model with specififed parameters
+# plot a model with specified parameters
 test_plot <- function(fun,Time,...){
   Nt <- fun(Time, ...)
   df <- data.frame(Time, Nt)
@@ -118,7 +117,7 @@ test_plot <- function(fun,Time,...){
   print(p)
 }
 
-# plot 4 parameter modesl with varying rmax
+# plot 4 parameter models with varying rmax
 test_plot.range.rmax <- function(fun,Time,N0, Nmax, r,tlag){
   fun <- draw_functions[[fun]]
   r1 <- fun(Time, N0, Nmax, r[1], tlag)
