@@ -7,7 +7,16 @@ This directory contains the code and data required to compile my miniproject. To
 
 ## Requirements
 
-[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.7.4](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
+
+[![R 3.6.1](https://img.shields.io/badge/R-3.6.1-green)](https://www.python.org/downloads/release/python-360/)
+
+
+
+[![Numpy 1.18.1](https://img.shields.io/badge/NumPy-1.18.1-red)](https://numpy.org)
+
+
 
 The directory for each Week contains four subdirectories: **code**, **data**, **results** (empty, populated when scripts from code are run), and **sandbox** (code and data used in development).
 
