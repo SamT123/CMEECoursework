@@ -1,5 +1,5 @@
 
-"Install R packages if required."
+printf "Install R packages if required."
 Rscript "install_packages.R"
 
 printf "Preparing data.\n"
