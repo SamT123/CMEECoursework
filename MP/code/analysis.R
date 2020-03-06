@@ -458,7 +458,7 @@ weights_long <- melt(weights.full.filtered, na.rm = T, id.var = "IDs")
 weights.means <- weights_long %>%
   group_by(variable) %>%
   summarize(z = mean(value))
-g1 <- ggplot(weights_long, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.) + labs(x= "Akaike weight value", y= "Frequency density", title = "A") + ylim(0,5) +  geom_vline(aes(xintercept = z), weights.means, colour = "red", linetype = 2)
+g1 <- ggplot(weights_long, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~., scales = "free") + labs(x= "Akaike weight value", y= "Frequency density", title = "A")  +  geom_vline(aes(xintercept = z), weights.means, colour = "red", linetype = 2)
 
 
 # LINEAR SPACE FITS:
@@ -467,7 +467,7 @@ weights_long.linear <- melt(weights.linear.full.filtered, na.rm = T, id.var = "I
 weights.means.linear <- weights_long.linear %>%
   group_by(variable) %>%
   summarize(z = mean(value))
-g2 <- ggplot(weights_long.linear, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~.) + labs(x= "Akaike weight value", y= "Frequency density", title = "B") + ylim(0,5) +  geom_vline(aes(xintercept = z), weights.means.linear, colour = "red", linetype = 2)
+g2 <- ggplot(weights_long.linear, aes(x=value )) + geom_density() + theme_bw() + facet_grid(variable ~., scales = "free") + labs(x= "Akaike weight value", y= "Frequency density", title = "B") +  geom_vline(aes(xintercept = z), weights.means.linear, colour = "red", linetype = 2)
 
 
 

@@ -49,6 +49,13 @@
     \newpage
     \end{titlepage}
     
+    \vspace*{\fill}
+\begin{center}
+{\it For Samraat}
+\end{center}
+\vspace*{\fill}
+        \newpage
+
     \begin{abstract}
     The modelling of microbial growth is vital for developing food preservation measures to decrease food waste. By fitting a range of mechanistic and phenomenological models to a large dataset of 305 growth curves, I demonstrate that temperature has a major impact on microbial population dynamics. I also examine how methodological choices can influence the results of model fitting studies, including demonstrating that the choice of model can systematically bias parameter estimates to the extent that they become incomparable for meta-analysis. Improvements in the resolution of parameter estimates when models are fit in logarithmic space relative to linear space model fitting are also reported. These findings result in recommendations for microbial modelling methodology, particularly when data are aggregated across sources.
 \end{abstract}
@@ -77,7 +84,7 @@ The mechanistic models can be split into three four-parameter models, and the th
 \paragraph{Logistic}
 The logistic model \cite{logisticVel1, logisticVel2} assumes that the microbial population immediately starts growing exponentially, with its growth rate falling towards zero as the population size approaches a carrying capacity. This is described by the logistic differential equation:
 
-\[ \frac{\mathrm d N}{\mathrm d x} =  \mu_{max}N(1-N)  \]
+\[ \frac{\mathrm d N}{\mathrm d t} =  \mu_{max}N(1-N)  \]
 
 With solutions:
 
@@ -86,7 +93,7 @@ With solutions:
 
 \subsubsection{Four-parameter models}
 
-The four-parameter models parameterise the sigmoidal growth curve with minimum and maximum population sizes, maximum growth rate, and a time lag before the population starts growing - defined as the intercept between the tangent to the curve at the point of inflection, and the line $N = N_0$ (Figure \ref{fig:parameter_variation_demo} ). As such, the rate of growth and length of the lag phase can be independently varied (Figure \ref{fig:4_param_demo} )
+The four-parameter models parameterise the sigmoidal growth curve with minimum and maximum population sizes, maximum growth rate, and a time lag before the population starts growing - defined as the intercept between the tangent to the curve at the point of inflection, and the line $N = N_0$ (Figure \ref{fig:4_param_demo}). As such, the rate of growth and length of the lag phase can be independently varied (Figure \ref{fig:parameter_variation_demo})
 
         \begin{figure}[H]
         \centering
@@ -98,7 +105,7 @@ The four-parameter models parameterise the sigmoidal growth curve with minimum a
 
         \begin{figure}[H]
         \includegraphics[width=\linewidth]{../results/tlag_rmax_demo.pdf}
-        \caption{ $\mu_{max}$ (A) and $t_{lag}$ (B) parameters can be varied independently to control the rate of microbial growth, and the duration of the lag phase.}
+        \caption{ $(A)\mu_{max}$ and (B) $t_{lag}$ parameters can be varied independently to control the rate of microbial growth, and the duration of the lag phase.}
         \label{fig:parameter_variation_demo}
         \end{figure}
 
@@ -117,14 +124,14 @@ The Buchanan model \cite{Buchanan} is the simplest implementation of this, with 
 
 \paragraph{Gompertz}
 
-The Gompertz model\cite{Gomp, zwitmodelling} similarly describes a sigmoidal growth curve, adding a gradual transition into and out of the exponential phase. The Gompertz model has long been popular for microbial population modelling, as it has empirically been found to fit well in a wide range of circumstances \cite{MicrobialGrowth}. However, it should be noted that its derivation does not have a mechanistic basis in population growth modelling \cite{EstBaranyi}, but rather in describing human mortality rates \cite{Gomp}. 
+The Gompertz model \cite{Gomp, zwitmodelling} similarly describes a sigmoidal growth curve, adding a gradual transition into and out of the exponential phase. The Gompertz model has long been popular for microbial population modelling, as it has empirically been found to fit well in a wide range of circumstances \cite{MicrobialGrowth}. However, it should be noted that its derivation does not have a mechanistic basis in population growth modelling \cite{EstBaranyi}, but rather in describing human mortality rates \cite{Gomp}. 
 
   \[log_{10}(N_t) = N_0 + (N_{max} - N_0)  e^{-e^{ \frac{\mu_{max} ~ \cdot ~ e  ~ \cdot ~ (t_{lag} - t)}{ (N_{max} - N_0) ~ \cdot ~ log(10)} + 1} }\]
   
   
 \paragraph{Baranyi}
 
-The Baranyi model is an attempt to formulate a truly mechanistic model for microbial population growth \cite{BaranyiOriginal,, zwitmodelling}, explicitly modelling the internal physiological state and external environmental conditions of the cell. This mechanistic formulation produces a much more flexible and widely applicable model, which can be applied to model population growth curves in time-varying environmental conditions. Here,  we use a version of the model in which conditions are homogenous, with the curvature parameter into the exponential phase $\nu$ set to $\mu_{max}$, and curvature parameter out of the exponential phase $m$ set at an empirical estimate of 1:
+The Baranyi model is an attempt to formulate a truly mechanistic model for microbial population growth \cite{BaranyiOriginal, zwitmodelling}, explicitly modelling the internal physiological state and external environmental conditions of the cell. This mechanistic formulation produces a much more flexible and widely applicable model, which can be applied to model population growth curves in time-varying environmental conditions. Here,  we use a version of the model in which conditions are homogenous, with the curvature parameter into the exponential phase $\nu$ set to $\mu_{max}$, and curvature parameter out of the exponential phase $m$ set at an empirical estimate of 1:
 
 \[ log_{10}(N_t) = N_{max} + log_{10}(\frac{-1 + e^{\mu_{max} \cdot  t} + e^{\mu_{max} \cdot t_{lag}  } }{ -1 + e^{\mu_{max} \cdot t}  + e^{\mu_{max} \cdot t_{lag}} \cdot 10^{N_{max}-N_0}}) \]
 
@@ -156,7 +163,7 @@ As explained below, I decided to fit the model to $log_{10}(N)$ as well as to li
 I transformed each time series such that the first data point was at $t = 0$ when fitting the four-parameter models, as model fits were clearly suboptimal without this transformation. Since $t_{lag}$ directly transforms the curve along the t-axis, $t_{lag}$ could be adjusted back to obtain model parameters which fit the untransformed time series. 
 
 \subsection{Model Fitting}
-When fitting the models, I used a least squares approach, both to log\textsubscript{10} transformed data, and to the original linear data (Figure \ref{sup:compare_least_squares}. This required exponentiating the four-parameter models to predict linear population size, and similarly taking the logarithm of the logistic model to predict logarithmic population size. As such, the parameters of the four-parameter models remained in logarithmic space, and the parameters of the Logistic model in linear space. 
+When fitting the models, I used a least squares approach, both to log\textsubscript{10} transformed data, and to the original linear data (Figure \ref{sup:compare_least_squares}). This required exponentiating the four-parameter models to predict linear population size, and similarly taking the logarithm of the logistic model to predict logarithmic population size. As such, the parameters of the four-parameter models remained in logarithmic space, and the parameters of the Logistic model in linear space. 
 
 Due to the advantages presented in Results, I decided to analyse parameter estimates from the log-fitted models (although linear fit results are presented in the Supplementary Figures), also choosing not to linearise residuals as this resulted in non-sensical fits (demonstrated in Figure \ref{sup:compare_least_squares}). These fits can be explained by the fact that, in general:
 \[log(f(x) ) \neq f(log(x))\]
@@ -171,13 +178,13 @@ The two polynomial phenomenological models are linear in their parameters, so we
 The mechanistic models are non-linear, so most be fitted using an optimisation approach. The nlsLM function in the minpack.lm \cite{minpack} package uses the Levenberg-Marquardt algorithm to optimise initial values to determine best fitting parameter values for a specified model. If initial values are far from the optimal parameters, it is likely that the optimisation will not converge, or will converge to very suboptimal parameters. It is therefore important to estimate reasonable starting values.
 
 \paragraph{Estimating parameter values}
-N\textsubscript{min} and N\textsubscript{max} were set as the minimum and maximum observed population size respectively. $\mu_{max}$ and $t_{lag}$ estimates were determined using a rolling regression (Figure \ref{sup:rolling_regression}), which computed the regression line for every possible set of 5 adjacent data points. The regression line with the greatest gradient was selected, with the gradient taken as an estimate of $\mu_{max}$, and the $t$ value of the intercept between this selected regression line with the line $N = \min(N)$ taken as the $t_{lag}$ estimate. This was repeated in both logarithmic and linear space to provide parameter values for Logistic and four-parameter models.
+N\textsubscript{min} and N\textsubscript{max} were set as the minimum and maximum observed population size respectively. $\mu_{max}$ and $t_{lag}$ estimates were determined using a rolling regression (Figure \ref{sup:rolling_regression}), which computed the regression line for every possible set of 5 adjacent data points. The regression line with the greatest gradient was selected, with the gradient taken as an estimate of $\mu_{max}$, and the $t$ value at the intercept between this selected regression line and the line $N = \min(N)$ taken as the $t_{lag}$ estimate. This was repeated in both logarithmic and linear space to provide parameter values for Logistic and four-parameter models.
 
 
 \paragraph{Multiple fit attempts}
 Despite well chosen initial values, models often fail to converge, or converge to poorly fitting parameter values. In order to increase the proportion of models which fit, and to ensure that I find parameter values nearer the global optimum, I used a grid search to explore a range of initial parameter values. For each parameter, I choose linearly spaced samples from a range surrounding the estimate of that parameter value, and fitted a model for every combination of these parameter values. For example, if I take 3 samples for each of $N_0$ and $N_{max}$, and 5 for $t_{lag}$ and $\mu_{max}$, I fit $3 \times 3 \times 5 \times 5 = 225$ models. From the model fits that converge, I select the model with the smallest RSS. If none of the models converge, I randomly sample parameter values with normally distributed noise around my parameter estimates until a model fits, or until there have been 1,000 failed attempts. 
 
-Using this method, I was able to fit all 287 data sets for the Logistic, Gompertz, and Baranyi models in both linear space and log space. In linear space, there was one failed fit for the Buchanan model, and in log space there were two failed fits for the Buchanan model.
+Using this method, I was able to fit all 287 data sets for the Logistic, Gompertz, and Baranyi models in both linear space and logarithmic space. In linear space, there was one failed fit for the Buchanan model, and in log space there were two failed fits for the Buchanan model.
 
 
 \subsection{Filtering}
@@ -190,12 +197,15 @@ Model fit was assessed using AIC \cite{AIC} and BIC \cite{BIC}. With the assumpt
 \[\text {AIC}  = 2k + n\log(RSS)\]
 \[\text {BIC} = n\log{\frac{RSS}{n}} + k\log{n}\]
 
-As these are dependent on the number of parameters of the model, they can be used for direct comparison of fit for models with differing numbers of parameters. For each data set, the model with the lowest AIC/BIC value was selected as the best fit model.
+
+Both AIC and BIC balance fit against model complexity, allowing direct comparison of fit for models with differing numbers of parameters. However, BIC has the disadvantage of making a number of unrealistic assumptions about the true model: that it exists, is in the model set, and has equal prior probability to other models.
+
+ As these are dependent on the number of parameters of the model, they can be used for direct comparison of fit for models with differing numbers of parameters. For each data set, the model with the lowest AIC/BIC value was selected as the best fit model. Additionally, the fact that AIC is based in Kullback–Leibler information theory means that standardised model likelihoods - Akaike weights - can be calculated to naturally compare model support and allow model averaging.
 
 
 \subsection{Parameter Estimation}
 
-Parameter estimation was performed using Akaike weights, which produce a single parameter estimate from a family of models \cite{ModelSelection}, weighted by the model’s $\Delta_{AIC}$ value:
+Parameter estimation was performed using Akaike weights, which produce a single parameter estimate from a family of models \cite{ModelSelection}, weighted by the model’s relative likelihood.
 With $\text{AIC}_{best}$ being the lowest observed AIC values for a dataset, $\Delta_{AIC}$ values are calculated with:
 \[ \Delta_i = \text{AIC}_i - \text{AIC}_{best} \]
 
@@ -208,16 +218,16 @@ The Akaike weighted parameter estimate for $\theta$, with weights $w_i$ and indi
 
 \subsection{Statistical Analysis}
 
-I ran linear regressions of $\Delta_{\text{Logistic - Gompertz}}$ against temperature, and $\Delta_{\text{Logistic - Gompertz}}$ against proportion of points in the lag phase. These were carried out using lm() in R \cite{R}, with their diagnostic plots examined to confirm the suitability of a linear model.
+I ran linear regressions of $\Delta_{\text{Logistic - Gompertz}}$ against temperature, and $\Delta_{\text{Logistic - Gompertz}}$ against proportion of points in the lag phase, using lm() in R \cite{R}. Their diagnostic plots were examined to confirm the suitability of a linear model.
 
 I ran a mixed effects model of $\mu{max}$ against temperature, and of $t_{lag}$ against temperature, with species and medium used as random effects in each case. Again, diagnostic plots were used to confirm that residuals were homogeneous across the fitted values.
 
-I ran a paired t-test between the each pair of the four-parameter models to check for systematic differences in their parameter estimates. I check for normality of differences by plotting histograms of these differences.  
+I ran a paired t-tests for $\mu_{lag}$ and $t_{lag}$ between the each pair of four-parameter models to check for systematic differences in parameter estimates. I check for normality of differences by plotting histograms of these differences.  
 
 \subsection{Computing Tools}
-\paragraph{R 3.6.1 \cite{R}} Used for initial data preparation script, for model fitting, for analysis, and for figure preparation. I chose R for these tasks because the native data structures are natural tools for handling this type of data. The native support of vectorised operations also makes the code cleaner than it would be in Python. I chose to write my multi-start method to fit models over a range of initial parameter values in R because of the robustness and efficiency of non-linear least squares model fitting in the minpack.lm package. \textbf{minpack.lm \cite{minpack}} was used for non-linear least squares model fitting using the more robust Levenberg-Marquardt algorithm. \textbf{ggplot2 \cite{gg}} was used to create high quality graphics. \textbf{dplyr \cite{dplyr}} was used for some data wrangling tasks. \textbf{lme4 \cite{lme4}} was used to fit linear mixed models. \textbf{toOrdinal \cite{tO}} was used for creating ordinal numbers for annotation.
+\paragraph{R 3.6.1 \cite{R}} was used for initial data preparation script, for model fitting, for analysis, and for figure preparation. I chose R for these tasks because the native data structures are naturally suited to this type of data. The native support of vectorised operations also makes the code cleaner than it would be in Python. I chose to write my multi-start method to fit models over a range of initial parameter values in R because of the robustness and efficiency of non-linear least squares model fitting in the minpack.lm package. \textbf{minpack.lm \cite{minpack}} was used for non-linear least squares model fitting using the more robust Levenberg-Marquardt algorithm. \textbf{ggplot2 \cite{gg}} was used to create high quality graphics. \textbf{dplyr \cite{dplyr}} was used for some data wrangling tasks. \textbf{lme4 \cite{lme4}} was used to fit linear mixed models. \textbf{toOrdinal \cite{tO}} was used for creating ordinal numbers for annotation.
 
-\paragraph{Python 3.7.4 \cite{python}} was used for calculation of initial values. \textbf{pandas \cite{pd}} was used for dataframes in Python. \textbf{matplotlib \cite{plt}} was used to create graphics in python. \textbf{scipy \cite{numpy}} was used to fit linear regressions in the rolling regression. \textbf{numpy \cite{numpy}} was used for efficient arrays.
+\paragraph{Python 3.7.4 \cite{python}} was used for calculation of initial values. \textbf{pandas \cite{pd}} was used for dataframes in Python. \textbf{matplotlib \cite{plt}} was used to create graphics in Python. \textbf{SciPy \cite{numpy}} was used to fit linear regressions for the rolling regression. \textbf{NumPy \cite{numpy}} was used for efficient arrays.
 
 \paragraph{bash 3.2} was used to write scripts tying other elements of the project together.
 
@@ -225,7 +235,7 @@ I ran a paired t-test between the each pair of the four-parameter models to chec
 \section{Results}
 
 \subsection{Model fitting is highly successful}
-The method of taking the best fitting model from a range of initial parameter values was very effective, with all models converging to every time series when those with no discernible growth pattern were removed, and only 3 unsuccessful fits otherwise (2293 / 2296 successful fits overall). The model fits were visually inspected, and found to describe the data well (Figure \ref{fig:model_fits} for log space fits, Figure \ref{sup:model_fits_linear} for linear space fits). For the reasons mentioned in the Model fitting section of Methods, I discuss the results obtained from fitting models in log space first, before presenting the results from linear space fits at the end of this section.
+The method of taking the best fitting model from a range of initial parameter values was very effective, with all models converging to every time series when those with no discernible growth pattern were removed, and only 3 unsuccessful fits otherwise (2293 / 2296 successful non-linear fits overall). The model fits were visually inspected, and found to describe the data well (Figure \ref{fig:model_fits} for logarithmic space fits, Figure \ref{sup:model_fits_linear} for linear space fits). For the reasons expanded on in the Discussion, I present the results obtained from fitting models in logarithmic space first, before examinings the results from linear space fits at the end of this section.
 
                 \begin{figure}[H]
                 \centering
@@ -236,7 +246,7 @@ The method of taking the best fitting model from a range of initial parameter va
 
 \subsection{Gompertz and Baranyi are best supported}
 
-The Gompertz model and Baranyi model are both well supported by the data. The Gompertz model most frequently has the lowest AIC (Figure \ref{fig:bestbars} A), and has the highest mean Akaike weight (Figure \ref{Awdist} and Table \ref{tab:meanAICBIC}. However, the Baranyi model has a lower mean ranking (Figure \ref{fig:bestbars} C), and lower mean AICs and BICs. (Table \ref{tab:meanAICBIC}. It appears that the Baranyi model is a consistent good fit to the data, achieving the lowest mean AIC despite relatively rarely being the best fitting model - as evidenced by it placing second for nearly half of the datasets (Figure \ref{fig:bestbars} B).
+The Gompertz model and Baranyi model are both well supported by the data. The Gompertz model most frequently has the lowest AIC (Figure \ref{fig:bestbars} A), and has the highest mean Akaike weight (Figure \ref{AWdist} and Table \ref{tab:meanAICBIC}). However, the Baranyi model has a lower mean ranking (Figure \ref{fig:bestbars} C), and lower mean AICs and BICs. (Table \ref{tab:meanAICBIC}). It appears that the Baranyi model is a consistent good fit to the data, achieving the lowest mean AIC despite relatively rarely being the best fitting model - as evidenced by it placing second for nearly half of the datasets (Figure \ref{fig:bestbars} B).
 
 
 
@@ -254,7 +264,7 @@ AIC & -58.5    & -66.2    & -66.3   & -61.1    & -43.7     & -53.2 \\
 BIC & -57.0    & -64.1    & -64.2   & -59.1    & -42.2     & -51.1 \\
 $A_w$ & 0.162     & 0.316     & 0.218   & 0.156     & 0.0319     & 0.116
 \end{tabular}
-\caption{Mean AIC, BIC, and A\textsubscript{w}  values for each model, fitted in logarithmic space.}
+\caption{Mean AIC, BIC, and A\textsubscript{w}  values for each model, fitted in logarithmic space. Lower AIC represents greater relative support, whilst higher $A_w$ represents greater relative likelihood.}
 \label{tab:meanAICBIC}
 \end{table}
 
@@ -263,7 +273,7 @@ $A_w$ & 0.162     & 0.316     & 0.218   & 0.156     & 0.0319     & 0.116
 
         \begin{figure}[H]
         \includegraphics[height=3.5in]{../results/Aw_distributions.pdf}
-        \caption{Gaussian Kernel Density Estimates for Akaike weights in logarithmic (A) and linear (B) space for each model.}
+        \caption{Gaussian Kernel Density Estimates for Akaike weights in logarithmic (A) and linear (B) space for each model. }
         \label{fig:AWdist}
         \end{figure}
         

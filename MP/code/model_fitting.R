@@ -8,7 +8,7 @@ rm(list=ls())
 
 
 
-required_packages <- c("minpack.lm", "reshape2")
+required_packages <- c("minpack.lm", "reshape2", "ggplot2", "gridExtra")
 
 for (pkg in required_packages){
   suppressPackageStartupMessages(library(pkg, character.only = T))
