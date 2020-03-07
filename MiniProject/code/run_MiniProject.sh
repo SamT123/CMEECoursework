@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# Author:  Sam Turner sat19@ic.ac.uk
+# Script:  run_MiniProject.sh
+# Desc:    ties together other scripts into MiniProject workflow, resulting in compiled write up being written to ../report/
+# Arguments: none
+# Date: March 2020
+
 
 printf "Install R packages if required.\n"
 Rscript "install_packages.R"

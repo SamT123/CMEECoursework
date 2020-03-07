@@ -1,4 +1,7 @@
-# Model specifications
+## Script: model_functions.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Model specifications. 
+
 
 # to fit in log space
 Quadratic <- function(t, a, b,c){

@@ -1,5 +1,9 @@
-require("minpack.lm")
+## Script: fitting_functions.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Functions required to fit models and visulaise model fits. Includes my implementation of a multistart method.
 
+
+require("minpack.lm")
 
 # function to retrieve intial values for a particular id
 get_inits <- function(id){

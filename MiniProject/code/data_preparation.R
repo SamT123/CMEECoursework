@@ -1,3 +1,11 @@
+## Script: data_preparation.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Loads and wrangles data set, rescaling time values and removing data from incorrect citation
+
+
+
+# lear environment
+
 rm(list=ls())
 
 # load raw data

@@ -1,3 +1,9 @@
+## Script: analysis.R
+## Author: Sam Turner sat19@ic.ac.uk
+
+## About: loads and analyses model fits. Produces figures for write up, and runs statistical models.
+
+
 # clear environment
 
 rm(list=ls())

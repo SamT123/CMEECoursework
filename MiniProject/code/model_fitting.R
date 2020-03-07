@@ -1,3 +1,8 @@
+## Script: MyBars.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: Fits all models and saves the model fit objects to ../data. Makes plots demonstrating model fit in log and linear space. 
+
+
 # clear environment
 
 rm(list=ls())
@@ -72,6 +77,7 @@ fit_list <- fit_models(IDs, all_models)
 print("FITTING MODELS IN LINEAR SPACE...")
 fit_list.linear <- fit_models(IDs, all_models.linear)
 
+# save model fits
 saveRDS(fit_list, file = "../data/fit_list.rds")
 saveRDS(fit_list.linear, file = "../data/fit_list_linear.rds")
 

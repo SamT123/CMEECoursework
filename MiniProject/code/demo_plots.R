@@ -1,7 +1,11 @@
+## Script: demo_plots.R
+## Author: Sam Turner sat19@ic.ac.uk
+## About: makes plots to illustrate features of models and model fits. 
+
+
 # clear environment
 
 rm(list = ls())
-options(warn=0);
 
 # load packages
 

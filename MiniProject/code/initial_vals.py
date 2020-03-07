@@ -1,5 +1,11 @@
 """ Generate initial values for Non Linear Least Squares model fitting """
 
+__appname__ = 'initial_vals.py'
+__author__ = 'Sam Turner (sat19@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = 'GNU public' 
+
+
 # IMPORTS
 
 import pandas as pd
