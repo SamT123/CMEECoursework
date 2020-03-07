@@ -23,7 +23,7 @@
         \renewcommand{\thetable}{S\arabic{table}}%
         \setcounter{figure}{0}
         \renewcommand{\thefigure}{S\arabic{figure}}%
-     }
+}
 
 
 \setcounter{secnumdepth}{0}
@@ -229,9 +229,9 @@ I ran a paired t-tests for $\mu_{lag}$ and $t_{lag}$ between the each pair of fo
 \subsection{Model fitting is highly successful}
 Taking the best fitting model from a range of initial parameter values was very effective, with all models converging to every data set when those with no discernible growth pattern were removed, and only 3 unsuccessful fits otherwise (2293 / 2296 successful non-linear fits overall). Model fits were visually inspected, and found to describe the data well (Figure \ref{fig:model_fits} for logarithmic fits, Figure \ref{sup:model_fits_linear} for linear fits). For the reasons expanded on in the Discussion, I present the results obtained from fitting models in logarithmic space first, before examining the results from linear space fits at the end of this section.
 
-                \begin{figure}[H]
-                \centering
-        \includegraphics[height=4.5in]{../results/model_fits.pdf}
+         \begin{figure}[H]
+         \centering
+       	\includegraphics[height=4.5in]{../results/model_fits.pdf}
         \caption{Demonstration of model fits in log space. Out of 287 data sets, all fits were successful apart from two fits of the Buchanan model, to datasets which were removed anyway. }
         \label{fig:model_fits}
         \end{figure}
@@ -249,16 +249,16 @@ The Gompertz model and Baranyi model are both well supported by the data. The Go
         \end{figure}
         
          \begin{table}[H]
-\centering
-\begin{tabular}{l|llllll}
+	\centering
+	\begin{tabular}{l|llllll}
        & Logistic & Gompertz & Baranyi & Buchanan & Quadratic & Cubic \\ \hline
 AIC & -58.5    & -66.2    & -66.3   & -61.1    & -43.7     & -53.2 \\
 BIC & -57.0    & -64.1    & -64.2   & -59.1    & -42.2     & -51.1 \\
 $A_w$ & 0.162     & 0.316     & 0.218   & 0.156     & 0.0319     & 0.116
-\end{tabular}
-\caption{Mean AIC, BIC, and A\textsubscript{w}  values for each model, fitted in logarithmic space. Lower AIC represents greater relative support, whilst higher $A_w$ represents greater relative likelihood.}
-\label{tab:meanAICBIC}
-\end{table}
+	\end{tabular}
+	\caption{Mean AIC, BIC, and A\textsubscript{w}  values for each model, fitted in logarithmic space. Lower AIC represents greater relative support, whilst higher $A_w$ represents greater relative likelihood.}
+	\label{tab:meanAICBIC}
+	\end{table}
 
 
 
@@ -286,7 +286,7 @@ $A_w$ & 0.162     & 0.316     & 0.218   & 0.156     & 0.0319     & 0.116
         
          I ran a linear mixed model to determine the effect of temperature on $\mu_{max}$ and $t_{lag}$ across the entire data set, including species and medium as random effects. Temperature was included as a categorical variable as it is unlikely that the response to temperature is linear across the entire temperature range. From this, estimates for $\log(\mu_{max})$ and $t_{lag}$ values were be made for each temperature, shown in Figure \ref{fig:params_temp}. It is clear that the logarithm of the maximum rate of bacterial growth increases with temperature, approximately linearly across much of the temperature range, indicating an Arrhenius type functional response. $t_{lag}$ decreases with temperature, quickly levelling off at around 10\degree C. 
 
-                \begin{figure}[H]
+         \begin{figure}[H]
         \includegraphics[width=\linewidth]{../results/tlags.pdf}
         \caption{(A) shows the relationship between $\mu_{max}$ and temperature, as estimated by a linear mixed model with temperature as a categorical variable. Vertical lines indicate the 95\% CI. $\mu_{max}$ increases steadily with temperature over the observed range. Similarly, (A) shows the relationship between $t_{lag}$ and temperature. We see that below 10\degree C, $t_{lag}$ increases rapidly as temperature decreases.   }
         \label{fig:params_temp}
@@ -298,8 +298,8 @@ $A_w$ & 0.162     & 0.316     & 0.218   & 0.156     & 0.0319     & 0.116
 
 The decrease in $t_{lag}$ with temperature implies that the Logistic model, which has better fit with smaller $t_{lag}$, should have better fit with increasing temperature. Indeed, Figure \ref{fig:logistic_temp}A shows that $\Delta_{\text{Logistic - Gompertz}}$  decreases with increasing temperature. A linear regression suggests a decrease in $\Delta_{\text{Logistic - Gompertz}}$ of 3.30 for every 10\degree C, with standard error of 0.8.
 
-                \begin{figure}[H]
-                \centering
+        \begin{figure}[H]
+        \centering
         \includegraphics[width=4in]{../results/logistic_vs_gompertz_temp.pdf}
         \caption{$\Delta_{\text{Logistic - Gompertz}}$ is seen to decrease by 3.30 for every 10\degree C, indicating an improvement in the fit of the Logistic model relative to the Gompertz model as temperature increases.}
         \label{fig:logistic_temp}
@@ -393,7 +393,7 @@ As such, this study has demonstrated that the choice of space and model in micro
         \label{sup:removed_ids}
         \end{figure}
         
-                 \begin{figure}[H]
+         \begin{figure}[H]
         \includegraphics[width=3.5in]{../results/constraint_demo.pdf}
         \centering
         \caption{If there are too few points in the growth phase, $\mu_{max}$ and $t{lag}$ will not be well constrained. Here, we can see that there are infinitely many solutions that can fit equally well to the data as there is only one point in the growth phase. }
@@ -401,8 +401,8 @@ As such, this study has demonstrated that the choice of space and model in micro
         \end{figure}  
 
 
-                \begin{figure}[H]
-                \centering
+         \begin{figure}[H]
+         \centering
         \includegraphics[height=4.5in]{../results/model_fits_linear.pdf}
         \caption{Demonstration of model fits in linear space. Out of 287 data sets, all fits were successful apart from a single fit of the Buchanan model, to a dataset which was removed anyway.}
         \label{sup:model_fits_linear}
@@ -416,14 +416,14 @@ As such, this study has demonstrated that the choice of space and model in micro
         \end{figure} 
         
         
-                \begin{figure}[H]
+         \begin{figure}[H]
         \includegraphics[width=4in]{../results/best_fit_frequency_bar_linear.pdf}
         \centering
         \caption{Plots showing rankings of models in linear space. (A) shows the number of times each model is the best fitting model for a dataset. (B) shows the number of times each model is the second best fitting model for a dataset. (C) shows the mean ranking for each model. (D) shows the number of times each model is the best fitting model for a dataset if we do not consider the Gompertz and Buchanan models.  In linear space, the logistic model performs better than it does in log space, as less emphasis is put on the lag phase.}
         \label{sup:frequency_bar_linear}
         \end{figure} 
         
-                        \begin{table}[H]
+\begin{table}[H]
 \centering
 \begin{tabular}{l|llllll}
        & Logistic & Gompertz & Baranyi & Buchanan & Quadratic & Cubic \\ \hline
@@ -440,21 +440,21 @@ $A_w$ & 0.213     & 0.174    & 0.158   & 0.178     & 0.0493     &   0.229
 
 
         
-                        \begin{figure}[H]
+        \begin{figure}[H]
         \includegraphics[width=5in]{../results/tlag_vs_logistic_linear.pdf}
         \centering
         \caption{(A) is a plot of proportion of points in the lag phase, against the ranking of the Logistic model by AIC in linear space. (B) shows the difference in AIC score between the Gompertz and Logistic model against this proportion, In both cases, the relationship between Logistic model performance and $t_{lag}$ is much weaker than in log space. The difference in AIC between Logistic and Gompertz decreases by 2.4 for every increase in lag phase proportion by 0.1 (in contrast to 6.9 for log space)}
         \label{sup:tlag_logistic_linear}
         \end{figure} 
         
-                                \begin{figure}[H]
+         \begin{figure}[H]
         \includegraphics[width=3in]{../results/logistic_vs_gompertz_temp_linear.pdf}
         \centering
         \caption{$\Delta_{\text{Logistic - Gompertz}}$ no longer has a statistically significant relationship with temperature when models are fit in linear space. This implies that the fit of the Logistic model does not become any weaker realtive to thegompertz model as temperature increases.}
         \label{sup:logistic_temp_linear}
         \end{figure} 
         
-                                        \begin{figure}[H]
+        \begin{figure}[H]
         \includegraphics[width=\linewidth]{../results/tlags_linear.pdf}
         \centering
         \caption{The broad patterns of $\mu_{max}$ and $t_{lag}$ are the same when model fitting is in linear space, but the confidence intervals are much broader.}

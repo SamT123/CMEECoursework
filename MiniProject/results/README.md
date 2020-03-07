@@ -1,2 +1,2 @@
 # **Report**
-Empty directory for output scripts to be written into.
+Empty directory for result figures to be written into.

@@ -7,7 +7,7 @@
 # Date: March 2020
 
 
-rm ../results/*
+rm ../results/*.pdf
 rm ../report/write_up.pdf
 rm ../data/LogisticGrowthDataLogClean.csv
 rm ../data/inits.csv
