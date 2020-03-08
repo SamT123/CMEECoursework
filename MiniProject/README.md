@@ -13,7 +13,7 @@ The directory contains 4 subdirectories:
 
 ## Requirements
 
-[![Python 3.7.4](https://img.shields.io/badge/Python-3.7-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.7.4](https://img.shields.io/badge/Python-3.7.4-blue.svg)](https://https://www.python.org/downloads/release/python-374/)
 
 
 [![R 3.6.1](https://img.shields.io/badge/R-3.6.1-green)](https://www.python.org/downloads/release/python-360/)
