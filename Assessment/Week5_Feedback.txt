@@ -1,0 +1,883 @@
+Starting weekly assessment for Sam, Week5
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 26.80 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: Week6, Week1, Week7, MP, Assessment, HPC, Week5, Week2, Week4, .git, Week3
+
+Found the following files in parent directory: .gitignore, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+**********************************************************************
+*.tmp
+*.DS_store
+*.pyc
+__pycache__
+*.RHistory
+.idea
+.vscode
+Rplots.pdf
+.log
+*.log**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# **2019-20 CMEE Coursework Repository**
+## About
+Author: Sam Turner
+
+Repository for my CMEE coursework. The directory for each Week contains four subdirectories: **code**, **data**, **results** (empty, populated when scripts from code are run), and **sandbox** (code and data used in development).
+
+Dependencies for each Week are specified in the README in the Week's subdirectory.
+
+## Contents
+### [Week 1](https://github.com/SamT123/CMEECoursework/tree/master/Week1)
+* UNIX
+* Shell scripting
+* LaTex
+
+### [Week 2](https://github.com/SamT123/CMEECoursework/tree/master/Week2)
+* Python I
+
+### [Week 3](https://github.com/SamT123/CMEECoursework/tree/master/Week3)
+* R
+
+### [Week 4](https://github.com/SamT123/CMEECoursework/tree/master/Week4)
+* Stats
+
+### [Week 5](https://github.com/SamT123/CMEECoursework/tree/master/Week5)
+* Stats
+* GIS
+
+### [Week 6](https://github.com/SamT123/CMEECoursework/tree/master/Week6)
+* Genomics and Bioinformatics
+
+### [Week 7](https://github.com/SamT123/CMEECoursework/tree/master/Week7)
+* Python II
+
+## Prerequisites
+### Python 3.x
+`pickle`	`stringdist`
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 7 weekly directories: Week1, Week2, Week3, Week4, Week5, Week6, Week7
+
+The Week5 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK5...
+
+Found the following directories: Code, Data
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# Week 5
+Coursework for CMEE week 5. No Results directory as no output files are generated
+## Topics:
+* Model Fitting
+* Statistics
+* GIS
+
+## Contents
+### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week5/Code)
+**anova.py**
+
+**GIS.R**	
+
+**HO13.R**
+
+**model_fitting.R**
+
+**tarsus_analysis.R**
+
+## [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week5/Data)
+
+**aedes_fecund.csv**
+
+**albatross_grow.csv**
+
+**GenomeSize.csv**
+
+**SparrowSize.txt**
+**********************************************************************
+
+Results directory missing!
+
+Creating Results directory...
+
+Found 5 code files: anova.py, GIS.R, model_fitting.R, HO13.R, tarsus_analysis.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file anova.py...
+
+File contents are:
+**********************************************************************
+"""playing around with anova"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+import random
+
+def make_data(means):
+    """ make data set"""
+    d = []
+    for mean in means:
+        d.append(list(np.random.randn(100)+mean))
+    dflat = [j for i in d for j in i]
+
+    plt.hist(dflat)
+    plt.show()
+    return d,dflat
+
+
+def random_anova(dset):
+    """shuffle and perform anova"""
+    dflat = [j for i in dset for j in i]
+
+    random.shuffle(dflat)
+    dshuf = np.reshape(np.array(dflat), (len(dset), len(dset[0])))
+
+    print(stats.f_oneway(dshuf[0], dshuf[1], dshuf[2], dshuf[3]))
+    print(stats.f_oneway(dset[0], dset[1], dset[2], dset[3]))
+
+    return 
+
+
+
+a = 10
+print('a')**********************************************************************
+
+Testing anova.py...
+
+anova.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+a
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.54524s
+
+======================================================================
+Inspecting script file GIS.R...
+
+File contents are:
+**********************************************************************
+install.packages("raster") # Core raster GIS data package
+install.packages("sf") # Core vector GIS data package
+install.packages("rgeos") # Extends vector data functionality
+install.packages("lwgeom") # Extends vector data functionality
+install.packages("viridis") # Because we like the colour scheme!
+install.packages("rgdal")
+
+nolibrary(raster)
+library(sf)
+library(viridis)
+library(units)
+library("rgdal")
+# population densities
+
+pop_dens <- data.frame(n_km2 = c(260, 67,151, 4500, 133), 
+                       country = c('England','Scotland', 'Wales', 'London', 'Northern Ireland'))
+
+print(pop_dens)
+
+# Create coordinates  for each country 
+# -  this is a list of sets of coordinates forming the edge of the polygon. 
+# - note that they have to _close_ (have the same coordinate at either end)
+scotland <- rbind(c(-5, 58.6), c(-3, 58.6), c(-4, 57.6), 
+                  c(-1.5, 57.6), c(-2, 55.8), c(-3, 55), 
+                  c(-5, 55), c(-6, 56), c(-5, 58.6))
+england <- rbind(c(-2,55.8),c(0.5, 52.8), c(1.6, 52.8), 
+                 c(0.7, 50.7), c(-5.7,50), c(-2.7, 51.5), 
+                 c(-3, 53.4),c(-3, 55), c(-2,55.8))
+wales <- rbind(c(-2.5, 51.3), c(-5.3,51.8), c(-4.5, 53.4),
+               c(-2.8, 53.4),  c(-2.5, 51.3))
+ireland <- rbind(c(-10,51.5), c(-10, 54.2), c(-7.5, 55.3),
+                 c(-5.9, 55.3), c(-5.9, 52.2), c(-10,51.5))
+
+# Convert these coordinates into feature geometries
+# - these are simple coordinate sets with no projection information
+scotland <- st_polygon(list(scotland))
+england <- st_polygon(list(england))
+wales <- st_polygon(list(wales))
+ireland <- st_polygon(list(ireland))
+
+
+# Combine geometries into a simple feature column
+uk_eire <- st_sfc(wales, england, scotland, ireland, crs=4326)
+plot(uk_eire, asp=1)
+
+
+uk_eire_capitals <- data.frame(long= c(-0.1, -3.2, -3.2, -6.0, -6.25),
+                               lat=c(51.5, 51.5, 55.8, 54.6, 53.30),
+                               name=c('London', 'Cardiff', 'Edinburgh', 'Belfast', 'Dublin'))
+
+uk_eire_capitals <- st_as_sf(uk_eire_capitals, coords=c('long','lat'), crs=4326)
+
+st_pauls <- st_point(x=c(-0.098056, 51.513611))
+london <- st_buffer(st_pauls, 0.25)
+
+england_no_london <- st_difference(england, london)
+
+plot(england_no_london)
+
+
+lengths(scotland)
+
+lengths(england_no_london)
+
+wales <- st_difference(wales, england)
+
+
+
+
+ni_area <- st_polygon(list(cbind(x=c(-8.1, -6, -5, -6, -8.1), y=c(54.4, 56, 55, 54, 54.4))))
+
+northern_ireland <- st_intersection(ireland, ni_area)
+eire <- st_difference(ireland, ni_area)
+
+# Combine the final geometries
+uk_eire <- st_sfc(wales, england_no_london, scotland, london, northern_ireland, eire, crs=4326)
+
+plot(uk_eire, asp = 1)
+
+uk_country <- st_union(uk_eire[-6])
+
+print(uk_eire)
+
+print(uk_country)
+
+par(mfrow=c(1, 2), mar=c(3,3,1,1))
+plot(uk_eire, asp=1, col=rainbow(6))
+plot(st_geometry(uk_eire_capitals), add=TRUE)
+plot(uk_country, asp=1, col='lightblue')
+
+# order important!
+uk_eire <- st_sf(name=c('Wales', 'England','Scotland', 'London', 
+                        'Northern Ireland', 'Eire'),
+                 geometry=uk_eire)
+
+plot(uk_eire, asp=1)
+
+uk_eire$capital <- c('London', 'Edinburgh','Cardiff', NA, 'Belfast','Dublin')
+
+
+uk_eire <- merge(uk_eire, pop_dens, by.x='name', by.y='country', all.x=TRUE)
+print(uk_eire)
+
+
+uk_eire_centroids <- st_centroid(uk_eire)
+st_coordinates(uk_eire_centroids)
+
+
+uk_eire$area <- st_area(uk_eire)
+uk_eire$length <- st_length(uk_eire)
+print(uk_eire)
+
+uk_eire$area <- set_units(uk_eire$area, 'km^2')
+uk_eire$length <- set_units(uk_eire$length, 'km')
+# And which won't let you make silly error like turning a length into weight
+uk_eire$area <- set_units(uk_eire$area, 'kg')
+## Error: cannot convert km^2 into kg
+
+# Or you can simply convert the `units` version to simple numbers
+uk_eire$length <- as.numeric(uk_eire$length)
+print(uk_eire)
+
+st_distance(uk_eire)
+st_distance(uk_eire_centroids)
+
+plot(uk_eire['n_km2'], asp=1, logz=T)
+
+
+
+
+
+
+
+# British National Grid (EPSG:27700)
+uk_eire_BNG <- st_transform(uk_eire, 27700)
+# The bounding box of the data shows the change in units
+st_bbox(uk_eire)
+
+st_bbox(uk_eire_BNG)
+
+# UTM50N (EPSG:32650)
+uk_eire_UTM50N <- st_transform(uk_eire, 32650)
+# Plot the results
+par(mfrow=c(1, 3), mar=c(3,3,1,1))
+plot(st_geometry(uk_eire), asp=1, axes=TRUE, main='WGS 84')
+plot(st_geometry(uk_eire_BNG), axes=TRUE, main='OSGB 1936 / BNG')
+plot(st_geometry(uk_eire_UTM50N), axes=TRUE, main='UTM 50N')
+
+# transform St Pauls to BNG and buffer using 25 km
+london_bng <- st_buffer(st_transform(st_pauls, 27700), 25000)
+# In one line, transform england to BNG and cut out London
+england_not_london_bng <- st_difference(st_transform(st_sfc(england, crs=4326), 27700), london_bng)
+# project the other features and combine everything together
+others_bng <- st_transform(st_sfc(eire, northern_ireland, scotland, wales, crs=4326), 27700)
+corrected <- c(others_bng, london_bng, england_not_london_bng)
+# Plot that and marvel at the nice circular feature around London
+par(mar=c(3,3,1,1))
+plot(corrected, main='25km radius London', axes=TRUE)
+
+
+# RASTER
+plot.new()
+par(mfrow = c(1,1))
+# Create an empty raster object covering UK and Eire
+uk_raster_WGS84 <- raster(xmn=-11,  xmx=2,  ymn=49.5, ymx=59, 
+                          res=0.5, crs="+init=EPSG:4326")
+hasValues(uk_raster_WGS84)
+## [1] FALSE
+
+# Add data to the raster: just the number 1 to number of cells
+values(uk_raster_WGS84) <- seq(length(uk_raster_WGS84))
+plot(uk_raster_WGS84)
+plot(st_geometry(uk_eire), add=TRUE, border='black', lwd=2, col='#FFFFFF44')
+
+
+# Define a simple 4 x 4 square raster
+m <- matrix(c(1, 1, 3, 3,
+              1, 2, 4, 3,
+              5, 5, 7, 8,
+              6, 6, 7, 7), ncol=4, byrow=TRUE)
+square <- raster(m)
+
+square_agg_mean <- aggregate(square, fact=2, fun=mean)
+values(square_agg_mean)
+
+square_agg_max <- aggregate(square, fact=2, fun=max)
+values(square_agg_max)
+## [1] 2 4 6 8
+
+# Modal values for categories
+square_agg_modal <- aggregate(square, fact=2, fun=modal)
+values(square_agg_modal)
+## [1] 1 3 5 7
+
+
+# Copy parents
+square_disagg <- disaggregate(square, fact=2)
+# Interpolate
+square_disagg_interp <- disaggregate(square, fact=2, method='bilinear')
+
+
+
+uk_pts_WGS84 <- st_sfc(st_point(c(-11, 49.5)), st_point(c(2, 59)), crs=4326)
+uk_pts_BNG <- st_sfc(st_point(c(-2e5, 0)), st_point(c(7e5, 1e6)), crs=27700)
+
+
+uk_grid_WGS84 <- st_make_grid(uk_pts_WGS84, cellsize=0.5)
+uk_grid_BNG <- st_make_grid(uk_pts_BNG, cellsize=1e5)
+
+
+uk_grid_BNG_as_WGS84 <- st_transform(uk_grid_BNG, 4326)
+
+plot(uk_grid_WGS84, asp=1, border='grey', xlim=c(-13,4))
+plot(st_geometry(uk_eire), add=TRUE, border='darkgreen', lwd=2)
+plot(uk_grid_BNG_as_WGS84, border='red', add=TRUE)
+
+# Create the target raster
+uk_raster_BNG <- raster(xmn=-200000, xmx=700000, ymn=0, ymx=1000000,
+                        res=100000, crs='+init=EPSG:27700')
+uk_raster_BNG_interp <- projectRaster(uk_raster_WGS84, uk_raster_BNG, method='bilinear')
+uk_raster_BNG_ngb <- projectRaster(uk_raster_WGS84, uk_raster_BNG, method='ngb')
+# compare the values in the top row
+round(values(uk_raster_BNG_interp)[1:9], 2)
+## [1]    NA 31.36 30.02 29.87 30.91 33.14 36.56 41.17    NA
+
+values(uk_raster_BNG_ngb)[1:9]
+## [1] NA 29 33 36 39 43 46 50 NA
+
+
+par(mfrow=c(1,3), mar=c(1,1,2,1))
+plot(uk_raster_BNG_interp, main='Interpolated', axes=FALSE, legend=FALSE)
+plot(uk_raster_BNG_ngb, main='Nearest Neighbour',axes=FALSE, legend=FALSE)
+
+
+
+
+
+
+
+**********************************************************************
+
+Testing GIS.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+Warning in install.packages("raster") :
+  'lib = "/usr/local/lib/R/site-library"' is not writable
+Error in install.packages("raster") : unable to install packages
+Execution halted
+
+======================================================================
+Inspecting script file model_fitting.R...
+
+File contents are:
+**********************************************************************
+rm(list = ls())
+graphics.off()
+library(repr)
+
+require("minpack.lm")
+
+#############
+# FIT POWER #
+#############
+powMod <- function(x, a, b) {
+  return(a * x^b)
+}
+
+MyData <- read.csv("../data/GenomeSize.csv")
+
+head(MyData)
+
+Data2Fit <- subset(MyData,Suborder == "Anisoptera")
+
+Data2Fit <- Data2Fit[!is.na(Data2Fit$TotalLength),] # remove NA's
+
+plot(Data2Fit$TotalLength, Data2Fit$BodyWeight)
+
+
+library("ggplot2")
+
+ggplot(Data2Fit, aes(x = TotalLength, y = BodyWeight)) + 
+  geom_point(size = (3),color="red") + theme_bw() + 
+  labs(y="Body mass (mg)", x = "Wing length (mm)")
+
+PowFit <- nlsLM(BodyWeight ~ powMod(TotalLength, a, b), data = Data2Fit, start = list(a = .1, b = .1))
+
+
+summary(PowFit)
+
+Lengths <- seq(min(Data2Fit$TotalLength),max(Data2Fit$TotalLength),len=200)
+
+coef(PowFit)["a"]
+coef(PowFit)["b"]
+
+Predic2PlotPow <- powMod(Lengths,coef(PowFit)["a"],coef(PowFit)["b"])
+
+
+plot(Data2Fit$TotalLength, Data2Fit$BodyWeight)
+lines(Lengths, Predic2PlotPow, col = 'blue', lwd = 2.5)
+
+confint(PowFit)
+
+#############
+# EXERCISES #
+#############
+
+
+
+######################
+
+####################
+# COMPARING MODELS #
+####################
+
+QuaFit <- lm(BodyWeight ~ poly(TotalLength,2), data = Data2Fit)
+Predic2PlotQua <- predict.lm(QuaFit, data.frame(TotalLength = Lengths))
+plot(Data2Fit$TotalLength, Data2Fit$BodyWeight)
+lines(Lengths, Predic2PlotPow, col = 'blue', lwd = 2.5)
+lines(Lengths, Predic2PlotQua, col = 'red', lwd = 2.5)
+
+
+
+RSS_Pow <- sum(residuals(PowFit)^2)  # Residual sum of squares
+TSS_Pow <- sum((Data2Fit$BodyWeight - mean(Data2Fit$BodyWeight))^2)  # Total sum of squares
+RSq_Pow <- 1 - (RSS_Pow/TSS_Pow)  # R-squared value
+
+RSS_Qua <- sum(residuals(QuaFit)^2)  # Residual sum of squares
+TSS_Qua <- sum((Data2Fit$BodyWeight - mean(Data2Fit$BodyWeight))^2)  # Total sum of squares
+RSq_Qua <- 1 - (RSS_Qua/TSS_Qua)  # R-squared value
+
+RSq_Pow 
+RSq_Qua
+
+
+n <- nrow(Data2Fit) #set sample size
+pPow <- length(coef(PowFit)) # get number of parameters in power law model
+pQua <- length(coef(QuaFit)) # get number of parameters in quadratic model
+
+AIC_Pow <- n + 2 + n * log((2 * pi) / n) +  n * log(RSS_Pow) + 2 * pPow
+AIC_Qua <- n + 2 + n * log((2 * pi) / n) + n * log(RSS_Qua) + 2 * pQua
+AIC_Pow - AIC_Qua
+
+AIC(PowFit) - AIC(QuaFit)
+
+
+#############
+# EXERCISES #
+#############
+
+alb <- read.csv(file="../data/albatross_grow.csv")
+alb <- subset(x=alb, !is.na(alb$wt))
+plot(alb$age, alb$wt, xlab="age (days)", ylab="weight (g)", xlim=c(0, 100))
+
+
+
+logistic1<-function(t, r, K, N0){
+  N0*K*exp(r*t)/(K+N0*(exp(r*t)-1))
+}
+
+vonbert.w<-function(t, Winf, c, K){
+  Winf*(1 - exp(-K*t) + c*exp(-K*t))^3
+}
+
+
+scale<-4000
+
+alb.lin<-lm(wt/scale~age, data=alb)
+
+alb.log<-nlsLM(wt/scale~logistic1(age, r, K, N0), start=list(K=1, r=0.1, N0=0.1), data=alb)
+
+alb.vb<-nlsLM(wt/scale~vonbert.w(age, Winf, c, K), start=list(Winf=0.75, c=0.01, K=0.01), data=alb)
+
+
+
+ages<-seq(0, 100, length=1000)
+
+pred.lin<-predict(alb.lin, newdata = list(age=ages))*scale
+
+pred.log<-predict(alb.log, newdata = list(age=ages))*scale
+
+pred.vb<-predict(alb.vb, newdata = list(age=ages))*scale
+
+
+
+plot(alb$age, alb$wt, xlab="age (days)", ylab="weight (g)", xlim=c(0,100))
+lines(ages, pred.lin, col=2, lwd=2)
+lines(ages, pred.log, col=3, lwd=2)
+lines(ages, pred.vb, col=4, lwd=2)
+
+legend("topleft", legend = c("linear", "logistic", "Von Bert"), lwd=2, lty=1, col=2:4)
+
+
+par(mfrow=c(3,1), bty="n")
+plot(alb$age, resid(alb.lin), main="LM resids", xlim=c(0,100))
+plot(alb$age, resid(alb.log), main="Logisitic resids", xlim=c(0,100))
+plot(alb$age, resid(alb.vb), main="VB resids", xlim=c(0,100))
+
+
+n<-length(alb$wt)
+list(lin=signif(sum(resid(alb.lin)^2)/(n-2*2), 3), 
+     log= signif(sum(resid(alb.log)^2)/(n-2*3), 3), 
+     vb= signif(sum(resid(alb.vb)^2)/(n-2*3), 3))
+#############
+# EXERCISES #
+#############
+
+
+
+
+
+
+#######################
+par(mfrow=c(1,1), bty="n")
+
+
+
+aedes<-read.csv(file="../data/aedes_fecund.csv")
+
+plot(aedes$T, aedes$EFD, xlab="temperature (C)", ylab="Eggs/day")
+
+quad1 <- function(T, T0, Tm, c){
+  c*(T-T0)*(T-Tm)*as.numeric(T<Tm)*as.numeric(T>T0)
+}
+
+briere <- function(T, T0, Tm, c){
+  c*T*(T-T0)*(abs(Tm-T)^(1/2))*as.numeric(T<Tm)*as.numeric(T>T0)
+}
+
+
+scale <- 20
+
+aed.lin <- lm(EFD/scale~T, data=aedes)
+
+aed.quad <- nlsLM(EFD/scale~quad1(T, T0, Tm, c), start=list(T0=10, Tm=40, c=0.01), data=aedes)
+
+aed.br <- nlsLM(EFD/scale~briere(T, T0, Tm, c), start=list(T0=10, Tm=40, c=0.1), data=aedes)
+
+
+##############
+# EXERCIESES #
+##############
+
+
+
+##########################
+
+time <- c(0, 2, 4, 6, 8, 10, 12, 16, 20, 24) # timepoints, in hours
+log_cells <- c(3.62, 3.62, 3.63, 4.14, 5.23, 6.27, 7.57, 8.38, 8.70, 8.69) # logged cell counts - more on this below
+
+set.seed(1234) # set seed to ensure you always get the same random sequence if fluctuations  
+
+data <- data.frame(time, log_cells + rnorm(length(time),sd=.1)) # add some random error
+
+names(data) <- c("t", "LogN")
+
+head(data)
+
+ggplot(data, aes(x = t, y = LogN)) + geom_point()
+
+
+baranyi_model <- function(t, r_max, N_max, N_0, t_lag){  # Baranyi model (Baranyi 1993)
+  return(N_max + log10((-1+exp(r_max*t_lag) + exp(r_max*t))/(exp(r_max*t) - 1 + exp(r_max*t_lag) * 10^(N_max-N_0))))
+}
+
+buchanan_model <- function(t, r_max, N_max, N_0, t_lag){ # Buchanan model - three phase logistic (Buchanan 1997)
+  return(N_0 + (t >= t_lag) * (t <= (t_lag + (N_max - N_0) * log(10)/r_max)) * r_max * (t - t_lag)/log(10) +
+           (t >= t_lag) * (t > (t_lag + (N_max - N_0) * log(10)/r_max)) * (N_max - N_0))
+}
+
+gompertz_model <- function(t, r_max, N_max, N_0, t_lag){  # Modified gompertz growth model (Zwietering 1990)
+  return(N_0 + (N_max - N_0) * exp(-exp(r_max * exp(1) * (t_lag - t)/((N_max - N_0) * log(10)) + 1)))
+}
+
+N_0_start <- min(data$LogN)
+N_max_start <- max(data$LogN)
+t_lag_start <- data$t[which.max(diff(diff(data$LogN)))]
+r_max_start <- max(diff(data$LogN))/mean(diff(data$t))
+
+
+fit_baranyi <- nlsLM(LogN ~ baranyi_model(t = t, r_max, N_max, N_0, t_lag), data,
+                     list(t_lag=t_lag_start, r_max=r_max_start, N_0 = N_0_start, N_max = N_max_start))
+
+fit_buchanan <- nlsLM(LogN ~ buchanan_model(t = t, r_max, N_max, N_0, t_lag), data,
+                      list(t_lag=t_lag_start, r_max=r_max_start, N_0 = N_0_start, N_max = N_max_start))
+
+fit_gompertz <- nlsLM(LogN ~ gompertz_model(t = t, r_max, N_max, N_0, t_lag), data,
+                      list(t_lag=t_lag_start, r_max=r_max_start, N_0 = N_0_start, N_max = N_max_start))
+
+
+
+summary(fit_baranyi)
+summary(fit_buchanan)
+summary(fit_gompertz)
+
+timepoints <- seq(0, 24, 0.1)
+
+baranyi_points <- baranyi_model(t = timepoints, r_max = coef(fit_baranyi)["r_max"], N_max = coef(fit_baranyi)["N_max"], N_0 = coef(fit_baranyi)["N_0"], t_lag = coef(fit_baranyi)["t_lag"])
+
+buchanan_points <- buchanan_model(t = timepoints, r_max = coef(fit_buchanan)["r_max"], N_max = coef(fit_buchanan)["N_max"], N_0 = coef(fit_buchanan)["N_0"], t_lag = coef(fit_buchanan)["t_lag"])
+
+gompertz_points <- gompertz_model(t = timepoints, r_max = coef(fit_gompertz)["r_max"], N_max = coef(fit_gompertz)["N_max"], N_0 = coef(fit_gompertz)["N_0"], t_lag = coef(fit_gompertz)["t_lag"])
+
+df1 <- data.frame(timepoints, baranyi_points)
+df1$model <- "Baranyi"
+names(df1) <- c("t", "LogN", "model")
+
+df2 <- data.frame(timepoints, buchanan_points)
+df2$model <- "Buchanan"
+names(df2) <- c("t", "LogN", "model")
+
+df3 <- data.frame(timepoints, gompertz_points)
+df3$model <- "Gompertz"
+names(df3) <- c("t", "LogN", "model")
+
+model_frame <- rbind(df1, df2, df3)
+
+ggplot(data, aes(x = t, y = LogN)) +
+  geom_point(size = 3) +
+  geom_line(data = model_frame, aes(x = t, y = LogN, col = model), size = 1)
+
+#############
+# EXERCISES #
+#############
+
+
+
+**********************************************************************
+
+Testing model_fitting.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: minpack.lm
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/GenomeSize.csv': No such file or directory
+Execution halted
+
+======================================================================
+Inspecting script file HO13.R...
+
+File contents are:
+**********************************************************************
+rm(list = ls())
+d<-read.table("../Data/SparrowSize.txt", header=TRUE)
+
+
+d1<-subset(d, d$Wing!="NA")
+summary(d1$Wing)
+hist(d1$Wing)
+
+model1<-lm(Wing~Sex.1,data=d1)
+summary(model1)
+
+anova(model1)
+
+t.test(d1$Wing~d1$Sex.1, var.equal=TRUE)
+
+require(dplyr)
+tbl_df(d1)
+
+glimpse(d1)
+d$Mass %>% cor.test(d$Tarsus, na.rm=TRUE)
+
+d1 %>%
+group_by(BirdID) %>%
+summarise (count=length(BirdID))
+
+d1 %>%
+group_by(BirdID) %>%
+summarise (count=length(BirdID)) %>%
+count(count)
+
+LMM no p values - that's ok, look at parameter estimate and compoare to stadnatd error -does 1.96 go past zero for estimate?**********************************************************************
+
+Testing HO13.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   60.0    76.0    77.0    77.4    79.0    84.0 
+
+Call:
+lm(formula = Wing ~ Sex.1, data = d1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.0961  -1.0961  -0.0961   1.3683   5.3683 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 76.09611    0.07175 1060.50   <2e-16 ***
+Sex.1male    2.53562    0.09998   25.36   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual sta
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Error: unexpected symbol in "LMM no"
+Execution halted
+
+======================================================================
+Inspecting script file tarsus_analysis.R...
+
+File contents are:
+**********************************************************************
+
+
+tarsus <- read.table("tarsus.csv", sep = ',', header = T)
+
+b = seq(min(tarsus$Tarsus) - 1, max(tarsus$Tarsus) + 1, 0.5)
+
+hist(tarsus$Tarsus, breaks = b)
+head(tarsus)**********************************************************************
+
+Testing tarsus_analysis.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Error in file(file, "rt") : cannot open the connection
+Calls: read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'tarsus.csv': No such file or directory
+Execution halted
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 4 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

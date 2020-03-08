@@ -9,13 +9,13 @@ Note that:
 
 ======================================================================
 ======================================================================
-Your Git repo size this week is about 2.38 MiB on disk 
+Your Git repo size this week is about 26.80 MiB on disk 
 
 PART 1: Checking project workflow...
 
-Found the following directories in parent directory: Week1, Assessment, .vscode, Week2, .git
+Found the following directories in parent directory: Week6, Week1, Week7, MP, Assessment, HPC, Week5, Week2, Week4, .git, Week3
 
-Found the following files in parent directory: .gitignore, README.md, .DS_Store
+Found the following files in parent directory: .gitignore, README.md
 
 Checking for key files in parent directory...
 
@@ -24,15 +24,28 @@ Found .gitignore in parent directory, great!
 Printing contents of .gitignore:
 **********************************************************************
 *.tmp
-**********************************************************************
+*.DS_store
+*.pyc
+__pycache__
+*.RHistory
+.idea
+.vscode
+Rplots.pdf
+.log
+*.log**********************************************************************
 
 Found README in parent directory, named: README.md
 
 Printing contents of README.md:
 **********************************************************************
 # **2019-20 CMEE Coursework Repository**
-## Author
-Sam Turner
+## About
+Author: Sam Turner
+
+Repository for my CMEE coursework. The directory for each Week contains four subdirectories: **code**, **data**, **results** (empty, populated when scripts from code are run), and **sandbox** (code and data used in development).
+
+Dependencies for each Week are specified in the README in the Week's subdirectory.
+
 ## Contents
 ### [Week 1](https://github.com/SamT123/CMEECoursework/tree/master/Week1)
 * UNIX
@@ -40,19 +53,33 @@ Sam Turner
 * LaTex
 
 ### [Week 2](https://github.com/SamT123/CMEECoursework/tree/master/Week2)
-* Python
+* Python I
+
+### [Week 3](https://github.com/SamT123/CMEECoursework/tree/master/Week3)
+* R
+
+### [Week 4](https://github.com/SamT123/CMEECoursework/tree/master/Week4)
+* Stats
+
+### [Week 5](https://github.com/SamT123/CMEECoursework/tree/master/Week5)
+* Stats
+* GIS
+
+### [Week 6](https://github.com/SamT123/CMEECoursework/tree/master/Week6)
+* Genomics and Bioinformatics
+
+### [Week 7](https://github.com/SamT123/CMEECoursework/tree/master/Week7)
+* Python II
 
 ## Prerequisites
 ### Python 3.x
 `pickle`	`stringdist`
- 
-
 **********************************************************************
 
 ======================================================================
 Looking for the weekly directories...
 
-Found 2 weekly directories: Week1, Week2
+Found 7 weekly directories: Week1, Week2, Week3, Week4, Week5, Week6, Week7
 
 The Week1 directory will be assessed 
 
@@ -65,7 +92,7 @@ Assessing WEEK1...
 
 Found the following directories: Code, Data, Sandbox, Results
 
-Found the following files: README.md, .DS_Store
+Found the following files: README.md
 
 Checking for readme file in weekly directory...
 
@@ -76,31 +103,70 @@ Printing contents of README.md:
 # Week 1
 Coursework for CMEE week 1.
 ## Topics:
-*  UNIX
+* UNIX
 * Shell scripting
 * LaTex
 * Git
 ## Contents
 ### [Code](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Code)
-* UnixPrac1.txt
-* boilerplate.sh
-	`I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
-* MyExampleScript.sh
-* CountLines.sh
-* tabtocsv.sh
-* variables.sh
-* ConcatenateTwoFiles.sh
-* csvtospace.sh
-* tiff2png.sh
-* CompileLaTeX.sh
-* FirstExample.tex
-* FirstBiblio.bib
+**UnixPrac1.txt**
+- text file containing solution to Unix scripting practical
+
+**boilerplate.sh**	
+- `I am a boilerplate. I like to boil plates. Give me a plate. - Oenone Scott 2019`
+- Boilerplate script demonstrating essential features of a shell script
+
+**tabtocsv.sh**
+- Converts tab separated file to comma separated file
+- Example usage:
+`bash tabtocsv.sh ../SandBox/test.txt`
+
+**variables.sh**
+- Demonstate variable assignment
+
+**MyExampleScript.sh**
+- Demonstrate environment variables
+
+**CountLines.sh**
+- Count the lines in a file passed as an argument
+- Example usage:
+`bash CountLines.sh testfile.txt`
+
+**ConcatenateTwoFiles.sh**
+- Append the content of file 2 to the end of file 1, saving as file 3
+- Example usage:
+`bash ConcatenateTwoFiles.sh ../Sandbox/file1.txt ../Sandbox/file2.txt ../Results/Concat.txt`
+
+**tiff2png.sh**
+- Convert file.tif  to file.jpeg file, saving output at ../Results/file.jpg
+- Example usage:
+`bash tif2jpg.sh ../Data/GMARBLES.tif`
+
+**csvtospace.sh**
+- Convert comma separated file to space separated file
+- Example usage:
+`bash csvtospace.sh ../Data/Temperatures/1801.csv`
+
+**CompileLaTeX.sh**
+- Compile a pdf from name.tex and referenced .bib file, which must be in same directory. Saves compiled pdf to specified directory.
+- Example usage:
+`bash CompileLaTeX.sh FirstExample ../Results/`
+
+**FirstExample.tex**
+- Example LaTeX document
+
+**FirstBiblio.bib**
+- Example LaTeX bibliography
+
 ## [Data](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Data)
-* GMARBLES.tif
-* Temperatures/
-	* csv files to convert to space delimited value files
-* fasta/
-	* fasta files for UnixPrac1.txt
+
+**GMARBLES.tif**
+
+**Temperatures/**
+- csv files to convert to space delimited value files
+
+**fasta/**
+- fasta files for UnixPrac1.txt
 
 ## [Results](https://github.com/SamT123/CMEECoursework/tree/master/Week2/Results)
 **********************************************************************
@@ -110,10 +176,10 @@ ideally, Results directory should be empty other than, perhaps, a readme.
 
 Found 12 code files: ConcatenateTwoFiles.sh, CountLines.sh, variables.sh, CompileLaTeX.sh, tiff2png.sh, csvtospace.sh, FirstExample.tex, MyExampleScript.sh, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, boilerplate.sh
 
-Found the following extra files: input, FirstExample.pdf, directory, .DS_Store
+Found the following extra files: input
 0.5 pt deducted per extra file
 
-Current Points = 98.0
+Current Points = 99.5
 
 ======================================================================
 Testing script/code files...
@@ -128,11 +194,19 @@ File contents are:
 # Script: ConcatenateTwoFiles.sh
 # Desc: Concatentate two files and save to specified path
 # Arguments: 1 -> input .txt file to be placed at top of output file
-             2 -> input .txt file to be places at bottom of output file
-             3 -> output file path (recommended ../Results/<filename>.txt
+#            2 -> input .txt file to be places at bottom of output file
+#            3 -> output file path (recommended ../Results/<filename>.txt
 # Date: Oct 2019
 
+if [ -z "$1"] || [ -z "$2"] ||  [-z "$3"] 
+then
+    echo "Error. 3 arguments required: 2 input files to concatenate, and 1 output file path"
+    exit
+fi
+
+# copy first input file to output file
 cat $1 > $3
+# copy second input file to output
 cat $2 >> $3
 
 echo "Merged File is"
@@ -144,13 +218,13 @@ Testing ConcatenateTwoFiles.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
+Error. 3 arguments required: 2 input files to concatenate, and 1 output file path
 
 **********************************************************************
 
-Encountered error (or warning):
-ConcatenateTwoFiles.sh: line 6: 2: command not found
-ConcatenateTwoFiles.sh: line 7: syntax error near unexpected token `('
-ConcatenateTwoFiles.sh: line 7: `             3 -> output file path (recommended ../Results/<filename>.txt'
+Code ran without errors
+
+Time consumed = 0.00333s
 
 ======================================================================
 Inspecting script file CountLines.sh...
@@ -164,6 +238,12 @@ File contents are:
 # Arguments: 1 -> text file
 # Date: Oct 2018
 
+if [ -z "$1" ]
+then
+    echo "Error. Require path to file for line counting."
+    exit
+fi
+
 NumLines=`wc -l < $1`
 echo "The file $1 has $NumLines lines"
 echo
@@ -174,13 +254,13 @@ Testing CountLines.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-The file  has  lines
-
+Error. Require path to file for line counting.
 
 **********************************************************************
 
-Encountered error (or warning):
-CountLines.sh: line 8: $1: ambiguous redirect
+Code ran without errors
+
+Time consumed = 0.00451s
 
 ======================================================================
 Inspecting script file variables.sh...
@@ -194,6 +274,7 @@ File contents are:
 # Arguments: none
 # Date: Oct 2018
 
+# Demonstrating variable assignment
 MyVar='some string'
 echo 'the current value of the variable is' $MyVar
 echo 'Please enter a new string'
@@ -201,13 +282,21 @@ echo 'Please enter a new string'
 read MyVar
 echo 'the current value of the variable is' $MyVar
 
-## Reading multiple values
+# Reading multiple values
 echo 'Enter 2 values separated by a space'
 read a b 
-echo 'you entered' $a 'and' $b '. Their sum is:'
-mysum=`expr $a + $b`
-echo $mysum
-**********************************************************************
+
+
+# check if two values were entered - echo error message if not.
+if [ -z "$b" ]
+then
+    echo 'Error: you must enter 2 integer values'
+else
+    echo 'you entered' $a 'and' $b '. Their sum is:'
+
+    mysum=`expr $a + $b`
+    echo $mysum
+fi**********************************************************************
 
 Testing variables.sh...
 
@@ -218,13 +307,13 @@ the current value of the variable is some string
 Please enter a new string
 the current value of the variable is
 Enter 2 values separated by a space
-you entered and . Their sum is:
-
+Error: you must enter 2 integer values
 
 **********************************************************************
 
-Encountered error (or warning):
-expr: syntax error
+Code ran without errors
+
+Time consumed = 0.00393s
 
 ======================================================================
 Inspecting script file CompileLaTeX.sh...
@@ -233,25 +322,36 @@ File contents are:
 **********************************************************************
 #!/bin/bash
 
-# Author: Sam Turner sat19@ic.ac.uk
-# Script: CompileLaTeX.sh
-# Desc: Compiles a pdf from [name].tex and referenced .bib file, which must be in same directory.
-# [name].pdf is saved in specified directory, and opened
-# Arguments: 1 -> filename for .tex file without extension
-             2 -> directory to save to
+# Author:  Sam Turner sat19@ic.ac.uk
+# Script:  CompileLaTeX.sh
+# Desc:    Compiles a pdf from [name].tex and referenced .bib file, which must
+#          be in same directory. [name].pdf is saved in specified directory, and opened
+# Arguments: 1 -> filename for .tex file without extension eg. FirstExample
+#            2 -> directory to save to
 # Date: Oct 2019
 
+if [ -z "$1" ] | [ -z "$2" ]
+then
+    echo "Error: require path to .tex file."
+    exit
+fi
 
+# Compile LaTeX document
 pdflatex $1.tex
 pdflatex $1.tex
 bibtex $1
 pdflatex $1.tex
 pdflatex $1.tex
-open $2$1.pdf
+
+
+
+# Move document to specified location
 mv $1.pdf $2$1.pdf 
 
+# Open document
+open $2$1.pdf
 
-
+# Remove extra files created by pdflatex
 rm *~
 rm *.aux
 rm *.dvi
@@ -269,38 +369,13 @@ Testing CompileLaTeX.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex)
- restricted \write18 enabled.
-entering extended mode
-(/usr/share/texlive/texmf-dist/tex/latex/tools/.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
-File ignored)
-*
-! Emergency stop.
-<*> .tex
-        
-!  ==> Fatal error occurred, no output PDF file produced!
-Transcript written on .log.
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (pre
+Error: require path to .tex file.
+
 **********************************************************************
 
-Encountered error (or warning):
-CompileLaTeX.sh: line 8: 2: command not found
-bibtex: Need exactly one file argument.
-Try `bibtex --help' for more information.
-Couldn't get a file descriptor referring to the console
-mv: cannot stat '.pdf': No such file or directory
-rm: cannot remove '*~': No such file or directory
-rm: cannot remove '*.aux': No such file or directory
-rm: cannot remove '*.dvi': No such file or directory
-rm: cannot remove '*.log': No such file or directory
-rm: cannot remove '*.nav': No such file or directory
-rm: cannot remove '*.out': No such file or directory
-rm: cannot remove '*.snm': No such file or directory
-rm: cannot remove '*.toc': No such file or directory
-rm: cannot remove '*.bbl': No such file or directory
-rm: cannot remove '*.blg': No such file or directory
+Code ran without errors
+
+Time consumed = 0.00443s
 
 ======================================================================
 Inspecting script file tiff2png.sh...
@@ -314,8 +389,11 @@ File contents are:
 # Arguments: none
 # Date: Oct 2019
 
+
+# loop over all *.tif files in ../Data
 for f in ../Data/*.tif;
     do
+        # Do conversion and save as .jpg
         echo "Converting $f";
         convert "$f" "../Results/$(basename "$f" .tif).jpg";
     done
@@ -332,7 +410,7 @@ Converting ../Data/GMARBLES.tif
 
 Code ran without errors
 
-Time consumed = 0.05499s
+Time consumed = 0.05101s
 
 ======================================================================
 Inspecting script file csvtospace.sh...
@@ -342,12 +420,20 @@ File contents are:
 #!/bin/bash
 # Author: Sam Turner sat19@ic.ac.uk
 # Script: csvtospace.sh
-# Desc: substitute commas in specified file with spaces, saved at ../Results/ <filename.csv>.txt
+# Desc: substitute commas in specified file with spaces, saved at ../Results <filename>.txt
 # Arguments: 1-> comma delimited file
 # Date: Oct 2018
 
+if [ -z "$1" ]
+then
+    echo "Error. Path to .csv file required."
+    exit
+fi
+
 echo "Creating a space delimited version of $1 ..."
-cat $1 | tr -s "," " " >> ../Results/$(basename $1).txt
+
+# cat reads file -> tr replaces ',' with ' ' -> basename and cut used to generate new file name
+cat $1 | tr -s "," " " >> ../Results/$(basename $1 | cut -f 1 -d '.').txt
 echo "Done!"
 exit
 **********************************************************************
@@ -357,14 +443,13 @@ Testing csvtospace.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-Creating a space delimited version of  ...
-Done!
+Error. Path to .csv file required.
 
 **********************************************************************
 
-Encountered error (or warning):
-basename: missing operand
-Try 'basename --help' for more information.
+Code ran without errors
+
+Time consumed = 0.00304s
 
 ======================================================================
 Inspecting script file FirstExample.tex...
@@ -415,6 +500,7 @@ File contents are:
 # Date: Oct 2018
 
 msg1='Hello'
+# $USER is an environment variable which evaluates to the user's system username
 msg2=$USER
 echo "$msg1 $msg2"
 echo "Hello $USER"
@@ -434,7 +520,7 @@ Hello mhasoba
 
 Code ran without errors
 
-Time consumed = 0.00550s
+Time consumed = 0.00345s
 
 ======================================================================
 Inspecting script file FirstBiblio.bib...
@@ -500,7 +586,15 @@ File contents are:
 # Arguments: 1 -> tab delimited file
 # Date: Oct 2019
 
+if [ -z "$1" ]
+then
+    echo "Error. Path to tab separated file required."
+    exit
+fi
+
 echo "Creating a comma delimited version of $1 ..."
+
+# cat reads file -> tr replaces '\t' with ',' -> basename used to generate new file name
 cat $1 | tr -s "\t" "," > ../Results/$(basename $1).csv
 echo "Done!"
 exit
@@ -511,14 +605,13 @@ Testing tabtocsv.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-Creating a comma delimited version of  ...
-Done!
+Error. Path to tab separated file required.
 
 **********************************************************************
 
-Encountered error (or warning):
-basename: missing operand
-Try 'basename --help' for more information.
+Code ran without errors
+
+Time consumed = 0.00334s
 
 ======================================================================
 Inspecting script file boilerplate.sh...
@@ -550,19 +643,19 @@ This is a shell script!
 
 Code ran without errors
 
-Time consumed = 0.00273s
+Time consumed = 0.00251s
 
 ======================================================================
 ======================================================================
 Finished running scripts
 
-Ran into 6 errors
+Ran into 0 errors
 
 ======================================================================
 ======================================================================
 
 FINISHED WEEKLY ASSESSMENT
 
-Current Points for the Week = 98.0
+Current Points for the Week = 99.5
 
 NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
