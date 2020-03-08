@@ -155,7 +155,7 @@ fit_models_multi <- function(id, models){
       try(ModelFit <- deep_fit(nlslm_formula, data = subset, inits = unlist(model_inits), lowers = lowers, uppers = uppers) )
       if (is.null(ModelFit)){
         
-        print(paste0("Fit unsuccessful for ", model_name))
+        print(paste0("ID ", as.character(id), ": Fit unsuccessful for ", model_name))
       }
     }
     fit_objects[[model_name]] <- ModelFit

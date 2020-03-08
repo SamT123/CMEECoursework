@@ -631,7 +631,7 @@ ggsave("../results/tlag_vs_logistic_linear.pdf", plot=g.total, width = 8, height
 
 M.delta_AIC.tlag.linear <- lm ( (AIC.analysis.linear[,1]-AIC.analysis.linear[,2])~ tlag_ratios.filtered)
 # removed for project compilation
-summary(M.delta_AIC.tlag.linear)
+#summary(M.delta_AIC.tlag.linear)
 
 # delta_AIC_logistic_vs_Gompertz against temperature
 AICdif <- data.frame(dif = AIC.analysis.linear[,1]-AIC.analysis.linear[,2], temp = temp.vec)
@@ -772,7 +772,8 @@ for (i in 1:17){
 # tlag
 
 # run model
-tlag.mixed.linear <- lmer( tlag.linear ~ Temp + (1|Species) + (1|Medium), data = params.df)
+ # medium random effext approx = 0, so singular fit:
+tlag.mixed.linear <- lmer( tlag.linear ~ Temp + (1|Species) + (1|Medium), data = params.df, control=lmerControl(check.conv.singular = .makeCC(action = "ignore",  tol = 1e-4)))
 result <- summary(tlag.mixed)$coef
 
 # calculate estimates and s.e for each temperature - requires adding on intercept

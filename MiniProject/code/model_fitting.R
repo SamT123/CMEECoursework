@@ -56,7 +56,9 @@ inits <- read.csv("../data/inits.csv")[,-1]
 fit_models <- function(IDs, models){
   fit_list <- list()
   for (id in IDs){
-    print(id)
+    if (id %% 20 == 0){
+      print(paste0(as.character(id), ' / 287 fits completed'))
+    }
     fit_list[[id]] <- list()
     fits <- fit_models_multi(id, models)
     for (model in models){

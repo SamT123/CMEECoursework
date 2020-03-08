@@ -16,7 +16,7 @@ Rscript "data_preparation.R"
 printf "Calculating initial values.\n"
 python3 "initial_vals.py"
 
-printf "Fitting models"
+printf "Fitting models: may take up to 10 minites \n"
 Rscript "model_fitting.R"
 
 printf "Making demonstration plots.\n"
@@ -31,8 +31,8 @@ bash "CompileLaTeX.sh" > junk.txt
 
 mv write_up.pdf ../report/write_up.pdf
 
-rm Rplots.pdf
-rm *.sum
-rm .write_up.pdf
-rm .Rhistory
-rm junk.txt
+rm -f Rplots.pdf
+rm -f *.sum 
+rm -f .write_up.pdf 
+rm -f .Rhistory
+rm -f junk.txt
